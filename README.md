@@ -19,10 +19,10 @@
 ## How to run
 
 ```bash
-$ git clone https://github.com/f-lab-edu/toss-order.git
-$ cd toss-order
-$ yarn
-$ yarn dev
+git clone https://github.com/f-lab-edu/toss-order.git
+cd toss-order
+yarn
+yarn dev
 ```
 
 ## Tech Stacks
