@@ -1,10 +1,5 @@
-import { Button, Header } from 'ui';
-
 const Page = () => (
-  <>
-    <Header text="Toss Order" />
-    <Button />
-  </>
+  <h1>Toss Order</h1>
 );
 
 export default Page;
