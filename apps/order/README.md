@@ -1,30 +1,47 @@
-## Getting Started
+# Toss Order
 
-First, run the development server:
+## 프로젝트 소개
+
+식당에서 고객이 본인의 스마트폰으로 메뉴판을 보고 주문할 수 있는 주문 페이지를 구현합니다.  
+본 프로젝트는 MVP(Minumum Viable Product)이며, 주문이 연동되는 POS시스템과 추가 기능은 추후 개발될 수 있습니다.  
+[프로젝트 테크 스펙](https://docs.google.com/document/d/17j5eM6neuemTif_bNb0imiR7hz_JaoG51M0V-i4v-qg/edit?usp=sharing)
+
+## 프로젝트 목표
+
+- 컴포넌트를 추상화하여 디자인 시스템 구현을 목표합니다.
+- 직관성이 높은 UI/UX 구현을 목표합니다. 기술 발전의 이기에 소외되는 사용자는 없어야 합니다.
+- 쉬운 UX를 위해 CTA(Call To Action) 사용을 지향합니다.
+- 페이지의 변경 대신 Modal을 적극 활용하여 Page Depth를 최소화합니다.
+
+## How to run
 
 ```bash
-pnpm dev
+git clone https://github.com/f-lab-edu/toss-order.git
+cd toss-order
+yarn
+yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stacks
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### CORE
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Typescript
+- React.js
+- Next.js
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Others
 
-## Learn More
+- Axios
+- ChakraUI
+- ESLint
+- Jest
+- Prettier
+- Recoil
+- Storybook
+- Testing-Library
+- Toss@utils
 
-To learn more about Next.js, take a look at the following resources:
+## 비고
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [프로젝트 스타일 가이드](https://github.com/f-lab-edu/toss-order/wiki/Style-Guide)
