@@ -26,26 +26,6 @@ yarn
 yarn dev
 ```
 
-## Tech Stacks
-
-### CORE
-
-- Typescript
-- React.js
-- Next.js
-
-### Others
-
-- Axios
-- ChakraUI
-- ESLint
-- Jest
-- Prettier
-- Recoil
-- Storybook
-- Testing-Library
-- Toss@utils
-
 ## 비고
 
 - [프로젝트 스타일 가이드](https://github.com/f-lab-edu/toss-order/wiki/Style-Guide)
