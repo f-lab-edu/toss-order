@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev --parallel",
+    "lint": "turbo lint",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@3.6.3"
+}

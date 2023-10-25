@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React Library",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2015"
+    ],
+    "module": "ESNext",
+    "target": "es6",
+    "allowJs": true,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "strict": false
+  },
+  "include": [
+    "src",
+    "next-env.d.ts",
+    "packages/eslint-config-custom/index.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
