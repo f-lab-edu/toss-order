@@ -27,6 +27,7 @@ module.exports = {
         namedComponents: 'arrow-function',
       },
     ],
+    'react/require-default-props': 0,
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };

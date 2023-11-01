@@ -13,11 +13,13 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.1.5",
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@toss/utils": "^1.4.4",
     "axios": "^1.5.1",
+    "firebase": "^10.5.2",
     "framer-motion": "^10.16.4",
     "next": "^13.4.1",
     "react": "^18.2.0",
@@ -26,6 +28,7 @@
     "ui": "*"
   },
   "devDependencies": {
+    "@chakra-ui/storybook-addon": "^5.0.1",
     "@storybook/addon-essentials": "^7.5.1",
     "@storybook/addon-interactions": "^7.5.1",
     "@storybook/addon-links": "^7.5.1",

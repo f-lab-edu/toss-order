@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@storybook/addon-interactions'),
+    '@chakra-ui/storybook-addon',
   ],
   framework: {
     name: getAbsolutePath('@storybook/nextjs'),
@@ -29,6 +30,9 @@ const config: StorybookConfig = {
     '@chakra-ui/react': {
       disable: true,
     },
+  },
+  features: {
+    emotionAlias: false,
   },
 };
 export default config;

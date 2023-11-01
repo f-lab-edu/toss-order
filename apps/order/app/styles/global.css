@@ -1,0 +1,29 @@
+:root {
+    --bg-gray: #F5F5F5;
+    --main-theme-white: #FFFFFF;
+    --main-theme-blue: #3288FF;
+    --main-theme-pink: #F53083;
+    --main-theme-orange: #FFA932;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Apple SD Gothic Neo',
+    'Malgun Gothic', '맑은 고딕', 나눔고딕, 'Nanum Gothic', 'Noto Sans KR', 'Noto Sans CJK KR',
+    arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--bg-gray);
+}
+
+.root {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

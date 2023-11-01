@@ -1,3 +1,5 @@
+import './styles/global.css';
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
     <head>
