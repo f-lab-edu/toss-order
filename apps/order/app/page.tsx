@@ -1,5 +1,10 @@
+import Providers from './providers';
+import Root from '../components/Root';
+
 const Page = () => (
-  <h1>Toss Order</h1>
+  <Providers>
+    <Root />
+  </Providers>
 );
 
 export default Page;
