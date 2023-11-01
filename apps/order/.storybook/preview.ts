@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-import '../app/styles/reset.css';
 import '../app/styles/global.css';
 import { extendTheme } from '@chakra-ui/react';
 
