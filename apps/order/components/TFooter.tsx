@@ -1,6 +1,6 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
-import { WideButton } from './index';
+import { NumberInCircle, WideButton } from './index';
 import { basketAtom } from '../app/atoms';
 import { innerText } from '../app/utils';
 
@@ -19,9 +19,10 @@ const TFooter = () => {
     >
       <WideButton
         color="blue"
-        content={innerText(
-          `${Object.values(basket).reduce((a: number, b: number) => a + b, 0)} 장바구니 보기 0원`,
-        )}
+        content={
+          <NumberInCircle number={Object.values(basket).reduce((a: number, b: number) => a + b, 0)} />
+          // `${Object.values(basket).reduce((a: number, b: number) => a + b, 0)} 장바구니 보기 0원`,
+        }
         onClick={() => {}}
       />
     </Flex>

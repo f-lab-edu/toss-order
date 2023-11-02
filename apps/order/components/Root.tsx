@@ -6,8 +6,9 @@ import { SquareButton, THeader, WideButton } from './index';
 import MenuContainer from './MenuContainer';
 import TFooter from './TFooter';
 import Menu from './Menu';
-import { BasketActions, fetchData } from '../app/utils';
+import { BasketActions } from '../app/utils';
 import { menuListAtom, menuSequenceAtom } from '../app/atoms';
+import { fetchData } from '../app/api';
 
 const Root = () => {
   const { clearBasket, getMenuCount } = BasketActions();
@@ -18,7 +19,6 @@ const Root = () => {
   fetchData('menu-list').then(res => setMenuList(res));
   fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
 
-  // console.log(tempMenu);
   return (
     <div className="root">
       <THeader />

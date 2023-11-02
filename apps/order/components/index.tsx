@@ -1,8 +1,11 @@
 'use client';
 
-import { Box, Button, Container, Flex, Stack, VStack } from '@chakra-ui/react';
+import { AspectRatio, Box, Button, Container, Flex, Stack, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { Icon } from '@chakra-ui/icons';
 import { innerText } from '../app/utils';
+import { basketAtom } from '../app/atoms';
 
 enum ThemeColors {
   blue = 'var(--main-theme-blue)',
@@ -41,19 +44,49 @@ const AbstractButton = ({ color, onClick, content, shape }: AbstracteButtonProps
   </Button>
 );
 
-const RectangleButton = ({ color, onClick, content }: ButtonProps) => (
+export const RectangleButton = ({ color, onClick, content }: ButtonProps) => (
   <AbstractButton color={color} shape="rectangle" content={content} onClick={onClick} />
 );
 
-const SquareButton = ({ color, onClick, content }: ButtonProps) => (
+export const SquareButton = ({ color, onClick, content }: ButtonProps) => (
   <AbstractButton color={color} shape="square" content={content} onClick={onClick} />
 );
 
-const WideButton = ({ color, onClick, content }: ButtonProps) => (
+export const WideButton = ({ color, onClick, content }: ButtonProps) => (
   <AbstractButton color={color} shape="wide" content={content} onClick={onClick} />
 );
 
-const THeader = () => (
+export const OpenBasketButton = (isOpen: boolean) => {
+  const basket = useRecoilValue(basketAtom);
+  return (
+    <WideButton
+      color="blue"
+      content={innerText(
+        `${Object.values(basket).reduce((a: number, b: number) => a + b, 0)} 장바구니 보기 0원`,
+      )}
+      onClick={() => {}}
+    />
+  );
+};
+
+export const NumberInCircle = ({ number }: { number: number }) => (
+  <Flex h="80%" aspectRatio={1}>
+    <Flex
+      h="100%"
+      justifyContent="center"
+      alignItems="center"
+      aspectRatio={1}
+      bgColor="white"
+      color="black"
+      rounded="full"
+      p={0}
+    >
+      {number}
+    </Flex>
+  </Flex>
+);
+
+export const THeader = () => (
   <Flex
     bgColor="white"
     top={0}
@@ -68,5 +101,3 @@ const THeader = () => (
     <RectangleButton color="blue" content={innerText('계산서 보기')} onClick={() => {}} />
   </Flex>
 );
-
-export { RectangleButton, SquareButton, WideButton, THeader };
