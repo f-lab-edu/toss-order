@@ -1,10 +1,5 @@
-import Providers from './providers';
 import Root from '../components/Root';
 
-const Page = () => (
-  <Providers>
-    <Root />
-  </Providers>
-);
+const Page = () => <Root />;
 
 export default Page;
