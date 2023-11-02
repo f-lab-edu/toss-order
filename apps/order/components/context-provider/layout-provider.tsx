@@ -4,7 +4,7 @@ import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider } from '@chakra-ui/react';
 import { RecoilRoot } from 'recoil';
 
-const Providers = ({ children }: { children: React.ReactNode }) => (
+const LayoutProvider = ({ children }: { children: React.ReactNode }) => (
   <RecoilRoot>
     <CacheProvider>
       <ChakraProvider resetCSS>{children}</ChakraProvider>
@@ -12,4 +12,4 @@ const Providers = ({ children }: { children: React.ReactNode }) => (
   </RecoilRoot>
 );
 
-export default Providers;
+export default LayoutProvider;

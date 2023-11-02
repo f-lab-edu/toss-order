@@ -1,4 +1,4 @@
-import Providers from './providers';
+import LayoutProvider from '../components/context-provider/layout-provider';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
@@ -9,7 +9,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <title>토스 오더</title>
     </head>
     <body>
-      <Providers>{children}</Providers>
+      <LayoutProvider>{children}</LayoutProvider>
     </body>
   </html>
 );
