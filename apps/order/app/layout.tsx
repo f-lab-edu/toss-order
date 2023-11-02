@@ -1,3 +1,5 @@
+import LayoutProvider from '../components/context-provider/layout-provider';
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
     <head>
@@ -6,7 +8,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <meta name="description" content="스마트폰으로 주문하는 테이블 오더 시스템입니다." />
       <title>토스 오더</title>
     </head>
-    <body>{children}</body>
+    <body>
+      <LayoutProvider>{children}</LayoutProvider>
+    </body>
   </html>
 );
 

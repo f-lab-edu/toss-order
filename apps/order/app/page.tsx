@@ -1,5 +1,3 @@
-const Page = () => (
-  <h1>Toss Order</h1>
-);
+const Page: () => void = () => {};
 
 export default Page;
