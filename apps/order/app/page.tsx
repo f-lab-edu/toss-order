@@ -1,5 +1,5 @@
 import Root from '../components/Root';
 
-const Page = () => <Root />;
+const Page: () => JSX.Element = () => <Root />;
 
 export default Page;
