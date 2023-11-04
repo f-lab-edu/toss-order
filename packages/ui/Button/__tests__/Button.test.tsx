@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { RectangleButton, SquareButton, WideButton } from './TButton';
+import { RectangleButton, SquareButton, WideButton } from '..';
 import '@testing-library/jest-dom';
 
 describe('Button Components', () => {
