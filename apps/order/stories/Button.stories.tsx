@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { RectangleButton, SquareButton, WideButton } from '../components/TButton';
+import { RectangleButton, SquareButton, WideButton } from 'ui/Button';
 
 const buttonStoriesMeta: Meta = {
   title: 'Buttons',

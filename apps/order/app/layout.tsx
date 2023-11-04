@@ -1,5 +1,5 @@
 import './styles/global.css';
-import LayoutProvider from '../components/context-provider/layout-provider';
+import LayoutProvider from 'ui/context-provider/layout-provider';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
