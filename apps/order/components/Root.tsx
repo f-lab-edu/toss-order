@@ -2,9 +2,9 @@
 
 import { Button, HStack, Stack } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { SquareButton, THeader, WideButton } from './index';
+import { SquareButton, WideButton } from 'ui/Button';
+import { Header } from 'ui/Header';
 import MenuContainer from './MenuContainer';
-import TFooter from './TFooter';
 import Menu from './Menu';
 import { BasketActions } from '../app/utils';
 import { menuListAtom, menuSequenceAtom } from '../app/atoms';
@@ -21,7 +21,7 @@ const Root = () => {
 
   return (
     <div className="root">
-      <THeader />
+      <Header />
       <Stack alignItems="center">
         <Button w="92%" onClick={clearBasket}>
           장바구니 비우기(Temp)
@@ -50,7 +50,6 @@ const Root = () => {
         {/*     /> */}
         {/*   ))} */}
       </MenuContainer>
-      <TFooter />
     </div>
   );
 };

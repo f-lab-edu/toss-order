@@ -30,12 +30,6 @@ export const ImageWithContainer = ({ src, alt }: { src: string; alt: string }): 
   </Box>
 );
 
-export const innerText = (content: string | number): JSX.Element => (
-  <Text fontWeight="extrabold" fontSize="xl">
-    {content}
-  </Text>
-);
-
 export const useGetSumOf = (area: 'basket' | 'history'): number => {
   const target = area === 'basket' ? basketAtom : orderHistoryAtom;
   const targetState = useRecoilValue(target);

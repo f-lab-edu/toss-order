@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Button } from '@chakra-ui/react';
 
@@ -17,8 +15,8 @@ const ReactangleShapeWidth = {
 
 interface ButtonProps {
   color: keyof typeof ThemeColors;
-  onClick: () => void | undefined;
-  content: string | number | React.ReactElement;
+  onClick: () => void | null;
+  content: string | number | React.ReactNode;
 }
 
 interface AbstracteButtonProps extends ButtonProps {

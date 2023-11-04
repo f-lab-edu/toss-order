@@ -1,5 +1,6 @@
 import './styles/global.css';
-import Providers from './providers';
+import LayoutProvider from 'ui/context-provider/layout-provider';
+import TempProvider from './providers';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
@@ -10,7 +11,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <title>토스 오더</title>
     </head>
     <body>
-      <Providers>{children}</Providers>
+      <LayoutProvider>
+        <TempProvider>{children}</TempProvider>
+      </LayoutProvider>
     </body>
   </html>
 );
