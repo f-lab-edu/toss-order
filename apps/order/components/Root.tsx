@@ -4,11 +4,11 @@ import { Button, HStack, Stack } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { SquareButton, WideButton } from 'ui/Button';
 import { Header } from 'ui/Header';
+import Menu from 'ui/Menu/Menu';
 import MenuContainer from './MenuContainer';
-import Menu from './Menu';
 import { BasketActions } from '../app/utils';
 import { menuListAtom, menuSequenceAtom } from '../app/atoms';
-import { fetchData } from '../app/api';
+import fetchData from '../app/api';
 
 const Root = () => {
   const { clearBasket, getMenuCount } = BasketActions();
@@ -20,38 +20,49 @@ const Root = () => {
   fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
 
   return (
-    <div className="root">
+    <Stack alignItems="center">
       <Header />
-      <Stack alignItems="center">
-        <Button w="92%" onClick={clearBasket}>
-          장바구니 비우기(Temp)
-        </Button>
+      <Stack alignItems="center" w="100%">
+        <WideButton onClick={clearBasket} content="장바구니 비우기(Temp)" color="orange" />
       </Stack>
-      <MenuContainer>
-        {menuSequence &&
-          menuSequence.map((menuName: string) => (
-            <Menu
-              key={menuName}
-              name={menuName}
-              price={menuList[menuName].price}
-              onBasketCount={getMenuCount(menuName)}
-              imageUrl={tempImageURL}
-              // imageUrl={menuList[menuName].image}
-            />
-          ))}
-        {/* {tempMenu && */}
-        {/*   Object.values(tempMenu).map(menuItem => ( */}
-        {/*     <Menu */}
-        {/*       key={menuItem.name} */}
-        {/*       name={menuItem.name} */}
-        {/*       price={menuItem.price} */}
-        {/*       onBasketCount={getMenuCount(menuItem.name)} */}
-        {/*       imageUrl={menuItem.imageUrl} */}
-        {/*     /> */}
-        {/*   ))} */}
-      </MenuContainer>
-    </div>
+      <Menu>
+        <Menu.MenuArea onMenuAreaClick={null}>
+          <Menu.TextArea>
+            <Menu.Name>메뉴이름</Menu.Name>
+            <Menu.Price>{16000}</Menu.Price>
+          </Menu.TextArea>
+          <Menu.Image src={tempImageURL} alt="메뉴 이름" />
+        </Menu.MenuArea>
+        <Menu.ButtonArea>
+          <Menu.AddToBasketButton onClick={null} content="" />
+        </Menu.ButtonArea>
+      </Menu>
+    </Stack>
   );
 };
 
 export default Root;
+
+// {/* <MenuContainer> */}
+// {/*  {menuSequence && */}
+// {/*    menuSequence.map((menuName: string) => ( */}
+// {/*      <Menu */}
+// {/*        key={menuName} */}
+// {/*        name={menuName} */}
+// {/*        price={menuList[menuName].price} */}
+// {/*        onBasketCount={getMenuCount(menuName)} */}
+// {/*        imageUrl={tempImageURL} */}
+// {/*        // imageUrl={menuList[menuName].image} */}
+// {/*      /> */}
+// {/*    ))} */}
+// {/*  /!* {tempMenu && *!/ */}
+// {/*  /!*   Object.values(tempMenu).map(menuItem => ( *!/ */}
+// {/*  /!*     <Menu *!/ */}
+// {/*  /!*       key={menuItem.name} *!/ */}
+// {/*  /!*       name={menuItem.name} *!/ */}
+// {/*  /!*       price={menuItem.price} *!/ */}
+// {/*  /!*       onBasketCount={getMenuCount(menuItem.name)} *!/ */}
+// {/*  /!*       imageUrl={menuItem.imageUrl} *!/ */}
+// {/*  /!*     /> *!/ */}
+// {/*  /!*   ))} *!/ */}
+// {/* </MenuContainer> */}

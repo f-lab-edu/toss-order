@@ -1,6 +1,4 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { AspectRatio, Box, Flex, Text, Image } from '@chakra-ui/react';
-import NextImage from 'next/image';
 import { basketAtom, orderHistoryAtom } from './atoms';
 
 export const BasketActions = () => {
@@ -23,12 +21,6 @@ export const BasketActions = () => {
 
   return { addBasket, clearBasket, getMenuCount };
 };
-
-export const ImageWithContainer = ({ src, alt }: { src: string; alt: string }): JSX.Element => (
-  <Box w="100%" h="100%" position="relative">
-    <NextImage src={src} alt={alt} fill />
-  </Box>
-);
 
 export const useGetSumOf = (area: 'basket' | 'history'): number => {
   const target = area === 'basket' ? basketAtom : orderHistoryAtom;
