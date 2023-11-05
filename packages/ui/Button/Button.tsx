@@ -19,11 +19,11 @@ interface ButtonProps {
   content: string | number | React.ReactNode;
 }
 
-interface AbstracteButtonProps extends ButtonProps {
+interface AbstractButtonProps extends ButtonProps {
   shape: 'square' | 'wide' | 'rectangle';
 }
 
-const AbstractButton = ({ color, content, onClick, shape }: AbstracteButtonProps) => (
+const AbstractButton = ({ color, content, onClick, shape }: AbstractButtonProps) => (
   <Button
     bgColor={ThemeColors[color]}
     boxShadow="xl"
