@@ -1,5 +1,5 @@
 :root {
-    --bg-gray: #F5F5F5;
+    --bg-lightgray: #F5F5F5;
     --main-theme-white: #FFFFFF;
     --main-theme-blue: #3288FF;
     --main-theme-pink: #F53083;
@@ -10,5 +10,5 @@ html,
 body {
     min-width: 100vw;
     min-height: 100vh;
-    background-color: var(--bg-gray);
+    background-color: var(--bg-lightgray);
 }
