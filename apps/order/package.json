@@ -22,6 +22,7 @@
     "@emotion/styled": "^11.11.0",
     "@toss/utils": "^1.4.4",
     "axios": "^1.5.1",
+    "firebase": "^10.5.2",
     "framer-motion": "^10.16.4",
     "next": "^13.4.1",
     "react": "^18.2.0",
