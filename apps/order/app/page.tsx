@@ -3,7 +3,7 @@
 import { RecoilRoot } from 'recoil';
 import Root from '../components/Root';
 
-const Page: () => void = () => (
+const Page: () => React.ReactNode = () => (
   <RecoilRoot>
     <Root />
   </RecoilRoot>

@@ -1,0 +1,23 @@
+김치찌개
+:
+{image: '', price: 10000, detail: '김치찌개입니다.'
+}
+된장찌개: {
+price: 10000, image: '', detail: '된장찌개입니다.'}
+맥주:
+{price: 5000, image: '', detail: '시원한 맥주입니다.'
+}
+목살 (150g): {
+price: 16000, detail: '담백한 목살입니다.', image: ''
+}
+물냉면
+: {detail: '시원한 물냉면입니다.', image: '', price: 9000}
+비빔냉면: {price: 9000, image: ''
+}
+소주: {
+price: 5000, image: '', detail: '시원한 소주입니다.'}
+오겹살 (150g): {price: 18000, image: '', detail: '기름지고 탱글탱글한 제주산 오겹살입니다. 정말 맛있습니다.'}
+육회비빔밥: {detail: '육회 비빔밥입니다.', image: '', price: 12000}
+제육볶음: {
+detail: '밥도둑 제육볶음입니다.', image: '', price: 11000
+}

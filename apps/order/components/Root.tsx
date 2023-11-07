@@ -5,6 +5,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { SquareButton, WideButton } from 'ui/Button';
 import { Header } from 'ui/Header';
 import Menu from 'ui/Menu/Menu';
+import { useEffect } from 'react';
 import MenuContainer from './MenuContainer';
 import { BasketActions } from '../app/utils';
 import { menuListAtom, menuSequenceAtom } from '../app/atoms';
@@ -18,6 +19,9 @@ const Root = () => {
     'https://dcenter-img.cafe24.com/d/product/2023/02/17/beadaf32c7b0fc619bf298df051ae441.jpg';
   fetchData('menu-list').then(res => setMenuList(res));
   fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
+  useEffect(() => {
+    console.log(menuList);
+  }, [menuList]);
 
   return (
     <Stack alignItems="center">
