@@ -1,15 +1,15 @@
 'use client';
 
-// import { CacheProvider } from '@chakra-ui/next-js';
-import { ChakraProvider } from '@chakra-ui/react';
 import { RecoilRoot } from 'recoil';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-const Providers = ({ children }: { children: React.ReactNode }) => (
-  <RecoilRoot>
-    {/* <CacheProvider> */}
-    <ChakraProvider resetCSS>{children}</ChakraProvider>
-    {/* </CacheProvider> */}
-  </RecoilRoot>
-);
+const Providers = ({ children }: { children: React.ReactNode }) => {
+  const queryClient = new QueryClient();
+  return (
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </RecoilRoot>
+  );
+};
 
 export default Providers;

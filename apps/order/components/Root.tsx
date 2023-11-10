@@ -5,24 +5,50 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { SquareButton, WideButton } from 'ui/Button';
 import { Header } from 'ui/Header';
 import Menu from 'ui/Menu/Menu';
-import { useEffect } from 'react';
+import { cache, useEffect } from 'react';
+import { getApp } from 'firebase/app';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import MenuContainer from './MenuContainer';
 import { BasketActions } from '../app/utils';
 import { menuListAtom, menuSequenceAtom } from '../app/atoms';
-import fetchData from '../app/api';
+import { menuData } from '../app/firestore';
+// import firestore, { fetchData } from '../app/firestore';
+// import fetchData from '../app/api/api';
 
-const Root = () => {
+//
+// const fetchData = cache(async (fstemp, name: string) => {
+//   const result = await getDocsFromCollection(fstemp, name);
+//   console.log(result);
+//   return result;
+// });
+const Root = async () => {
   const { clearBasket, getMenuCount } = BasketActions();
   const [menuList, setMenuList] = useRecoilState(menuListAtom);
-  const [menuSequence, setMenuSequence] = useRecoilState(menuSequenceAtom);
+  console.log(menuData);
+  // const test = await menuData;
+  // useEffect(() => {
+  //   console.log(test);
+  // }, [test]);
+  // const [menuSequence, setMenuSequence] = useRecoilState(menuSequenceAtom);
+  // fetchData('menu-list').then(res => setMenuList(res));
+  // fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
   const tempImageURL =
     'https://dcenter-img.cafe24.com/d/product/2023/02/17/beadaf32c7b0fc619bf298df051ae441.jpg';
-  fetchData('menu-list').then(res => setMenuList(res));
-  fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
-  useEffect(() => {
-    console.log(menuList);
-  }, [menuList]);
 
+  // useEffect(() => {
+  //   console.log(menuList);
+  // }, [menuList]);
+  // console.log(menuList);
+  // console.log(menuSequence);
+
+  // const app = getApp();
+  // const fstemp = getFirestore(app);
+
+  // console.log('........................');
+  // console.log(fstemp);
+  // console.log('^^^^^^^^^^^^^^^^^^^^^^^^^');
+  // fetchData(fstemp, 'menu-list').then(res => setMenuList(res));
+  // fetchData(fstemp, 'menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
   return (
     <Stack alignItems="center">
       <Header />

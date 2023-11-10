@@ -11,9 +11,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <title>토스 오더</title>
     </head>
     <body>
-      <LayoutProvider>
-        <TempProvider>{children}</TempProvider>
-      </LayoutProvider>
+      <LayoutProvider>{children}</LayoutProvider>
     </body>
   </html>
 );
