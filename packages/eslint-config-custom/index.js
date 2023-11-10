@@ -27,6 +27,7 @@ module.exports = {
         namedComponents: 'arrow-function',
       },
     ],
+    'import/prefer-default-export': 'off',
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };
