@@ -32,8 +32,8 @@ const Root = async () => {
   // const [menuSequence, setMenuSequence] = useRecoilState(menuSequenceAtom);
   // fetchData('menu-list').then(res => setMenuList(res));
   // fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
-  const tempImageURL =
-    'https://dcenter-img.cafe24.com/d/product/2023/02/17/beadaf32c7b0fc619bf298df051ae441.jpg';
+  // const tempImageURL =
+  //   'https://dcenter-img.cafe24.com/d/product/2023/02/17/beadaf32c7b0fc619bf298df051ae441.jpg';
 
   // useEffect(() => {
   //   console.log(menuList);
