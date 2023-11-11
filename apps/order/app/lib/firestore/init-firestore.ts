@@ -22,7 +22,7 @@ export const InitFirestore: () => Firestore | undefined = () => {
     }
     firestore = getFirestore(app);
   } catch (err) {
-    console.error(`error while initializing firestore app. ${err}`);
+    if (process.env.NODE_ENV === 'development') console.error(err);
   }
   return firestore;
 };
