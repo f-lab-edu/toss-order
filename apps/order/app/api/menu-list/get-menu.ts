@@ -1,5 +1,5 @@
-import { collection, getDocs } from 'firebase/firestore';
 import { InitFirestore } from '../../lib/firestore';
+import { fetchData } from '../../lib/utils';
 
 interface MenuList {
   [key: string]: { detail: string; image: string; price: number };
@@ -9,28 +9,14 @@ interface MenuSequence {
   sorted: { list: { [key: string]: string } };
 }
 
-const firestore = InitFirestore();
-const getDocsFromCollection = async (collectionName: string) => {
-  const querySnapshot = await getDocs(collection(firestore, collectionName));
-  return querySnapshot.docs.reduce(
-    (acc, doc) => ({
-      ...acc,
-      [doc.id]: doc.data(),
-    }),
-    {},
-  );
-};
-const fetchData: (name: string) => Promise<T> = async (name: string) => {
-  const result = await getDocsFromCollection(name);
-  return result;
-};
+InitFirestore();
+
 const unsortedMenu: Promise<MenuList> = fetchData('menu-list');
-const menuSequence: Promise<string[]> = fetchData('menu-sequence').then((res: MenuSequence) => {
-  const orderedArray: string[] = Object.keys(res.sorted.list)
-    .sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
-    .map(key => res.sorted.list[key]);
-  return orderedArray;
-});
+const menuSequence: Promise<string[]> = fetchData('menu-sequence').then((res: MenuSequence) =>
+  Object.keys(res.sorted.list)
+    .sort((sequenceKeyA, sequenceKeyB) => parseInt(sequenceKeyA, 10) - parseInt(sequenceKeyB, 10))
+    .map(key => res.sorted.list[key]),
+);
 
 const menuData: Promise<MenuList | void> = Promise.all([unsortedMenu, menuSequence])
   .then(([data, sequence]) => {
@@ -40,6 +26,8 @@ const menuData: Promise<MenuList | void> = Promise.all([unsortedMenu, menuSequen
     });
     return menu;
   })
-  .catch(err => console.error(err));
+  .catch(err => {
+    if (process.env.NODE_ENV === 'development') console.error(err);
+  });
 
 export default menuData;
