@@ -7,7 +7,7 @@ const fetchData = async () => {
 
 const FetchTest = () => {
   const { data } = useQuery('menu-list', fetchData);
-
+  console.log(data);
   return (
     <h1>
       Data from API: {JSON.stringify(data)}

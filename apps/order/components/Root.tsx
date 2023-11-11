@@ -11,7 +11,8 @@ import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import MenuContainer from './MenuContainer';
 import { BasketActions } from '../app/utils';
 import { menuListAtom, menuSequenceAtom } from '../app/atoms';
-import { menuData } from '../app/firestore';
+import menuData from '../app/api/menu-list/get-menu';
+// import { menuData } from '../app/firestore';
 // import firestore, { fetchData } from '../app/firestore';
 // import fetchData from '../app/api/api';
 
@@ -25,10 +26,10 @@ const Root = async () => {
   const { clearBasket, getMenuCount } = BasketActions();
   const [menuList, setMenuList] = useRecoilState(menuListAtom);
   console.log(menuData);
-  // const test = await menuData;
-  // useEffect(() => {
-  //   console.log(test);
-  // }, [test]);
+  const test = await menuData;
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
   // const [menuSequence, setMenuSequence] = useRecoilState(menuSequenceAtom);
   // fetchData('menu-list').then(res => setMenuList(res));
   // fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
