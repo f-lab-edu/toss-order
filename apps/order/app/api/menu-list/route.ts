@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
-import menuData from './get-menu';
+import getMenuItems from './get-menu-items';
+
+interface MenuList {
+  [key: string]: { detail: string; image: string; price: number };
+}
 
 export async function GET() {
-  try {
-    const menu = await menuData;
-    return NextResponse.json(menu, { status: 200 });
-  } catch (err) {
-    if (process.env.NODE_ENV === 'development') console.error(err);
+  const menuItems: MenuList | void = await getMenuItems;
+  if (!menuItems || Object.keys(menuItems).length <= 0) return NextResponse.json(null, { status: 404 });
 
-    return NextResponse.json(err, { status: 500 });
-  }
+  return NextResponse.json(menuItems, { status: 200 });
 }
