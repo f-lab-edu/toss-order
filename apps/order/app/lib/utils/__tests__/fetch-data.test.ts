@@ -1,10 +1,17 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, terminate } from 'firebase/firestore';
 import { fetchData } from '../fetch-data';
-import firestoreKey from '../../../../secret/firestore-key.json';
 
-initializeApp(firestoreKey);
-
+const firebaseConfig = {
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId,
+};
+initializeApp(firebaseConfig);
 afterAll(() => terminate(getFirestore()));
 
 describe('fetchData', () => {
