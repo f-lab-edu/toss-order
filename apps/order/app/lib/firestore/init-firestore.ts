@@ -1,4 +1,4 @@
-import { initializeApp, getApp, getApps, FirebaseApp } from 'firebase/app';
+import { initializeApp, getApp, FirebaseApp } from 'firebase/app';
 import { Firestore, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -11,18 +11,12 @@ const firebaseConfig = {
   measurementId: process.env.measurementId,
 };
 
-export const InitFirestore: () => Firestore | undefined = () => {
-  let app: FirebaseApp;
-  let firestore: Firestore;
+const getFirebaseApp: () => FirebaseApp = () => {
   try {
-    if (getApps().length <= 0) {
-      app = initializeApp(firebaseConfig);
-    } else {
-      app = getApp();
-    }
-    firestore = getFirestore(app);
+    return getApp();
   } catch (err) {
-    if (process.env.NODE_ENV === 'development') console.error(err);
+    return initializeApp(firebaseConfig);
   }
-  return firestore;
 };
+
+export const InitFirestore: () => Firestore = () => getFirestore(getFirebaseApp());
