@@ -1,4 +1,5 @@
 import './styles/global.css';
+import './styles/order-page.css';
 import LayoutProvider from 'ui/context-provider/layout-provider';
 import TempProvider from './providers';
 
