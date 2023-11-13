@@ -1,6 +1,11 @@
 import { collection, Firestore, getDocs, getFirestore } from 'firebase/firestore';
+import { InitFirestore } from '../firestore';
 
-const fetchData: (collectionName: string) => Promise<T> = async collectionName => {
+type FetchDataT = (collectionName: string) => Promise<T>;
+
+InitFirestore();
+
+const fetchData: FetchDataT = async collectionName => {
   try {
     const app: Firestore = getFirestore();
     const querySnapshot = await getDocs(collection(app, collectionName));
