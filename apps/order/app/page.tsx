@@ -2,7 +2,7 @@
 
 import { RecoilRoot } from 'recoil';
 
-const Page: () => void = () => (
+const Page: () => JSX.Element = () => (
   <RecoilRoot>
     <div />
   </RecoilRoot>
