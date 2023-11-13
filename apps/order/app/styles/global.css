@@ -5,10 +5,3 @@
     --main-theme-pink: #F53083;
     --main-theme-orange: #FFA932;
 }
-
-html,
-body {
-    min-width: 100vw;
-    min-height: 100vh;
-    background-color: var(--bg-lightgray);
-}
