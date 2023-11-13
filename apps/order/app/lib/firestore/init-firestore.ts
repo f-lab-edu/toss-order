@@ -14,7 +14,7 @@ const firebaseConfig = {
 const getFirebaseApp: () => FirebaseApp = () => {
   try {
     return getApp();
-  } catch (err) {
+  } catch {
     return initializeApp(firebaseConfig);
   }
 };
