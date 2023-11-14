@@ -1,11 +1,5 @@
 'use client';
 
-import { RecoilRoot } from 'recoil';
-
-const Page: () => JSX.Element = () => (
-  <RecoilRoot>
-    <div />
-  </RecoilRoot>
-);
+const Page: () => JSX.Element = () => <div />;
 
 export default Page;
