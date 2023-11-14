@@ -1,23 +1,22 @@
 import { atom } from 'recoil';
+import axios from 'axios';
 
-const menuListAtom = atom({
-  key: 'menuList',
-  default: {},
+export const menuItemsAtom = atom({
+  key: 'menuItems',
+  default: axios.get('/api/menu-list').then(res => res),
 });
 
-const menuSequenceAtom = atom({
+export const menuSequenceAtom = atom({
   key: 'menuSequence',
   default: [],
 });
 
-const basketAtom = atom({
+export const basketAtom = atom({
   key: 'basket',
   default: {},
 });
 
-const orderHistoryAtom = atom({
+export const orderHistoryAtom = atom({
   key: 'orderHistory',
   default: [],
 });
-
-export { menuListAtom, basketAtom, orderHistoryAtom, menuSequenceAtom };

@@ -1,7 +1,5 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { cache } from 'react';
-import { getApps } from 'firebase/app';
-import firestore from '../firestore';
 
 const getDocsFromCollection = async (collectionName: string) => {
   // const app = firestore;

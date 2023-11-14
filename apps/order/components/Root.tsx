@@ -1,35 +1,22 @@
 'use client';
 
 import { Button, HStack, Stack } from '@chakra-ui/react';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { SquareButton, WideButton } from 'ui/Button';
+import { useRecoilValue } from 'recoil';
+// import MenuContainer from './MenuContainer';
 import { Header } from 'ui/Header';
-import Menu from 'ui/Menu/Menu';
-import { cache, useEffect } from 'react';
-import { getApp } from 'firebase/app';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import MenuContainer from './MenuContainer';
+import { CTAButton, WideButton } from 'ui/Button';
+import { Menu } from 'ui/Menu';
+import { useQuery } from 'react-query';
+import { menuItemsAtom } from '../app/atoms';
 import { BasketActions } from '../app/utils';
-import { menuListAtom, menuSequenceAtom } from '../app/atoms';
-import menuData from '../app/api/menu-list/get-menu';
-// import { menuData } from '../app/firestore';
-// import firestore, { fetchData } from '../app/firestore';
-// import fetchData from '../app/api/api';
+import { get } from '../app/api';
 
-//
-// const fetchData = cache(async (fstemp, name: string) => {
-//   const result = await getDocsFromCollection(fstemp, name);
-//   console.log(result);
-//   return result;
-// });
-const Root = async () => {
-  const { clearBasket, getMenuCount } = BasketActions();
-  const [menuList, setMenuList] = useRecoilState(menuListAtom);
-  console.log(menuData);
-  const test = await menuData;
-  useEffect(() => {
-    console.log(test);
-  }, [test]);
+const Root = () => {
+  // const { clearBasket, getMenuCount } = BasketActions();
+  // const menuItems = useRecoilValue(menuItemsAtom);
+  const { data: menuItems, isLoading } = useQuery(['menu-list', '/api/menu-list'], get);
+  console.log(menuItems);
+
   // const [menuSequence, setMenuSequence] = useRecoilState(menuSequenceAtom);
   // fetchData('menu-list').then(res => setMenuList(res));
   // fetchData('menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
@@ -52,22 +39,31 @@ const Root = async () => {
   // fetchData(fstemp, 'menu-sequence').then(res => setMenuSequence(res['order-by'].asc));
   return (
     <Stack alignItems="center">
+      {/* <h1> */}
+      {/*  Data from API: {JSON.stringify(menuItems)} */}
+      {/*  /!* {data?.map((item: any) => <div key={item.id}>{item.name}</div>)} *!/ */}
+      {/* </h1> */}
       <Header />
-      <Stack alignItems="center" w="100%">
-        <WideButton onClick={clearBasket} content="장바구니 비우기(Temp)" color="orange" />
+      <Stack alignItems="center" w="94%" h="50px">
+        <CTAButton onClick={() => {}} content="장바구니 비우기(Temp)" className="bg-orange" />
+        {/* <CTAButton onClick={clearBasket} content="장바구니 비우기(Temp)" color="orange" /> */}
       </Stack>
-      <Menu>
-        <Menu.MenuArea onMenuAreaClick={null}>
-          <Menu.TextArea>
-            <Menu.Name>메뉴이름</Menu.Name>
-            <Menu.Price>{16000}</Menu.Price>
-          </Menu.TextArea>
-          <Menu.Image src={tempImageURL} alt="메뉴 이름" />
-        </Menu.MenuArea>
-        <Menu.ButtonArea>
-          <Menu.AddToBasketButton onClick={null} content="" />
-        </Menu.ButtonArea>
-      </Menu>
+      {isLoading
+        ? null
+        : Object.keys(menuItems).map(name => (
+            <Menu key={name}>
+              <Menu.MenuArea onMenuAreaClick={() => {}}>
+                <Menu.TextArea>
+                  <Menu.Name>{name}</Menu.Name>
+                  <Menu.Price>{menuItems[name].price}</Menu.Price>
+                </Menu.TextArea>
+                <Menu.Image src={menuItems[name].image} alt="메뉴 이름" />
+              </Menu.MenuArea>
+              <Menu.ButtonArea>
+                <Menu.AddToBasketButton onClick={() => {}} content="담기" />
+              </Menu.ButtonArea>
+            </Menu>
+          ))}
     </Stack>
   );
 };

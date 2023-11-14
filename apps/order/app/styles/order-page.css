@@ -4,3 +4,16 @@ body {
     min-height: 100vh;
     background-color: var(--bg-lightgray);
 }
+
+.bg-white {
+    background-color: var(--main-theme-white);
+}
+.bg-blue {
+    background-color: var(--main-theme-blue);
+}
+.bg-pink {
+    background-color: var(--main-theme-pink);
+}
+.bg-orange {
+    background-color: var(--main-theme-orange);
+}

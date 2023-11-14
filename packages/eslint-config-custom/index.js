@@ -28,6 +28,7 @@ module.exports = {
       },
     ],
     'react/require-default-props': 0,
+    'import/prefer-default-export': 'off',
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };

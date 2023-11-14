@@ -1,6 +1,6 @@
-import { Flex } from '@chakra-ui/react';
-import { RectangleButton } from '../Button';
-import innerText from '../utils/InnerText';
+import { Box, Flex } from '@chakra-ui/react';
+import { CTAButton } from '../Button';
+import InnerText from '../utils/inner-text';
 
 const Header = () => (
   <Flex
@@ -13,8 +13,12 @@ const Header = () => (
     position="sticky"
     zIndex={1}
   >
-    <RectangleButton color="blue" content={innerText('직원 호출')} onClick={() => {}} />
-    <RectangleButton color="blue" content={innerText('계산서 보기')} onClick={() => {}} />
+    <Box h={10}>
+      <CTAButton className="bg-blue" content="직원 호출" />
+    </Box>
+    <Box h={10}>
+      <CTAButton className="bg-blue" content="계산서 보기" />
+    </Box>
   </Flex>
 );
 

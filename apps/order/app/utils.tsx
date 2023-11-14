@@ -1,21 +1,5 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { collection, Firestore, getDocs, getFirestore } from 'firebase/firestore';
 import { basketAtom, orderHistoryAtom } from './atoms';
-
-const getDocsFromCollection = async (collectionName: string) => {
-  const querySnapshot = await getDocs(collection(app, collectionName));
-  return querySnapshot.docs.reduce(
-    (acc, doc) => ({
-      ...acc,
-      [doc.id]: doc.data(),
-    }),
-    {},
-  );
-};
-// export const fetchData: (app: Firestore, name: string) => Promise<T> = async (app, name) => {
-//   const result = await getDocsFromCollection(app, name);
-//   return result;
-// };
 
 export const BasketActions = () => {
   const [basket, setBasket] = useRecoilState(basketAtom);

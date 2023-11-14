@@ -1,8 +1,8 @@
 import { Box, Text, Button, Flex, HStack, VStack, AspectRatio, Image } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
-import InnerText from 'ui/utils/InnerText';
-import React, { ReactNode } from 'react';
-import { SquareButton } from '../Button';
+import React, { memo, ReactNode } from 'react';
+import InnerText from '../utils/inner-text';
+import { CTAButton, SquareButton } from '../Button';
 import { BasketActions } from '../app/utils';
 
 // const MenuContainer = ({ children }) => <div className="menu-container">{children}</div>;
@@ -47,23 +47,26 @@ const Menu = ({ children }: { children: React.ReactNode }) => (
     {/* </Flex> */}
   </HStack>
 );
-const MenuDisplayArea = ({
-  children,
-  onMenuAreaClick,
-}: {
-  children: React.ReactNode;
-  onMenuAreaClick: () => void | null;
-}): JSX.Element => (
+// : {
+//   children: React.ReactNode;
+//   onMenuAreaClick: () => void | null;
+// }): JSX.Element
+const MenuDisplayArea = memo(({ children, onMenuAreaClick }) => (
   <Box w="75%" h="100%" onClick={onMenuAreaClick}>
     <HStack w="100%" h="100%" gap={0}>
       {children}
     </HStack>
   </Box>
-);
+));
 
-const AddBasketButtonArea = ({ children }: { children: ReactNode }): JSX.Element => (
-  <Flex p={0} w="25%" h="100%" justifyContent="center" alignItems="center">
+const AddToBasketButtonArea = ({ children }: { children: ReactNode }): JSX.Element => (
+  <Flex p={4} w="25%" h="100%" justifyContent="center" alignItems="center">
     {children}
+  </Flex>
+);
+const AddToBasketButton = ({ onClick, content }: { onClick: () => void; content: string }): JSX.Element => (
+  <Flex aspectRatio={1} h="100%">
+    <CTAButton className="bg-blue" onClick={onClick} content={content} />
   </Flex>
 );
 
@@ -79,18 +82,11 @@ const MenuImage = ({ src, alt }: { src: string; alt: string }) => (
     <Image src={src} alt={alt} />
   </Box>
 );
-const AddToBasketButton = ({
-  onClick,
-  content,
-}: {
-  onClick: () => void | null;
-  content: string | ReactNode;
-}) => <SquareButton color="blue" onClick={onClick} content={InnerText('담기')} />;
 
-export default Menu;
+export { Menu };
 Menu.MenuArea = MenuDisplayArea;
 Menu.TextArea = TextArea;
-Menu.ButtonArea = AddBasketButtonArea;
+Menu.ButtonArea = AddToBasketButtonArea;
 Menu.AddToBasketButton = AddToBasketButton;
 Menu.Name = MenuName;
 Menu.Price = MenuPrice;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
+import InnerText from '../utils/inner-text';
 
 const ThemeColors = {
   blue: 'var(--main-theme-blue)',
@@ -13,38 +14,58 @@ const ReactangleShapeWidth = {
   rectangle: 'auto',
 } as const;
 
-interface ButtonProps {
-  color: keyof typeof ThemeColors;
-  onClick: () => void | null;
-  content: string | number | React.ReactNode;
+interface CTAButtonProps {
+  className: string;
+  content: string | number | JSX.Element;
+  onClick?: () => void;
 }
+// interface CTAButtonProps extends AbstractButtonProps<string> {}
+// interface AddToBasketButtonProps extends AbstractButtonProps<string | number> {}
 
-interface AbstractButtonProps extends ButtonProps {
-  shape: 'square' | 'wide' | 'rectangle';
-}
-
-const AbstractButton = ({ color, content, onClick, shape }: AbstractButtonProps) => (
+export const CTAButton = ({ className, content, onClick }: CTAButtonProps): JSX.Element => (
   <Button
-    bgColor={ThemeColors[color]}
+    className={className}
     boxShadow="xl"
     color="white"
     onClick={onClick}
-    w={ReactangleShapeWidth[shape]}
-    h={shape === 'square' ? 14 : 10}
+    w="100%"
+    h="100%"
     _hover={{ bgColor: null }}
   >
     {content}
   </Button>
 );
 
-export const RectangleButton = ({ color, content, onClick }: ButtonProps) => (
-  <AbstractButton color={color} content={content} shape="rectangle" onClick={onClick} />
-);
+// export const CTAButton = ({ className, content, onClick }: CTAButtonProps): JSX.Element => (
+//   <AbstractButton className={className} content={content} onClick={onClick} />
+// );
 
-export const SquareButton = ({ color, content, onClick }: ButtonProps) => (
-  <AbstractButton color={color} content={content} shape="square" onClick={onClick} />
-);
+// export const AddToBasketButton = ({ className, content, onClick }: AddToBasketButtonProps): JSX.Element => (
+//   <AbstractButton className={className} onClick={onClick} content={InnerText(content)} />
+// );
 
-export const WideButton = ({ color, content, onClick }: ButtonProps) => (
-  <AbstractButton color={color} content={content} shape="wide" onClick={onClick} />
-);
+// const AbstractButton = ({ color, content, onClick, shape }: AbstractButtonProps) => (
+//   <Button
+//     bgColor={ThemeColors[color]}
+//     boxShadow="xl"
+//     color="white"
+//     onClick={onClick}
+//     w={ReactangleShapeWidth[shape]}
+//     h={shape === 'square' ? 14 : 10}
+//     _hover={{ bgColor: null }}
+//   >
+//     {content}
+//   </Button>
+// );
+
+// export const RectangleButton = ({ color, content, onClick }: ButtonProps) => (
+//   <AbstractButton color={color} content={content} shape="rectangle" onClick={onClick} />
+// );
+//
+// export const SquareButton = ({ color, content, onClick }: ButtonProps) => (
+//   <AbstractButton color={color} content={content} shape="square" onClick={onClick} />
+// );
+//
+// export const WideButton = ({ color, content, onClick }: ButtonProps) => (
+//   <AbstractButton color={color} content={content} shape="wide" onClick={onClick} />
+// );

@@ -10,8 +10,8 @@ const Page: () => React.ReactNode = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        {/* <Root /> */}
-        <FetchTest />
+        <Root />
+        {/* <FetchTest /> */}
       </RecoilRoot>
     </QueryClientProvider>
   );

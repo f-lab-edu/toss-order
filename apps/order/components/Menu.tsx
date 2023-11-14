@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, Button, Flex, HStack, VStack, AspectRatio } from '@chakra-ui/react';
 import Image from 'next/image';
 import { commaizeNumber } from '@toss/utils';
-import InnerText from 'ui/utils/InnerText';
+import InnerText from 'packages/ui/utils/inner-text';
 import { SquareButton } from './index';
 import { BasketActions, ImageWithContainer } from '../app/utils';
 
