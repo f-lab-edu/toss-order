@@ -3,10 +3,10 @@
 import { Button, HStack, Stack } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 // import MenuContainer from './MenuContainer';
-import { Header } from 'ui/Header';
-import { Menu } from 'ui/Menu';
 import { useQuery } from 'react-query';
 import { CTAButton } from 'ui/button';
+import { Header } from 'ui/header/header';
+import { Menu } from 'ui/menu/menu';
 import { menuItemsAtom } from '../app/atoms';
 import { BasketActions } from '../app/utils';
 import { get } from '../app/api';

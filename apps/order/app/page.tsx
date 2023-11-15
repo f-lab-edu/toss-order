@@ -1,5 +1,7 @@
 'use client';
 
-const Page: () => JSX.Element = () => <div />;
+import Root from '../components/Root';
+
+const Page: () => JSX.Element = () => <Root />;
 
 export default Page;
