@@ -1,5 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { CTAButton } from '../Button';
+import { CTAButton } from '../button';
 import InnerText from '../utils/inner-text';
 
 const Header = () => (

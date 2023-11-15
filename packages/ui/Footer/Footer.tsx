@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
-import { NumberInCircle, WideButton } from '../Button';
+import { NumberInCircle, WideButton } from '../button';
 import { basketAtom } from '../app/atoms';
 
 const Footer = () => {

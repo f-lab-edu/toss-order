@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { CTAButton } from 'ui/Button';
+import { CTAButton } from 'ui/button';
 
 const buttonStoriesMeta: Meta = {
   title: 'CTA Button',

@@ -2,7 +2,7 @@ import { Box, Text, Button, Flex, HStack, VStack, AspectRatio, Image } from '@ch
 import { commaizeNumber } from '@toss/utils';
 import React, { memo, ReactNode } from 'react';
 import InnerText from '../utils/inner-text';
-import { CTAButton, SquareButton } from '../Button';
+import { CTAButton, SquareButton } from '../button';
 import { BasketActions } from '../app/utils';
 
 // const MenuContainer = ({ children }) => <div className="menu-container">{children}</div>;
