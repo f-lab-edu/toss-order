@@ -4,7 +4,7 @@ import { Button } from '@chakra-ui/react';
 interface CTAButtonProps {
   className: string;
   content: JSX.Element;
-  disabled: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 

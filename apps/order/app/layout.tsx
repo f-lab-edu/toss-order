@@ -1,7 +1,7 @@
 import './styles/global.css';
 import './styles/order-page.css';
 import UIProvider from 'ui/ui-provider';
-import ContextProvider from '../components/context-provider';
+import { UIProvider as AppUIProvider, ContextProvider } from '../components/providers';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
@@ -13,7 +13,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     </head>
     <body>
       <UIProvider>
-        <ContextProvider>{children}</ContextProvider>
+        <AppUIProvider>
+          <ContextProvider>{children}</ContextProvider>
+        </AppUIProvider>
       </UIProvider>
     </body>
   </html>
