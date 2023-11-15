@@ -10,9 +10,10 @@ interface MenuSequence {
 const getUnsortedMenuItems: Promise<MenuList> = fetchData('menu-list');
 const getMenuSequence: Promise<MenuSequence> = fetchData('menu-sequence');
 
-const getMenuItems: Promise<MenuList | void> = Promise.all([getUnsortedMenuItems, getMenuSequence])
-  .then(([unsortedMenuItems, menuOrderSequence]) => {
-    const menuNames: string[] = Object.values({ ...menuOrderSequence.order.asc });
+const getMenuItems: Promise<MenuList | null> = Promise.all([getUnsortedMenuItems, getMenuSequence])
+  .then(([unsortedMenuItems, { order }]) => {
+    const menuNames: string[] = Object.values(order.asc);
+    // TODO: Make data structuring. Ticket: toss-order #11
     return menuNames.reduce(
       (acc, menuName: string) => ({
         ...acc,
@@ -23,6 +24,7 @@ const getMenuItems: Promise<MenuList | void> = Promise.all([getUnsortedMenuItems
   })
   .catch(err => {
     if (process.env.NODE_ENV === 'development') console.error(err);
+    return null;
   });
 
 export default getMenuItems;
