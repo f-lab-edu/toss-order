@@ -10,7 +10,7 @@ import '@testing-library/jest-dom';
 describe('CTA Button Component', () => {
   it('should render <CTAButton> with innerText.', () => {
     const innerText = 'CTA Button';
-    render(<CTAButton className="bg-blue" content={innerText} onClick={() => {}} />);
+    render(<CTAButton className="bg-blue" content={<>innerText</>} onClick={() => {}} />);
     const component = screen.getByText(innerText);
 
     expect(component).toBeInTheDocument();
