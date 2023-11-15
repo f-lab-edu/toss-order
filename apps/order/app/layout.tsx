@@ -1,7 +1,6 @@
 import './styles/global.css';
 import './styles/order-page.css';
-import LayoutProvider from 'ui/context-provider/layout-provider';
-import TempProvider from './providers';
+import UIProvider from 'ui/ui-provider';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
@@ -12,7 +11,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <title>토스 오더</title>
     </head>
     <body>
-      <LayoutProvider>{children}</LayoutProvider>
+      <UIProvider>{children}</UIProvider>
     </body>
   </html>
 );
