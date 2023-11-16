@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react';
-import { CTAButton } from 'ui/Button';
+import { CTAButton } from 'ui/button';
 
 const buttonStoriesMeta: Meta = {
   title: 'CTA Button',
   argTypes: {
     content: {
       control: { type: 'text' },
-      defaultValue: 'Do Something',
+      defaultValue: <>Do Something</>,
       description: '버튼 내부에 들어갈 내용',
     },
     className: {
