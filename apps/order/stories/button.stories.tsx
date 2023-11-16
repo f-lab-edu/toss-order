@@ -19,12 +19,12 @@ const buttonStoriesMeta: Meta = {
 };
 
 const createButtonStory = (ButtonComponent: React.ElementType) => {
-  const ButtonTemplate = ({ className, content }: { className: string; content: string }) => (
+  const ButtonTemplate = ({ className, content }: { className: string; content: JSX.Element }) => (
     <ButtonComponent content={content} className={className} />
   );
   const Story = ButtonTemplate.bind({});
   Story.args = {
-    content: 'Do Something',
+    content: <>Do Something</>,
     className: 'bg-blue',
   };
 
