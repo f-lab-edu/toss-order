@@ -13,7 +13,7 @@ export const CTAButton = ({ className, content, disabled = false, onClick }: CTA
     boxShadow="xl"
     className={className}
     color="white"
-    disabled={disabled}
+    isDisabled={disabled}
     h="100%"
     onClick={onClick}
     w="100%"
