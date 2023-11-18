@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import '../app/styles/global.css';
+import '../app/styles/order-page.css';
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({});
