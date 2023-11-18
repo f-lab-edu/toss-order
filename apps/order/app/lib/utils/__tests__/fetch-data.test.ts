@@ -26,9 +26,9 @@ describe('fetchData', () => {
   });
   it('should fetch menu-sequence successfully', async () => {
     const result = await fetchData('menu-sequence');
-    expect(result).toHaveProperty('sorted');
-    expect(result.sorted).toHaveProperty('list');
-    Object.keys(result.sorted.list).forEach(key => {
+    expect(result).toHaveProperty('order');
+    expect(result.order).toHaveProperty('asc');
+    Object.keys(result.order.asc).forEach(key => {
       expect(Number.isNaN(key)).toBe(false);
     });
   });

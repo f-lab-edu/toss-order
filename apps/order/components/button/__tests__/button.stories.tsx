@@ -1,6 +1,5 @@
 import { Meta } from '@storybook/react';
-import { Scenario as CallStaff } from './call-staff.scenario';
-import { Scenario as OpenBill } from './open-bill.scenario';
+import { CallStaff, OpenBill } from '..';
 
 export default {
   title: 'Components / Forms / Button',
