@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { CallStaff, OpenBill } from '../buttons';
+import { CallStaff, OpenBill } from '../button';
 
 const Header = () => (
   <Flex
