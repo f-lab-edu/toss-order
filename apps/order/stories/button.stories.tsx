@@ -6,7 +6,7 @@ const meta: Meta<typeof CTAButton> = {
   component: CTAButton,
   argTypes: {
     content: {
-      control: { type: 'text' },
+      control: false,
       description: '버튼 내부에 들어갈 내용',
     },
     className: {
