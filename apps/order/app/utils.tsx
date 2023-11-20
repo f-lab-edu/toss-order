@@ -2,7 +2,6 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { basketAtom, orderHistoryAtom } from './atoms';
 
 export const BasketActions = () => {
-  const test;
   const [basket, setBasket] = useRecoilState(basketAtom);
   const addBasket = (name: string, amount: number | undefined = 1) => {
     const tempBasket = { ...basket };
