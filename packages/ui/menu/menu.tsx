@@ -51,6 +51,10 @@ const Menu = ({ children }: { children: React.ReactNode }) => (
 //   children: React.ReactNode;
 //   onMenuAreaClick: () => void | null;
 // }): JSX.Element
+// : {
+//   children: React.ReactNode;
+//   onMenuAreaClick: () => void | null;
+// }): JSX.Element
 const MenuDisplayArea = memo(({ children, onMenuAreaClick }) => (
   <Box w="75%" h="100%" onClick={onMenuAreaClick}>
     <HStack w="100%" h="100%" gap={0}>
