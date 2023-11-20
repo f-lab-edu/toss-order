@@ -6,7 +6,6 @@ import { useRecoilValue } from 'recoil';
 import { useQuery } from 'react-query';
 import { CTAButton } from 'ui/button';
 import { Menu } from 'ui/menu';
-import { Header } from './header';
 import { menuItemsAtom } from '../app/atoms';
 import { BasketActions } from '../app/utils';
 import { get } from '../app/api';
@@ -43,7 +42,6 @@ const Root = () => {
       {/*  Data from API: {JSON.stringify(menuItems)} */}
       {/*  /!* {data?.map((item: any) => <div key={item.id}>{item.name}</div>)} *!/ */}
       {/* </h1> */}
-      <Header />
       <Stack alignItems="center" w="94%" h="50px">
         <CTAButton onClick={() => {}} content="장바구니 비우기(Temp)" className="bg-orange" />
         {/* <CTAButton onClick={clearBasket} content="장바구니 비우기(Temp)" color="orange" /> */}
