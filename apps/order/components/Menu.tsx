@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, Button, Flex, HStack, VStack, AspectRatio } from '@chakra-ui/react';
 import Image from 'next/image';
 import { commaizeNumber } from '@toss/utils';
-import InnerText from 'packages/ui/utils/inner-text';
+import { CTAButton } from 'ui/button';
 import { SquareButton } from './index';
 import { BasketActions, ImageWithContainer } from '../app/utils';
 
@@ -39,9 +39,9 @@ const Menu = ({ name, price, onBasketCount, imageUrl }: MenuProps) => {
       </Box>
       <Flex p={0} w="30%" h="100%" justifyContent="center" alignItems="center">
         {onBasketCount === 0 ? (
-          <SquareButton color="blue" onClick={() => addBasket(name)} content={InnerText('담기')} />
+          <CTAButton className="bg-blue" onClick={() => addBasket(name)} content="담기" />
         ) : (
-          <SquareButton color="orange" onClick={() => addBasket(name)} content={InnerText(onBasketCount)} />
+          <CTAButton className="bg-orange" onClick={() => addBasket(name)} content={onBasketCount} />
         )}
       </Flex>
     </HStack>
