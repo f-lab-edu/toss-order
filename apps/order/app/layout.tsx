@@ -1,5 +1,3 @@
-import './styles/global.css';
-import './styles/order-page.css';
 import UIProvider from 'ui/ui-provider';
 import { UIProvider as AppUIProvider, ContextProvider } from '../components/providers';
 

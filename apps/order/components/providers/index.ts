@@ -1,2 +1,2 @@
-export * from './context-provider';
-export * from './ui-provider';
+export { ContextProvider } from './context-provider';
+export { UIProvider } from './ui-provider';

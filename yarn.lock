@@ -14540,6 +14540,7 @@ __metadata:
     react-dom: ^18.2.0
     react-query: ^3.39.3
     recoil: ^0.7.7
+    recoil-persist: ^5.1.0
     storybook: ^7.5.1
     tsconfig: "*"
     typescript: ^4.5.3
@@ -15709,6 +15710,15 @@ __metadata:
     source-map: ~0.6.1
     tslib: ^2.0.1
   checksum: edb63bbe0457e68c0f4892f55413000e92aa7c5c53f9e109ab975d1c801cd299a62511ea72734435791f4aea6f0edf560f6a275761f66b2b6069ff6d72686029
+  languageName: node
+  linkType: hard
+
+"recoil-persist@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "recoil-persist@npm:5.1.0"
+  peerDependencies:
+    recoil: ^0.7.2
+  checksum: 03ee8417b9bfcb1e5d61af373a304437190da394bf42b0979cf54ec4edeb27e7577f76ae4f9348d131865b87b19dc8dedc158e2bacd3976d4b936be1ab005d18
   languageName: node
   linkType: hard
 
