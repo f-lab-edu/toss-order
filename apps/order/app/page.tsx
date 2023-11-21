@@ -1,5 +1,7 @@
 'use client';
 
-const Page: () => JSX.Element = () => <div />;
+import { MenuContainer } from '../components/menu';
+
+const Page: () => JSX.Element = () => <MenuContainer />;
 
 export default Page;
