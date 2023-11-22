@@ -1,17 +1,18 @@
 import { Stack, VStack } from '@chakra-ui/react';
-import { useQuery } from 'react-query';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { Menu } from './menu';
-import { basketAtom } from '../../app/atoms';
+import { basketItemsAtom } from '../../app/atoms';
+import useMenuItems from '../../app/lib/utils/useMenuItems';
+import { MenuSkeleton } from './skeleton';
 
 const MenuContainer = () => {
-  const [basket, setBasket] = useRecoilState(basketAtom);
+  const [basketItems, setBasketItems] = useRecoilState(basketItemsAtom);
+
+  const { data: menuItems, isLoading: isMenuItemsLoading } = useMenuItems();
+
   const [menuNames, setMenuNames] = useState([]);
-  const { data: menuItems, isLoading: isMenuItemsLoading } = useQuery('menu-list', () =>
-    axios.get('/api/menu-list').then(({ data }) => data),
-  );
+
   useEffect(() => {
     if (menuItems) {
       setMenuNames(
@@ -22,9 +23,11 @@ const MenuContainer = () => {
       );
     }
   }, [menuItems]);
-  const getQuantity = (name: string) => basket[name] || 0;
-  const addToBasket = (name: string) =>
-    setBasket((currentBasket: object) => {
+
+  const getQuantity = (name: string) => basketItems[name] || 0;
+
+  const addItemToBasket = (name: string) =>
+    setBasketItems((currentBasket: object) => {
       const newBasket = { ...currentBasket };
       if (newBasket[name]) {
         newBasket[name] += 1;
@@ -33,18 +36,25 @@ const MenuContainer = () => {
       }
       return newBasket;
     });
+
   return (
     <VStack alignItems="center" justifyContent="center" mb={12} px="2%">
       <Stack alignItems="center" w="100%">
-        {isMenuItemsLoading
-          ? null
-          : menuNames &&
-            menuNames.map(name => (
-              <Menu key={name} name={name}>
-                <Menu.DisplayArea props={menuItems[name]} />
-                <Menu.ButtonArea addToBasket={() => {addToBasket(name)}} quantity={getQuantity(name)} />
-              </Menu>
-            ))}
+        {isMenuItemsLoading ? (
+          <MenuSkeleton />
+        ) : (
+          menuNames?.map(name => (
+            <Menu key={name}>
+              <Menu.DisplayArea props={{ name, ...menuItems[name] }} />
+              <Menu.ButtonArea
+                onClick={() => {
+                  addItemToBasket(name);
+                }}
+                quantity={getQuantity(name)}
+              />
+            </Menu>
+          ))
+        )}
       </Stack>
     </VStack>
   );
