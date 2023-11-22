@@ -1,6 +1,7 @@
 import { Stack, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
+import _ from 'lodash';
 import { Menu } from './menu';
 import { basketItemsAtom } from '../../app/atoms';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
@@ -28,7 +29,7 @@ const MenuContainer = () => {
 
   const addItemToBasket = (name: string) =>
     setBasketItems((currentBasket: object) => {
-      const newBasket = { ...currentBasket };
+      const newBasket = _.cloneDeep(currentBasket);
       if (newBasket[name]) {
         newBasket[name] += 1;
       } else {
