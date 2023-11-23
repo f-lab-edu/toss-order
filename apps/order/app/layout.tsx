@@ -1,5 +1,5 @@
 import UIProvider from 'ui/ui-provider';
-import { UIProvider as AppUIProvider, ContextProvider } from '../components/providers';
+import { UIProvider as AppUIProvider, DataProvider } from '../components/providers';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
@@ -12,7 +12,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <body>
       <UIProvider>
         <AppUIProvider>
-          <ContextProvider>{children}</ContextProvider>
+          <DataProvider>{children}</DataProvider>
         </AppUIProvider>
       </UIProvider>
     </body>
