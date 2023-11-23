@@ -1,11 +1,11 @@
 import { fetchMenuItems } from '../database';
 
-type MenuItemsT = {
-  [key: string]: { name: string; detail: string; image: string; price: { [key: string]: number } };
-};
+interface MenuList {
+  [key: string]: { name: string; detail: string; image: string; price: number };
+}
 
 const getMenuItems = async () => {
-  const items: Promise<MenuItemsT | null> = await fetchMenuItems();
+  const items: Promise<MenuList | null> = await fetchMenuItems();
 
   return items;
 };
