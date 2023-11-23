@@ -9,9 +9,11 @@ export const UIProvider = ({ children }: { children: React.ReactNode }) => {
     import('../../app/styles/global.css');
     import('../../app/styles/order-page.css');
   };
+
   useLayoutEffect(() => {
     CSSLazyImport();
   }, []);
+
   return (
     <CacheProvider>
       <ChakraProvider resetCSS>{children}</ChakraProvider>
