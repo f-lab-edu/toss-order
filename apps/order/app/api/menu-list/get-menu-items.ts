@@ -1,30 +1,13 @@
-import { fetchData } from '../../lib/utils';
+import { fetchMenuItems } from '../database';
 
 interface MenuList {
-  [key: string]: { detail: string; image: string; price: number };
+  [key: string]: { name: string; detail: string; image: string; price: number };
 }
 
-interface MenuSequence {
-  order: { asc: { [key: string]: string } };
-}
-const getUnsortedMenuItems: Promise<MenuList> = fetchData('menu-list');
-const getMenuSequence: Promise<MenuSequence> = fetchData('menu-sequence');
+const getMenuItems = async () => {
+  const items: Promise<MenuList | null> = await fetchMenuItems();
 
-const getMenuItems: Promise<MenuList | null> = Promise.all([getUnsortedMenuItems, getMenuSequence])
-  .then(([unsortedMenuItems, { order }]) => {
-    const menuNames: string[] = Object.values(order.asc);
-    // TODO: Make data structuring. Ticket: toss-order #11
-    return menuNames.reduce(
-      (acc, menuName: string) => ({
-        ...acc,
-        [menuName]: unsortedMenuItems[menuName],
-      }),
-      {},
-    );
-  })
-  .catch(err => {
-    if (process.env.NODE_ENV === 'development') console.error(err);
-    return null;
-  });
+  return items;
+};
 
 export default getMenuItems;
