@@ -1,7 +1,7 @@
 import { HStack } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import { AddItemToBasketButton } from './add-item-to-basket';
-import { MenuItemDisplay } from './item-display';
+import { MenuItem } from './item';
 
 const Menu = ({ children }: { children: ReactNode }): JSX.Element => (
   <HStack
@@ -18,7 +18,7 @@ const Menu = ({ children }: { children: ReactNode }): JSX.Element => (
   </HStack>
 );
 
-Menu.DisplayArea = MenuItemDisplay;
+Menu.DisplayArea = MenuItem;
 
 Menu.ButtonArea = AddItemToBasketButton;
 

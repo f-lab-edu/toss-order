@@ -10,7 +10,7 @@ type MenuDisplayAreaT = {
   };
 };
 
-export const MenuItemDisplay = ({ props: { imageSrc, name, price } }: MenuDisplayAreaT): JSX.Element => (
+export const MenuItem = ({ props: { imageSrc, name, price } }: MenuDisplayAreaT): JSX.Element => (
   // TODO: Modal 구현 후 onClick에 메뉴 상세보기 Modal을 띄우는 action이 할당될 예정. Ticket: toss-order #22, toss-order #23
   <Box w="75%" h="100%" onClick={() => {}}>
     <HStack w="100%" h="100%" gap={0} justifyContent="space-between">
