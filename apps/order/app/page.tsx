@@ -1,14 +1,13 @@
 'use client';
 
-import { Box } from '@chakra-ui/react';
-import { Header } from '../components/header';
-import Root from '../components/Root';
+import { Suspense } from 'react';
+import { MenuContainer } from '../components/menu';
+import { MenuSkeleton } from '../components/menu/skeleton';
 
 const Page: () => JSX.Element = () => (
-  <Box position="relative">
-    <Header />
-    <Root />
-  </Box>
+  <Suspense fallback={<MenuSkeleton />}>
+    <MenuContainer />
+  </Suspense>
 );
 
 export default Page;
