@@ -5,7 +5,7 @@ type BasketItemsT = {
   [key: string]: {
     count: number;
     detail: string;
-    image: string;
+    imageSrc: string;
     name: string;
     price: { [key: string]: number };
     totalPrice: number;
