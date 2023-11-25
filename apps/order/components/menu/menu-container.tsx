@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
 import _ from 'lodash';
 import { Menu } from './menu';
-import { basketItemsStore } from '../../app/stores';
+import { basketItemsStore } from '../../app/stores/basket-items-store';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
 
 const MenuContainer = () => {

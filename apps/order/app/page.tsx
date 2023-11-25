@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
-import { MenuContainer } from '../components/menu';
+import { MenuContainer } from '../components/menu/menu-container';
 import { MenuSkeleton } from '../components/menu/skeleton';
 
 const Page: () => JSX.Element = () => (

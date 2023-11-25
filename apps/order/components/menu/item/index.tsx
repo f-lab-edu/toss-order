@@ -5,7 +5,7 @@ import { Image } from './image';
 type ItemT = {
   imageSrc: string;
   name: string;
-  price: { defaultPrice: number };
+  price: { [key: string]: number };
 };
 
 export const Item = ({ imageSrc, name, price }: ItemT): JSX.Element => (
