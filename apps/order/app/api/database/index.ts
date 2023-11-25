@@ -5,18 +5,7 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-const testConnection = async () => {
-  try {
-    const response = await instance.get('/');
-
-    return response.status === 200 && response.statusText === 'OK';
-  } catch {
-    return false;
-  }
-};
-
-const fetcher = async (url: string, maximumRetry: number = 3) => {
-  if (maximumRetry === 0) return null;
+const fetcher = async (url: string) => {
   try {
     const response = await instance.get(url);
 
@@ -24,7 +13,7 @@ const fetcher = async (url: string, maximumRetry: number = 3) => {
   } catch (err) {
     if (process.env.NODE_ENV === 'development') console.error(err);
 
-    if (await testConnection()) return fetcher(url, maximumRetry - 1);
+    return null;
   }
 };
 
