@@ -1,4 +1,4 @@
-import { Stack, VStack, Text } from '@chakra-ui/react';
+import { Stack, VStack, Text, Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
@@ -39,10 +39,10 @@ const MenuContainer = () => {
 
   const getQuantity = (id: string) => basketItems[id].count;
 
-  const addItemToBasket = (id: string) => {
+  const addItemToBasket = (id: string, amount: 1 | -1) => {
     setBasketItems((currentBasket: object) => {
       const newBasket = _.cloneDeep(currentBasket);
-      newBasket[id].count += 1;
+      newBasket[id].count += amount;
       newBasket[id].totalPrice += data[id].price.defaultPrice;
       return newBasket;
     });
@@ -61,9 +61,9 @@ const MenuContainer = () => {
     refreshBasket();
   };
   return (
-    <VStack alignItems="center" justifyContent="center" mb={12} px="2%">
+    <VStack alignItems="center" justifyContent="center" mb={12} px="4%">
       <Stack alignItems="center" w="100%">
-        <Stack alignItems="center" h="50px" mt={2} w="94%">
+        <Stack alignItems="center" h="50px" mt={2} w="100%">
           {/* // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED */}
           <CTAButton
             className="bg-orange"
@@ -77,13 +77,17 @@ const MenuContainer = () => {
         </Stack>
         {menuIds.map(id => (
           <Menu key={id}>
-            <Menu.ItemArea {...data[id]} />
-            <Menu.ButtonArea
-              onClick={() => {
-                addItemToBasket(id);
-              }}
-              quantity={getQuantity(id)}
-            />
+            <Box h="100%" w="75%">
+              <Menu.ItemArea {...data[id]} />
+            </Box>
+            <Box h="100%" w="25%">
+              <Menu.ButtonArea
+                onClick={() => {
+                  addItemToBasket(id, 1);
+                }}
+                quantity={getQuantity(id)}
+              />
+            </Box>
           </Menu>
         ))}
       </Stack>

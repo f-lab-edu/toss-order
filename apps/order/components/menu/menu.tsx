@@ -12,7 +12,7 @@ const Menu = ({ children }: { children: ReactNode }): JSX.Element => (
     gap={0}
     h="24"
     marginBottom="6px"
-    w="94%"
+    w="100%"
   >
     {children}
   </HStack>

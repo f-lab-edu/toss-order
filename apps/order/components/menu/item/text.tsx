@@ -3,7 +3,7 @@ import { commaizeNumber } from '@toss/utils';
 
 type ItemTextT = {
   name: string;
-  price: { defaultPrice: number };
+  price: { [key: string]: number };
 };
 
 export const Text = ({ name, price }: ItemTextT): JSX.Element => (

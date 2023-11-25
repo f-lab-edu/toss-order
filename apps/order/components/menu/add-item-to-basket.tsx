@@ -7,7 +7,7 @@ type AddItemToBasketButtonT = {
 };
 
 export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => (
-  <Flex alignItems="center" h="100%" justifyContent="center" p={4} w="25%">
+  <Flex alignItems="center" h="100%" justifyContent="center" p={4}>
     <Flex aspectRatio={1} h="100%">
       {quantity ? (
         <CTAButton
