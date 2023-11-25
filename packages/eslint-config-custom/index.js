@@ -28,6 +28,12 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
+    'react/jsx-sort-props': 1,
+    '@typescript-eslint/member-ordering': [
+      1,
+      { default: { memberTypes: ['signature', 'method', 'constructor', 'field'], order: 'alphabetically' } },
+    ],
+    'react/jsx-props-no-spreading': 'off',
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };
