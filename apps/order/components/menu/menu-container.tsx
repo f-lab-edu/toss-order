@@ -42,7 +42,7 @@ const MenuContainer = () => {
     setBasketItems((currentBasket: object) => {
       const newBasket = _.cloneDeep(currentBasket);
       newBasket[id].count += amount;
-      newBasket[id].totalPrice += data[id].price.defaultPrice;
+      newBasket[id].totalPrice += data[id].price.defaultPrice * amount;
       return newBasket;
     });
   };
