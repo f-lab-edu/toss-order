@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import getMenuItems from './get-menu-items';
 
 type MenuItemsT = {
-  [key: string]: { name: string; detail: string; image: string; price: { [key: string]: number } };
+  [key: string]: { name: string; detail: string; imageSrc: string; price: { [key: string]: number } };
 };
 
 export async function GET() {
