@@ -4,10 +4,6 @@ type MenuItemsT = {
   [key: string]: { name: string; detail: string; image: string; price: { [key: string]: number } };
 };
 
-const getMenuItems = async () => {
-  const items: Promise<MenuItemsT | null> = await fetchMenuItems();
-
-  return items;
-};
+const getMenuItems = async (): Promise<MenuItemsT | null> => fetchMenuItems();
 
 export default getMenuItems;
