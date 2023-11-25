@@ -1,61 +1,70 @@
-import { Stack, VStack } from '@chakra-ui/react';
+import { Stack, VStack, Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import _ from 'lodash';
 import { Menu } from './menu';
-import { basketItemsAtom } from '../../app/atoms';
+import { basketItemsStore } from '../../app/stores';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
-import { MenuSkeleton } from './skeleton';
 
 const MenuContainer = () => {
-  const [basketItems, setBasketItems] = useRecoilState(basketItemsAtom);
+  const [menuIds, setMenuIds] = useState([]);
 
-  const { data: menuItems, isLoading: isMenuItemsLoading } = useMenuItems();
+  const [basketItems, setBasketItems] = useRecoilState(basketItemsStore);
 
-  const [menuNames, setMenuNames] = useState([]);
+  const { data } = useMenuItems();
+
+  const resetBasket = () => {
+    setBasketItems((currentBasket: object) => {
+      const newBasket = _.cloneDeep(currentBasket);
+      Object.keys(newBasket).forEach(key => {
+        newBasket[key].count = 0;
+        newBasket[key].totalPrice = 0;
+      });
+      return newBasket;
+    });
+  };
 
   useEffect(() => {
-    if (menuItems) {
-      setMenuNames(
-        Object.keys(menuItems).reduce((acc, cur) => {
+    if (data) {
+      setMenuIds(
+        Object.keys(data).reduce((acc, cur) => {
           acc.push(cur);
           return acc;
         }, []),
       );
+      if (!basketItems) resetBasket();
     }
-  }, [menuItems]);
+  }, [data]);
 
-  const getQuantity = (name: string) => basketItems[name] || 0;
+  const getQuantity = (id: string) => basketItems[id].count;
 
-  const addItemToBasket = (name: string) =>
+  const addItemToBasket = (id: string, amount: 1 | -1) => {
     setBasketItems((currentBasket: object) => {
       const newBasket = _.cloneDeep(currentBasket);
-      if (newBasket[name]) {
-        newBasket[name] += 1;
-      } else {
-        newBasket[name] = 1;
-      }
+      newBasket[id].count += amount;
+      newBasket[id].totalPrice += data[id].price.defaultPrice;
       return newBasket;
     });
+  };
 
   return (
-    <VStack alignItems="center" justifyContent="center" mb={12} px="2%">
+    <VStack alignItems="center" justifyContent="center" mb={12} px="4%">
       <Stack alignItems="center" w="100%">
-        {isMenuItemsLoading ? (
-          <MenuSkeleton />
-        ) : (
-          menuNames?.map(name => (
-            <Menu key={name}>
-              <Menu.DisplayArea props={{ name, ...menuItems[name] }} />
+        {menuIds.map(id => (
+          <Menu key={id}>
+            <Box h="100%" w="75%">
+              <Menu.ItemArea {...data[id]} />
+            </Box>
+            <Box h="100%" w="25%">
               <Menu.ButtonArea
                 onClick={() => {
-                  addItemToBasket(name);
+                  addItemToBasket(id, 1);
                 }}
-                quantity={getQuantity(name)}
+                quantity={getQuantity(id)}
               />
-            </Menu>
-          ))
-        )}
+            </Box>
+          </Menu>
+        ))}
       </Stack>
     </VStack>
   );
