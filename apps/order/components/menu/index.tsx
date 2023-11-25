@@ -1,21 +1,19 @@
 import { Box, HStack } from '@chakra-ui/react';
-import { ItemText } from './item-text';
-import { ItemImage } from './item-image';
+import { Text } from './text';
+import { Image } from './image';
 
-type MenuDisplayAreaT = {
-  props: {
-    imageSrc: string;
-    price: number;
-    name: string;
-  };
+type ItemT = {
+  imageSrc: string;
+  name: string;
+  price: { [key: string]: number };
 };
 
-export const MenuItem = ({ props: { imageSrc, name, price } }: MenuDisplayAreaT): JSX.Element => (
+export const Item = ({ imageSrc, name, price }: ItemT): JSX.Element => (
   // TODO: Modal 구현 후 onClick에 메뉴 상세보기 Modal을 띄우는 action이 할당될 예정. Ticket: toss-order #22, toss-order #23
-  <Box w="75%" h="100%" onClick={() => {}}>
-    <HStack w="100%" h="100%" gap={0} justifyContent="space-between">
-      <ItemText name={name} price={price} />
-      <ItemImage alt={name} src={imageSrc} />
+  <Box h="100%" onClick={() => {}}>
+    <HStack gap={0} h="100%" justifyContent="space-between" w="100%">
+      <Text name={name} price={price} />
+      <Image alt={name} src={imageSrc} />
     </HStack>
   </Box>
 );
