@@ -1,6 +1,5 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import { CTAButton } from 'ui/button';
-import { InnerText } from '../inner-text';
 
 type AddItemToBasketButtonT = {
   onClick: () => void;
@@ -8,12 +7,28 @@ type AddItemToBasketButtonT = {
 };
 
 export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => (
-  <Flex p={4} w="25%" h="100%" justifyContent="center" alignItems="center">
+  <Flex alignItems="center" h="100%" justifyContent="center" p={4}>
     <Flex aspectRatio={1} h="100%">
       {quantity ? (
-        <CTAButton className="bg-orange" content={<InnerText>{quantity}</InnerText>} onClick={onClick} />
+        <CTAButton
+          className="bg-orange"
+          content={
+            <Text fontSize="xl" fontWeight="extrabold">
+              {quantity}
+            </Text>
+          }
+          onClick={onClick}
+        />
       ) : (
-        <CTAButton className="bg-blue" content={<InnerText>담기</InnerText>} onClick={onClick} />
+        <CTAButton
+          className="bg-blue"
+          content={
+            <Text fontSize="xl" fontWeight="extrabold">
+              담기
+            </Text>
+          }
+          onClick={onClick}
+        />
       )}
     </Flex>
   </Flex>
