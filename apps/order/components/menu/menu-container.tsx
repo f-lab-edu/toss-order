@@ -14,8 +14,8 @@ const MenuContainer = () => {
   const { data } = useMenuItems();
 
   const resetBasket = () => {
-    setBasketItems((currentBasket: object) => {
-      const newBasket = _.cloneDeep(currentBasket);
+    setBasketItems(() => {
+      const newBasket = _.cloneDeep(data);
       Object.keys(newBasket).forEach(key => {
         newBasket[key].count = 0;
         newBasket[key].totalPrice = 0;
@@ -32,11 +32,11 @@ const MenuContainer = () => {
           return acc;
         }, []),
       );
-      if (!basketItems) resetBasket();
+      if (Object.keys(basketItems).length === 0) resetBasket();
     }
   }, [data]);
 
-  const getQuantity = (id: string) => basketItems[id].count;
+  const getQuantity = (id: string) => basketItems[id]?.count;
 
   const addItemToBasket = (id: string, amount: 1 | -1) => {
     setBasketItems((currentBasket: object) => {
