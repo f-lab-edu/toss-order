@@ -34,6 +34,7 @@ module.exports = {
       1,
       { default: { memberTypes: ['signature', 'method', 'constructor', 'field'], order: 'alphabetically' } },
     ],
+    'react/jsx-props-no-spreading': 'off',
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };
