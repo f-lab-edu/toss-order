@@ -1,1 +1,2 @@
-export { basketItemsStore } from './basket-items-store';
+export * from './basket-store';
+export * from './menu-store';
