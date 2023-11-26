@@ -37,7 +37,7 @@ const MenuContainer = () => {
     }
   }, [data]);
 
-  const getQuantity = (id: string) => basketItems[id]?.count;
+  const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
 
   const addItemToBasket = (id: string, amount: 1 | -1) => {
     setBasketItems((currentBasket: object) => {
@@ -83,7 +83,7 @@ const MenuContainer = () => {
             <Box h="100%" w="25%">
               <Menu.ButtonArea
                 onClick={() => {
-                  addItemToBasket(id, 1);
+                  changeQuantity(id, 1);
                 }}
                 quantity={getQuantity(id)}
               />
