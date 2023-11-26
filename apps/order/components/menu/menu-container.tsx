@@ -52,17 +52,13 @@ const MenuContainer = () => {
       <Stack alignItems="center" w="100%">
         {menuIds.map(id => (
           <Menu key={id}>
-            <Box h="100%" w="75%">
-              <Menu.ItemArea {...data[id]} />
-            </Box>
-            <Box h="100%" w="25%">
-              <Menu.ButtonArea
-                onClick={() => {
-                  changeQuantity(id, 1);
-                }}
-                quantity={getQuantity(id)}
-              />
-            </Box>
+            <Menu.ItemArea {...data[id]} />
+            <Menu.ButtonArea
+              onClick={() => {
+                changeQuantity(id, 1);
+              }}
+              quantity={getQuantity(id)}
+            />
           </Menu>
         ))}
       </Stack>
