@@ -7,7 +7,7 @@ type BasketItemsT = {
     detail: string;
     imageSrc: string;
     name: string;
-    price: { [key: string]: number };
+    price: { defaultPrice: number };
     totalPrice: number;
   };
 };
