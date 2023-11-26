@@ -1,7 +1,7 @@
 import { fetchMenuItems } from '../database';
 
 type MenuItemsT = {
-  [key: string]: { detail: string; image: string; name: string; price: { [key: string]: number } };
+  [key: string]: { name: string; detail: string; imageSrc: string; price: { defaultPrice: number } };
 };
 
 const getMenuItems = async (): Promise<MenuItemsT | null> => fetchMenuItems();
