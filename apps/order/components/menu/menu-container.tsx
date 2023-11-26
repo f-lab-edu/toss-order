@@ -48,7 +48,7 @@ const MenuContainer = () => {
   };
 
   return (
-    <VStack alignItems="center" justifyContent="center" mb={12} px="4%">
+    <VStack alignItems="center" justifyContent="center" mb="1rem" px="4%">
       <Stack alignItems="center" w="100%">
         {menuIds.map(id => (
           <Menu key={id}>
