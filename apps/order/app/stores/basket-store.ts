@@ -32,10 +32,9 @@ export const basketItemsStore: RecoilState<BasketItemsT> = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-// @ts-ignore
 export const updateBasketStore = selector({
   key: 'updateBasketStore',
-  get: () => {},
+  get: () => null,
   set: ({ set, get }, { amount, id }: UpdateBasketParameterT) => {
     const menuItem: MenuItemT = get(menuItemsStore)[id];
 
