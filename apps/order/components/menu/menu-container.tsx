@@ -61,7 +61,7 @@ const MenuContainer = () => {
     refreshBasket();
   };
   return (
-    <VStack alignItems="center" justifyContent="center" mb={12} px="4%">
+    <VStack alignItems="center" justifyContent="center" mb="1rem" px="4%">
       <Stack alignItems="center" w="100%">
         <Stack alignItems="center" h="50px" mt={2} w="100%">
           {/* // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED */}
