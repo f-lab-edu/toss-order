@@ -9,7 +9,7 @@ type AddItemToBasketButtonT = {
 export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => {
   const buttonClass = `bg-${quantity ? 'orange' : 'blue'}`;
   return (
-    <Flex alignItems="center" h="100%" justifyContent="center" p={4}>
+    <Flex alignItems="center" flexBasis={0} flexGrow={1} h="100%" justifyContent="center" py="1rem">
       <Flex aspectRatio={1} h="100%">
         <CTAButton
           className={buttonClass}
