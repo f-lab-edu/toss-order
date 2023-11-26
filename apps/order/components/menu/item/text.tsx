@@ -7,8 +7,8 @@ type ItemTextT = {
 };
 
 export const Text = ({ name, price }: ItemTextT): JSX.Element => (
-  <VStack alignItems="flex-start" ml="2%">
-    <ChakraText mb="4px">{name}</ChakraText>
+  <VStack alignItems="flex-start" gap={2} ml="2%">
+    <ChakraText>{name}</ChakraText>
     <ChakraText>{commaizeNumber(price)}원</ChakraText>
   </VStack>
 );
