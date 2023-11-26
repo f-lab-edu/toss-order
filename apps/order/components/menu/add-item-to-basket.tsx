@@ -6,30 +6,21 @@ type AddItemToBasketButtonT = {
   quantity: number;
 };
 
-export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => (
-  <Flex alignItems="center" h="100%" justifyContent="center" p={4}>
-    <Flex aspectRatio={1} h="100%">
-      {quantity ? (
+export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => {
+  const buttonClass = `bg-${quantity ? 'orange' : 'blue'}`;
+  return (
+    <Flex alignItems="center" h="100%" justifyContent="center" p={4}>
+      <Flex aspectRatio={1} h="100%">
         <CTAButton
-          className="bg-orange"
+          className={buttonClass}
           content={
             <Text fontSize="xl" fontWeight="extrabold">
-              {quantity}
+              {quantity > 0 ? quantity : '담기'}
             </Text>
           }
           onClick={onClick}
         />
-      ) : (
-        <CTAButton
-          className="bg-blue"
-          content={
-            <Text fontSize="xl" fontWeight="extrabold">
-              담기
-            </Text>
-          }
-          onClick={onClick}
-        />
-      )}
+      </Flex>
     </Flex>
-  </Flex>
-);
+  );
+};
