@@ -1,5 +1,7 @@
 import { useQuery, UseQueryResult } from 'react-query';
+import { useSetRecoilState } from 'recoil';
 import { fetcher } from './fetcher';
+import { menuItemsStore } from '../../stores';
 
 type MenuItemsT = {
   [key: string]: {
@@ -10,7 +12,12 @@ type MenuItemsT = {
   };
 };
 
-const useMenuItems: () => UseQueryResult<MenuItemsT | null> = () =>
-  useQuery('menu-items', () => fetcher('/api/menu-items'), { suspense: true });
+const useMenuItems: () => UseQueryResult<MenuItemsT | null> = () => {
+  const setMenuItems = useSetRecoilState(menuItemsStore);
+  return useQuery('menu-items', () => fetcher('/api/menu-items'), {
+    suspense: true,
+    onSuccess: data => setMenuItems(data),
+  });
+};
 
 export default useMenuItems;
