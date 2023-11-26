@@ -38,7 +38,7 @@ const MenuContainer = () => {
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
 
-  const addItemToBasket = (id: string, amount: 1 | -1) => {
+  const changeQuantity = (id: string, amount: 1 | -1) => {
     setBasketItems((currentBasket: object) => {
       const newBasket = _.cloneDeep(currentBasket);
       newBasket[id].count += amount;
