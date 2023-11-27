@@ -20,8 +20,8 @@ type BasketItemsT = {
 };
 
 type UpdateBasketParameterT = {
-  quantity: 1 | -1;
   id: string;
+  quantity: 1 | -1;
 };
 
 const { persistAtom } = recoilPersist();
