@@ -27,12 +27,7 @@ const MenuContainer = () => {
         {Object.entries(menuItems)?.map(([id, data]: [string, ItemT]) => (
           <Menu key={id}>
             <Menu.ItemArea {...data} />
-            <Menu.ButtonArea
-              onClick={() => {
-                addItem(id);
-              }}
-              quantity={getQuantity(id)}
-            />
+            <Menu.ButtonArea onClick={() => addItem(id)} quantity={getQuantity(id)} />
           </Menu>
         ))}
       </Stack>
