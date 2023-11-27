@@ -1,4 +1,4 @@
-import { useQuery, UseQueryResult } from 'react-query';
+import { useQuery } from 'react-query';
 import { useSetRecoilState } from 'recoil';
 import { fetcher } from './fetcher';
 import { menuItemsStore } from '../../stores';
