@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { atom, RecoilState, selector } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import { menuItemsStore } from './menu-store';
@@ -19,11 +20,6 @@ type BasketItemsT = {
   [key: string]: BasketItemT;
 };
 
-type UpdateBasketParameterT = {
-  id: string;
-  quantity: 1 | -1;
-};
-
 const { persistAtom } = recoilPersist();
 
 export const basketItemsStore: RecoilState<BasketItemsT> = atom({
@@ -32,27 +28,53 @@ export const basketItemsStore: RecoilState<BasketItemsT> = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const updateBasketStore = selector({
-  key: 'updateBasketStore',
+export const addItemInBasket = selector({
+  key: 'addItemInBasketStore',
   get: () => null,
-  set: ({ set, get }, { quantity, id }: UpdateBasketParameterT) => {
+  set: ({ set, get }, id: string) => {
     const menuItem: MenuItemT = get(menuItemsStore)[id];
-
     const basket: BasketItemsT = get(basketItemsStore);
-
     const itemInBasket: BasketItemT | undefined = basket[id];
 
     const itemToBeUpdated: BasketItemT = {
-      count: itemInBasket?.count || 0,
+      count: (itemInBasket?.count || 0) + 1,
       name: itemInBasket?.name || menuItem?.name || '',
+      totalPrice: menuItem.price.defaultPrice * ((itemInBasket?.count || 0) + 1),
     };
-
-    itemToBeUpdated.count += quantity;
-    itemToBeUpdated.totalPrice = menuItem.price.defaultPrice * itemToBeUpdated.count;
 
     set(basketItemsStore, {
       ...basket,
       [id]: itemToBeUpdated,
     });
+  },
+});
+
+export const removeItemFromBasket = selector({
+  key: 'removeItemFromBasketStore',
+  get: () => null,
+  set: ({ set, get }, id: string) => {
+    const menuItem: MenuItemT = get(menuItemsStore)[id];
+    const basket: BasketItemsT = get(basketItemsStore);
+    const itemInBasket: BasketItemT | undefined = basket[id];
+
+    if (!itemInBasket) return;
+
+    if (itemInBasket && itemInBasket.count === 1) {
+      const newBasket: BasketItemsT = _.cloneDeep(basket);
+      delete newBasket[id];
+
+      set(basketItemsStore, newBasket);
+    } else {
+      const itemToBeUpdated: BasketItemT = {
+        count: itemInBasket.count - 1,
+        name: itemInBasket.name,
+        totalPrice: menuItem.price.defaultPrice * (itemInBasket.count - 1),
+      };
+
+      set(basketItemsStore, {
+        ...basket,
+        [id]: itemToBeUpdated,
+      });
+    }
   },
 });
