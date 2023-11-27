@@ -42,9 +42,9 @@ const MenuContainer = () => {
             onClick={resetBasket}
           />
         </Stack>
-        {Object.keys(menuItems)?.map((id: string) => (
+        {Object.entries(menuItems)?.map(([id, data]) => (
           <Menu key={id}>
-            <Menu.ItemArea {...menuItems[id]} />
+            <Menu.ItemArea {...data} />
             <Menu.ButtonArea
               onClick={() => {
                 updateBasket({ id, quantity: 1 });
