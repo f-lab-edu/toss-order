@@ -1,3 +1,5 @@
 import axios from 'axios';
 
-export const fetcher = (url: string) => axios.get(url).then(({ data }) => data);
+const baseUrl = `${window.location.protocol}//${window.location.host}`;
+
+export const fetcher = (url: string) => axios.get(`${baseUrl}${url}`).then(({ data }) => data);
