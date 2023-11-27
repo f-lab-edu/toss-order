@@ -1,21 +1,22 @@
 import { Stack, VStack } from '@chakra-ui/react';
 import { SetterOrUpdater, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { Menu } from './menu';
-import { basketItemsStore, menuIdsStore, menuItemsStore, updateBasketStore } from '../../app/stores';
+import { basketItemsStore, menuItemsStore, updateBasketStore } from '../../app/stores';
+import useMenuItems from '../../app/lib/utils/useMenuItems';
 
 type UpdateBasketParameterT = {
-  amount: 1 | -1;
   id: string;
+  quantity: 1 | -1;
 };
 
 const MenuContainer = () => {
-  const menuIds = useRecoilValue(menuIdsStore);
-
   const menuItems = useRecoilValue(menuItemsStore);
 
   const [basketItems, setBasketItems] = useRecoilState(basketItemsStore);
 
   const updateBasket: SetterOrUpdater<UpdateBasketParameterT> = useSetRecoilState(updateBasketStore);
+
+  useMenuItems();
 
   const resetBasket = () => setBasketItems({});
 
@@ -24,12 +25,12 @@ const MenuContainer = () => {
   return (
     <VStack alignItems="center" justifyContent="center" mb="1rem" px="4%">
       <Stack alignItems="center" w="100%">
-        {menuIds.map((id: string) => (
+        {Object.keys(menuItems)?.map((id: string) => (
           <Menu key={id}>
             <Menu.ItemArea {...menuItems[id]} />
             <Menu.ButtonArea
               onClick={() => {
-                updateBasket({ amount: 1, id });
+                updateBasket({ id, quantity: 1 });
               }}
               quantity={getQuantity(id)}
             />

@@ -8,6 +8,7 @@ type AddItemToBasketButtonT = {
 
 export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => {
   const buttonClass = `bg-${quantity ? 'orange' : 'blue'}`;
+  const content = quantity > 0 ? quantity : '담기';
   return (
     <Flex alignItems="center" flexBasis={0} flexGrow={1} h="100%" justifyContent="center" py="1rem">
       <Flex aspectRatio={1} h="100%">
@@ -15,7 +16,7 @@ export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButt
           className={buttonClass}
           content={
             <Text fontSize="xl" fontWeight="extrabold">
-              {quantity > 0 ? quantity : '담기'}
+              {content}
             </Text>
           }
           onClick={onClick}
