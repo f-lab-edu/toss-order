@@ -12,11 +12,11 @@ type MenuItemsT = {
   };
 };
 
-const useMenuItems: () => UseQueryResult<MenuItemsT | null> = () => {
+const useMenuItems = () => {
   const setMenuItems = useSetRecoilState(menuItemsStore);
   return useQuery('menu-items', () => fetcher('/api/menu-items'), {
     suspense: true,
-    onSuccess: data => setMenuItems(data),
+    onSuccess: (data: MenuItemsT) => setMenuItems(data),
   });
 };
 
