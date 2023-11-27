@@ -1,7 +1,5 @@
-import { Stack, Text, VStack } from '@chakra-ui/react';
-import { useEffect } from 'react';
+import { Stack, VStack } from '@chakra-ui/react';
 import { SetterOrUpdater, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { CTAButton } from 'ui/button';
 import { Menu } from './menu';
 import { basketItemsStore, menuIdsStore, menuItemsStore, updateBasketStore } from '../../app/stores';
 

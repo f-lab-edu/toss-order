@@ -20,7 +20,7 @@ type BasketItemsT = {
 };
 
 type UpdateBasketParameterT = {
-  amount: 1 | -1;
+  quantity: 1 | -1;
   id: string;
 };
 
@@ -35,7 +35,7 @@ export const basketItemsStore: RecoilState<BasketItemsT> = atom({
 export const updateBasketStore = selector({
   key: 'updateBasketStore',
   get: () => null,
-  set: ({ set, get }, { amount, id }: UpdateBasketParameterT) => {
+  set: ({ set, get }, { quantity, id }: UpdateBasketParameterT) => {
     const menuItem: MenuItemT = get(menuItemsStore)[id];
 
     const basket: BasketItemsT = get(basketItemsStore);
@@ -43,20 +43,11 @@ export const updateBasketStore = selector({
     const itemInBasket: BasketItemT | undefined = basket[id];
 
     const itemToBeUpdated: BasketItemT = {
-      count: 0,
-      name: '',
-      totalPrice: 0,
+      count: itemInBasket?.count || 0,
+      name: itemInBasket?.name || menuItem?.name || '',
     };
 
-    if (itemInBasket) {
-      itemToBeUpdated.count = itemInBasket.count;
-      itemToBeUpdated.name = itemInBasket.name;
-      itemToBeUpdated.totalPrice = itemInBasket.totalPrice;
-    } else {
-      itemToBeUpdated.name = menuItem.name;
-    }
-
-    itemToBeUpdated.count += amount;
+    itemToBeUpdated.count += quantity;
     itemToBeUpdated.totalPrice = menuItem.price.defaultPrice * itemToBeUpdated.count;
 
     set(basketItemsStore, {
