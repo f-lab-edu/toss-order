@@ -15814,6 +15814,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pretendard@npm:^1.3.9":
+  version: 1.3.9
+  resolution: "pretendard@npm:1.3.9"
+  checksum: 6536393e074cec0ac3e042767f1903bab822b58da2e936f65de13197b988f29a26cc4523a22cae9143d9325275052e070e4611064275a93fe2a06e98b0004ff2
+  languageName: node
+  linkType: hard
+
 "prettier-linter-helpers@npm:^1.0.0":
   version: 1.0.0
   resolution: "prettier-linter-helpers@npm:1.0.0"
@@ -17000,6 +17007,7 @@ __metadata:
     eslint-config-custom: "*"
     firebase-admin: ^11.11.0
     husky: ^8.0.3
+    pretendard: ^1.3.9
     prettier: ^2.5.1
     turbo: latest
   languageName: unknown
