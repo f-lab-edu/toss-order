@@ -14,6 +14,6 @@ describe('CTA Button Component', () => {
     const component = screen.getByText(innerText);
 
     expect(component).toBeInTheDocument();
-    expect(component).toHaveClass('chakra-button');
+    expect(component).toHaveClass('chakra-buttons');
   });
 });

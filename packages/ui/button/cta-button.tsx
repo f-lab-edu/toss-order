@@ -10,15 +10,15 @@ interface CTAButtonProps {
 
 export const CTAButton = ({ className, content, disabled = false, onClick }: CTAButtonProps): JSX.Element => (
   <Button
-    // bg={null}
+    _hover={{ bgColor: null }}
     boxShadow="xl"
     className={className}
     color="white"
-    isDisabled={disabled}
     h="100%"
+    isDisabled={disabled}
     onClick={onClick}
+    p={0}
     w="100%"
-    _hover={{ bgColor: null }}
   >
     {content}
   </Button>
