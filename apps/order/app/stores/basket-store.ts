@@ -78,3 +78,21 @@ export const removeItemFromBasket = selector({
     }
   },
 });
+
+export const countTotalItemsInBasket = selector({
+  key: 'countTotalItemsInBasket',
+  get: ({ get }) => {
+    const basket: BasketItemsT = get(basketItemsStore);
+
+    return Object.values(basket).reduce((acc: number, cur: BasketItemT) => acc + cur.count, 0);
+  },
+});
+
+export const getTotalPriceInBasket = selector({
+  key: 'getTotalPriceInBasket',
+  get: ({ get }) => {
+    const basket: BasketItemsT = get(basketItemsStore);
+
+    return Object.values(basket).reduce((acc: number, cur: BasketItemT) => acc + cur.totalPrice, 0);
+  },
+});
