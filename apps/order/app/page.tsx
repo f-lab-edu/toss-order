@@ -7,12 +7,12 @@ import { MenuSkeleton } from '../components/menu/skeleton';
 import { Footer } from '../components/footer';
 
 const Page: () => JSX.Element = () => (
-  <Suspense fallback={<MenuSkeleton />}>
-    <Stack position="relative">
+  <Stack position="relative">
+    <Suspense fallback={<MenuSkeleton />}>
       <MenuContainer />
-      <Footer />
-    </Stack>
-  </Suspense>
+    </Suspense>
+    <Footer />
+  </Stack>
 );
 
 export default Page;
