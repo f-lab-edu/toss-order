@@ -16,8 +16,9 @@ type BasketItemT = {
   totalPrice: number;
 };
 
-type BasketItemsT = {
-  [key: string]: BasketItemT;
+type BasketItemsT = { [key: string]: BasketItemT } & {
+  sumCount: number;
+  sumPrice: number;
 };
 
 const { persistAtom } = recoilPersist();
@@ -45,6 +46,8 @@ export const addItemInBasket = selector({
     set(basketItemsStore, {
       ...basket,
       [id]: itemToBeUpdated,
+      sumCount: (basket.sumCount || 0) + 1,
+      sumPrice: (basket.sumPrice || 0) + menuItem.price.defaultPrice,
     });
   },
 });
@@ -63,7 +66,11 @@ export const removeItemFromBasket = selector({
       const newBasket: BasketItemsT = _.cloneDeep(basket);
       delete newBasket[id];
 
-      set(basketItemsStore, newBasket);
+      set(basketItemsStore, {
+        ...newBasket,
+        sumCount: basket.sumCount - 1,
+        sumPrice: basket.sumPrice - menuItem.price.defaultPrice,
+      });
     } else {
       const itemToBeUpdated: BasketItemT = {
         count: itemInBasket.count - 1,
@@ -74,25 +81,9 @@ export const removeItemFromBasket = selector({
       set(basketItemsStore, {
         ...basket,
         [id]: itemToBeUpdated,
+        sumCount: basket.sumCount - 1,
+        sumPrice: basket.sumPrice - menuItem.price.defaultPrice,
       });
     }
-  },
-});
-
-export const countTotalItemsInBasket = selector({
-  key: 'countTotalItemsInBasket',
-  get: ({ get }) => {
-    const basket: BasketItemsT = get(basketItemsStore);
-
-    return Object.values(basket).reduce((acc: number, cur: BasketItemT) => acc + cur.count, 0);
-  },
-});
-
-export const getTotalPriceInBasket = selector({
-  key: 'getTotalPriceInBasket',
-  get: ({ get }) => {
-    const basket: BasketItemsT = get(basketItemsStore);
-
-    return Object.values(basket).reduce((acc: number, cur: BasketItemT) => acc + cur.totalPrice, 0);
   },
 });
