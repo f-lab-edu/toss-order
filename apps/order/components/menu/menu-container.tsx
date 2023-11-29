@@ -2,7 +2,7 @@ import { Stack, VStack, Text } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
 import { Menu } from './menu';
-import { basketItemsStore, menuItemsStore, addItemInBasket } from '../../app/stores';
+import { basketItemsStore, menuItemsStore, addItemInBasket, removeItemFromBasket } from '../../app/stores';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
 
 type ItemT = {
