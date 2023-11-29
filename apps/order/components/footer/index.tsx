@@ -1,13 +1,12 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { basketItemsStore } from '../../app/stores';
-import { Button as OpenBasketButton } from '../buttons/open-basket';
+import { PrimaryCTAButton } from '../buttons/primary-cta-button';
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const hasItemInBasket = Object.keys(basketItems).length > 0;
 
-  return hasItemInBasket ? (
+  return basketItems.sumCount > 0 ? (
     <Flex
       alignItems="center"
       bgColor="white"
@@ -22,7 +21,12 @@ export const Footer = () => {
       zIndex={1}
     >
       <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
-        <OpenBasketButton />
+        <PrimaryCTAButton
+          count={basketItems.sumCount}
+          onClick={() => {}}
+          price={basketItems.sumPrice}
+          text="장바구니 보기"
+        />
       </Box>
     </Flex>
   ) : null;
