@@ -12,7 +12,7 @@ export const NumberInCircle = ({ number }: { number: number }) => (
       p={0}
       rounded="full"
     >
-      <Text fontSize="lg" fontWeight="extrabold">
+      <Text fontSize="2xl" fontWeight="extrabold">
         {number}
       </Text>
     </Flex>
