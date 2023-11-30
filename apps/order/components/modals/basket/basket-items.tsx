@@ -1,5 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Button, HStack, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
 import { addItemInBasket, basketItemsStore, removeItemFromBasket } from '../../../app/stores';
 
@@ -45,9 +45,11 @@ export const BasketItems = () => {
             -
           </Text>
         </Button>
-        <Text fontSize="2xl" fontWeight={900}>
-          {data.count}
-        </Text>
+        <Flex flexBasis="40%" justifyContent="center">
+          <Text fontSize="2xl" fontWeight={900}>
+            {data.count}
+          </Text>
+        </Flex>
         <Button
           _hover={{ bgColor: null }}
           alignItems="flex-end"
