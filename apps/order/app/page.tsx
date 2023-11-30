@@ -7,7 +7,7 @@ import { MenuSkeleton } from '../components/menu/skeleton';
 import { Footer } from '../components/footer';
 
 const Page: () => JSX.Element = () => (
-  <Stack position="relative">
+  <Stack borderX="1px solid black" position="relative">
     <Suspense fallback={<MenuSkeleton />}>
       <MenuContainer />
     </Suspense>
