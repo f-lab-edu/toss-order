@@ -1,6 +1,6 @@
 import { Modal as ChakraModal } from '@chakra-ui/modal';
 import { ModalContent, ModalOverlay } from '@chakra-ui/react';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Header } from './header';
 import { Body } from './body';
 import { Footer } from './footer';
@@ -12,6 +12,7 @@ type ModalT = {
 };
 export const AbstractModal = ({ children, isOpen, onClose }: ModalT) => (
   <ChakraModal
+    initialFocusRef={null}
     isCentered
     isOpen={isOpen}
     motionPreset="slideInBottom"

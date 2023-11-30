@@ -1,27 +1,30 @@
 import { Box, Flex, useDisclosure } from '@chakra-ui/react';
+import React, { useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { basketItemsStore } from '../../app/stores';
 import { PrimaryCTAButton } from '../buttons/primary-cta-button';
-import { Modal as BasketModal } from '../modals/basket';
+import { BasketModal } from '../modals/basket';
+import { ConfirmModal } from '../modals/confirm';
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const {
-    isOpen: isBasketModalOpen,
-    onOpen: onBasketModalOpen,
-    onClose: onBasketModalClose,
-  } = useDisclosure();
+  const { isOpen: isBasketOpen, onOpen: onBasketOpen, onClose: onBasketClose } = useDisclosure();
 
-  const {
-    isOpen: isConfirmOrderModalOpen,
-    onOpen: onConfirmOrderModalOpen,
-    onClose: onConfirmOrderModalClose,
-  } = useDisclosure();
-  const text = isBasketModalOpen ? '주문하기' : '장바구니 보기';
-  // TODO: 주문하기 로직 구현 시 action 추가 예정 Ticket: toss-order #31
-  const onButtonClick = isBasketModalOpen ? onConfirmOrderModalOpen : onBasketModalOpen;
+  const { isOpen: isConfirmOpen, onOpen: onConfirmOpen, onClose: onConfirmClose } = useDisclosure();
 
-  return basketItems.sumCount > 0 ? (
+  const text = isBasketOpen ? '주문하기' : '장바구니 보기';
+
+  const toggleBasketAndConfirmModals = () => {
+    if (isBasketOpen) {
+      onBasketClose();
+      onConfirmOpen();
+    } else {
+      onBasketOpen();
+      onConfirmClose();
+    }
+  };
+
+  return basketItems.sumCount > 0 && !isConfirmOpen ? (
     <Flex
       alignItems="center"
       bgColor="white"
@@ -35,15 +38,23 @@ export const Footer = () => {
       w="100%"
       zIndex={2000}
     >
-      <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
-        <PrimaryCTAButton
-          count={basketItems.sumCount}
-          onClick={onButtonClick}
-          price={basketItems.sumPrice}
-          text={text}
-        />
-      </Box>
-      <BasketModal isOpen={isBasketModalOpen} onClose={onBasketModalClose} />
+      {!isConfirmOpen && (
+        <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
+          <PrimaryCTAButton
+            count={basketItems.sumCount}
+            onClick={toggleBasketAndConfirmModals}
+            price={basketItems.sumPrice}
+            text={text}
+          />
+        </Box>
+      )}
+      <BasketModal isOpen={isBasketOpen} onClose={onBasketClose} />
     </Flex>
-  ) : null;
+  ) : (
+    <ConfirmModal
+      isOpen={isConfirmOpen}
+      onBasketClose={onBasketClose}
+      onClose={toggleBasketAndConfirmModals}
+    />
+  );
 };
