@@ -32,14 +32,16 @@ export const BasketItems = () => {
       <HStack justifyContent="space-evenly" w="40%">
         <Button
           _hover={{ bgColor: null }}
+          alignItems="flex-end"
           aspectRatio={1}
           bgColor="black"
           borderRadius="full"
           color="white"
           onClick={() => removeItem(id)}
+          p={0}
           size="sm"
         >
-          <Text fontSize="xl" fontWeight={900}>
+          <Text fontSize="3xl" fontWeight={900}>
             -
           </Text>
         </Button>
@@ -48,14 +50,16 @@ export const BasketItems = () => {
         </Text>
         <Button
           _hover={{ bgColor: null }}
+          alignItems="flex-end"
           aspectRatio={1}
           bgColor="black"
           borderRadius="full"
           color="white"
           onClick={() => addItem(id)}
+          p={0}
           size="sm"
         >
-          <Text fontSize="xl" fontWeight={900}>
+          <Text fontSize="3xl" fontWeight={900}>
             +
           </Text>
         </Button>
