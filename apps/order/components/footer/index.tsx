@@ -2,14 +2,24 @@ import { Box, Flex, useDisclosure } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { basketItemsStore } from '../../app/stores';
 import { PrimaryCTAButton } from '../buttons/primary-cta-button';
-import { Modal } from '../modals/basket';
+import { Modal as BasketModal } from '../modals/basket';
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const text = isOpen ? '주문하기' : '장바구니 보기';
+  const {
+    isOpen: isBasketModalOpen,
+    onOpen: onBasketModalOpen,
+    onClose: onBasketModalClose,
+  } = useDisclosure();
+
+  const {
+    isOpen: isConfirmOrderModalOpen,
+    onOpen: onConfirmOrderModalOpen,
+    onClose: onConfirmOrderModalClose,
+  } = useDisclosure();
+  const text = isBasketModalOpen ? '주문하기' : '장바구니 보기';
   // TODO: 주문하기 로직 구현 시 action 추가 예정 Ticket: toss-order #31
-  const onButtonClick = isOpen ? () => {} : onOpen;
+  const onButtonClick = isBasketModalOpen ? onConfirmOrderModalOpen : onBasketModalOpen;
 
   return basketItems.sumCount > 0 ? (
     <Flex
@@ -33,7 +43,7 @@ export const Footer = () => {
           text={text}
         />
       </Box>
-      <Modal isOpen={isOpen} onClose={onClose} />
+      <BasketModal isOpen={isBasketModalOpen} onClose={onBasketModalClose} />
     </Flex>
   ) : null;
 };
