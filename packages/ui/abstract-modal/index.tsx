@@ -19,6 +19,7 @@ export const AbstractModal = ({ children, isOpen, onClose }: ModalT) => (
     </ModalContent>
   </Modal>
 );
+
 AbstractModal.Header = Header;
 AbstractModal.Body = Body;
 AbstractModal.Footer = Footer;
