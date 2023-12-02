@@ -1,24 +1,15 @@
-import { Box, Flex, HStack, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import { CTAButton } from 'ui/button';
 import { commaizeNumber } from '@toss/utils';
 
 type FooterT = {
-  onClose: () => void;
   onConfirm: () => void;
   price: number;
 };
 
-export const Footer = ({ onClose, price, onConfirm }: FooterT) => (
-  <HStack
-    alignItems="center"
-    // flexDirection="row-reverse"
-    h="5vh"
-    // justifyContent="space-evenly"
-    justifyContent="center"
-    mb="10px"
-    w="100%"
-  >
-    <Flex h="100%">
+export const Footer = ({ price, onConfirm }: FooterT) => (
+  <Flex alignItems="center" h="5vh" justifyContent="center" mb="10px" w="100%">
+    <Flex h="100%" w="fit-content">
       <CTAButton
         className="bg-blue"
         content={
@@ -29,16 +20,5 @@ export const Footer = ({ onClose, price, onConfirm }: FooterT) => (
         onClick={onConfirm}
       />
     </Flex>
-    {/* <Box h="100%" w="30%"> */}
-    {/*  <CTAButton */}
-    {/*    className="bg-orange" */}
-    {/*    content={ */}
-    {/*      <Text fontSize="lg" fontWeight={700}> */}
-    {/*        돌아가기 */}
-    {/*      </Text> */}
-    {/*    } */}
-    {/*    onClick={onClose} */}
-    {/*  /> */}
-    {/* </Box> */}
-  </HStack>
+  </Flex>
 );

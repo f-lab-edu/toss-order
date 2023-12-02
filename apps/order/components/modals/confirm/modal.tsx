@@ -1,4 +1,4 @@
-import { AbstractModal } from 'ui/abstract-modal';
+import { Modal as AbstractModal } from 'ui/abstract-modal';
 import { Box, Flex, Text, useToast } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
@@ -34,9 +34,6 @@ export const Modal = ({ isOpen, onBasketClose, onClose }: ConfirmModalT) => {
     });
     confirmOrder(basket);
   };
-  useEffect(() => {
-    console.log(test);
-  }, [test]);
 
   return (
     <AbstractModal isOpen={isOpen} onClose={onClose}>
@@ -50,9 +47,7 @@ export const Modal = ({ isOpen, onBasketClose, onClose }: ConfirmModalT) => {
           </Flex>
         }
       />
-      <AbstractModal.Footer
-        content={<Footer onClose={onClose} onConfirm={onConfirm} price={basket.sumPrice} />}
-      />
+      <AbstractModal.Footer content={<Footer onConfirm={onConfirm} price={basket.sumPrice} />} />
     </AbstractModal>
   );
 };
