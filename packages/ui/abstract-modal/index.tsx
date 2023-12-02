@@ -1,6 +1,6 @@
 import { Modal as ChakraModal } from '@chakra-ui/modal';
 import { ModalContent, ModalOverlay } from '@chakra-ui/react';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Header } from './header';
 import { Body } from './body';
 import { Footer } from './footer';
@@ -10,6 +10,7 @@ type ModalT = {
   isOpen: boolean;
   onClose: () => void;
 };
+
 export const AbstractModal = ({ children, isOpen, onClose }: ModalT) => (
   <ChakraModal
     initialFocusRef={null}
@@ -25,6 +26,7 @@ export const AbstractModal = ({ children, isOpen, onClose }: ModalT) => (
     </ModalContent>
   </ChakraModal>
 );
+
 AbstractModal.Header = Header;
 AbstractModal.Body = Body;
 AbstractModal.Footer = Footer;
