@@ -7,12 +7,12 @@ type HeaderT = {
 };
 
 export const Header = ({ onClose, title }: HeaderT) => (
-  <ModalHeader borderBottom="1px solid lightgray" flex="none" h="8vh" py={0}>
+  <ModalHeader borderBottom="1px solid lightgray" flex="none" h="8vh" minH="80px" py={0}>
     <HStack h="100%" justifyContent="space-between" py={0} w="100%">
       <Text fontSize="2xl" fontWeight={900}>
         {title}
       </Text>
-      <Flex flexBasis="25%" h="50%">
+      <Flex flexBasis="25%" h="50%" minH="36px" my="auto">
         <CTAButton
           className="bg-pink"
           content={

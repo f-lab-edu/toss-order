@@ -12,9 +12,15 @@ type ModalT = {
 };
 
 export const Modal = ({ children, isOpen, onClose }: ModalT) => (
-  <ChakraModal isCentered isOpen={isOpen} motionPreset="slideInBottom" onClose={onClose} scrollBehavior="inside">
+  <ChakraModal
+    isCentered
+    isOpen={isOpen}
+    motionPreset="slideInBottom"
+    onClose={onClose}
+    scrollBehavior="inside"
+  >
     <ModalOverlay />
-    <ModalContent borderRadius="3xl" maxW={document.body.clientWidth * 0.92}>
+    <ModalContent borderRadius="3xl" maxW="560px" minH="300px" mx="auto">
       {children}
     </ModalContent>
   </ChakraModal>
