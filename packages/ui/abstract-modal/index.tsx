@@ -11,15 +11,8 @@ type ModalT = {
   onClose: () => void;
 };
 
-export const AbstractModal = ({ children, isOpen, onClose }: ModalT) => (
-  <ChakraModal
-    initialFocusRef={null}
-    isCentered
-    isOpen={isOpen}
-    motionPreset="slideInBottom"
-    onClose={onClose}
-    scrollBehavior="inside"
-  >
+export const Modal = ({ children, isOpen, onClose }: ModalT) => (
+  <ChakraModal isCentered isOpen={isOpen} motionPreset="slideInBottom" onClose={onClose} scrollBehavior="inside">
     <ModalOverlay />
     <ModalContent borderRadius="3xl" maxW={document.body.clientWidth * 0.92}>
       {children}
@@ -27,6 +20,6 @@ export const AbstractModal = ({ children, isOpen, onClose }: ModalT) => (
   </ChakraModal>
 );
 
-AbstractModal.Header = Header;
-AbstractModal.Body = Body;
-AbstractModal.Footer = Footer;
+Modal.Header = Header;
+Modal.Body = Body;
+Modal.Footer = Footer;
