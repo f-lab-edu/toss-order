@@ -11,7 +11,7 @@ export const BillItems = () => {
       {Object.entries(basketItems)?.map(([id, data]) => (
         <Flex
           key={id}
-          borderBottom="1px solid lightgray"
+          borderTop="1px solid lightgray"
           justifyContent="space-between"
           px="4%"
           py="10px"
