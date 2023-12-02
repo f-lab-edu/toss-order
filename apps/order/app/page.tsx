@@ -5,9 +5,11 @@ import { Stack } from '@chakra-ui/react';
 import { MenuContainer } from '../components/menu';
 import { MenuSkeleton } from '../components/menu/skeleton';
 import { Footer } from '../components/footer';
+import { Header } from '../components/header';
 
 const Page: () => JSX.Element = () => (
   <Stack position="relative">
+    <Header />
     <Suspense fallback={<MenuSkeleton />}>
       <MenuContainer />
     </Suspense>
