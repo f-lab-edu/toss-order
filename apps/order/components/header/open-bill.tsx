@@ -2,7 +2,7 @@ import { CTAButton } from 'ui/button';
 import { Box, Text } from '@chakra-ui/react';
 
 export const OpenBill: () => JSX.Element = () => (
-  <Box h="2.5rem" w="28%">
+  <Box h="2.5rem" w="6rem">
     <CTAButton
       className="bg-blue"
       content={
