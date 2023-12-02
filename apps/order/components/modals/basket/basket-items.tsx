@@ -1,5 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Box, Button, Flex, HStack, Text, VStack } from '@chakra-ui/react';
+import { Button, Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
 import { addItemInBasket, basketItemsStore, removeItemFromBasket } from '../../../app/stores';
 
@@ -13,6 +13,29 @@ type BasketItemsT = { [key: string]: BasketItemT } & {
   sumCount: number;
   sumPrice: number;
 };
+
+type ModQuantityButtonT = {
+  onClick: () => void;
+  sign: string;
+};
+
+const ModQuantityButton = ({ onClick, sign }: ModQuantityButtonT) => (
+  <Button
+    _hover={{ bgColor: null }}
+    alignItems="flex-end"
+    aspectRatio={1}
+    bgColor="black"
+    borderRadius="full"
+    color="white"
+    onClick={onClick}
+    p={0}
+    size="sm"
+  >
+    <Text fontSize="3xl" fontWeight={900}>
+      {sign}
+    </Text>
+  </Button>
+);
 
 export const BasketItems = () => {
   const { sumCount, sumPrice, ...basketItems }: BasketItemsT = useRecoilValue(basketItemsStore);
@@ -30,41 +53,13 @@ export const BasketItems = () => {
         </Text>
       </VStack>
       <HStack justifyContent="space-evenly" w="40%">
-        <Button
-          _hover={{ bgColor: null }}
-          alignItems="flex-end"
-          aspectRatio={1}
-          bgColor="black"
-          borderRadius="full"
-          color="white"
-          onClick={() => removeItem(id)}
-          p={0}
-          size="sm"
-        >
-          <Text fontSize="3xl" fontWeight={900}>
-            -
-          </Text>
-        </Button>
+        <ModQuantityButton onClick={() => removeItem(id)} sign="-" />
         <Flex flexBasis="40%" justifyContent="center">
           <Text fontSize="2xl" fontWeight={900}>
             {data.count}
           </Text>
         </Flex>
-        <Button
-          _hover={{ bgColor: null }}
-          alignItems="flex-end"
-          aspectRatio={1}
-          bgColor="black"
-          borderRadius="full"
-          color="white"
-          onClick={() => addItem(id)}
-          p={0}
-          size="sm"
-        >
-          <Text fontSize="3xl" fontWeight={900}>
-            +
-          </Text>
-        </Button>
+        <ModQuantityButton onClick={() => addItem(id)} sign="+" />
       </HStack>
     </HStack>
   ));
