@@ -7,6 +7,7 @@ export const Header = () => (
     alignItems="center"
     bgColor="white"
     borderBottom="2px solid lightgray"
+    gap={0}
     justifyContent="space-between"
     minH="10vh"
     pb="2vh"
@@ -17,8 +18,8 @@ export const Header = () => (
     zIndex={1}
   >
     <CallStaff />
-    <Text fontSize="2xl" fontWeight={900}>
-      메 뉴 판
+    <Text fontSize="2xl" fontWeight={900} letterSpacing="0.5rem">
+      메뉴판
     </Text>
     <OpenBill />
   </HStack>
