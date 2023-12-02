@@ -1,11 +1,11 @@
 import { format } from 'date-fns';
 import { atom, selector, RecoilState } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
-import { basketItemsStore } from './basket-store';
 
 type BasketItemT = {
   count: number;
   name: string;
+  price: number;
   totalPrice: number;
 };
 
@@ -15,11 +15,11 @@ type BasketItemsT = { [key: string]: BasketItemT } & {
 };
 
 type ItemT = {
+  count: number;
   id: string;
   name: string;
-  orderTime: string;
+  orderedTime: string;
   price: number;
-  quantity: number;
   totalPrice: number;
 };
 
@@ -41,13 +41,12 @@ export const moveBasketToHistory = selector({
   set: ({ set, get }, basket: BasketItemsT) => {
     const currentHistory = get(orderHistoryStore);
     const { sumPrice, sumCount, ...basketItems } = basket;
-    const currentTime = format(new Date(), 'HH:mm');
+    const currentTime = Date.now();
 
     const newItems = Object.entries(basketItems).reduce((acc, [id, item]) => {
-      acc[id + currentTime] = { ...item, orderTime: currentTime };
+      acc[`${id}-${currentTime.toString()}`] = { ...item, orderedTime: format(currentTime, 'HH:mm') };
       return acc;
     }, {});
-
     const newSumPrice: number = (currentHistory.sumPrice || 0) + sumPrice;
 
     set(orderHistoryStore, {

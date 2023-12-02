@@ -13,6 +13,7 @@ type MenuItemT = {
 type BasketItemT = {
   count: number;
   name: string;
+  price: number;
   totalPrice: number;
 };
 
@@ -40,6 +41,7 @@ export const addItemInBasket = selector({
     const itemToBeUpdated: BasketItemT = {
       count: (itemInBasket?.count || 0) + 1,
       name: itemInBasket?.name || menuItem?.name || '',
+      price: menuItem.price.defaultPrice,
       totalPrice: menuItem.price.defaultPrice * ((itemInBasket?.count || 0) + 1),
     };
 
@@ -75,6 +77,7 @@ export const removeItemFromBasket = selector({
       const itemToBeUpdated: BasketItemT = {
         count: itemInBasket.count - 1,
         name: itemInBasket.name,
+        price: menuItem.price.defaultPrice,
         totalPrice: menuItem.price.defaultPrice * (itemInBasket.count - 1),
       };
 
