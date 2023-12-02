@@ -18,7 +18,7 @@ export const Header = () => (
     zIndex={1}
   >
     <CallStaff />
-    <Text fontSize="2xl" fontWeight={900} letterSpacing="0.5rem">
+    <Text fontSize="calc(min(1.5rem + 1vw, 2rem))" fontWeight={900} letterSpacing="0.5rem">
       메뉴판
     </Text>
     <OpenBill />
