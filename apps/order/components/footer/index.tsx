@@ -31,21 +31,21 @@ export const Footer = () => {
     }
   }, [basketItems.sumCount]);
 
-  return basketItems.sumCount > 0 && !isConfirmOpen ? (
-    <Flex
-      alignItems="center"
-      bgColor="white"
-      borderTop="4px solid lightgray"
-      bottom="-1px"
-      flexDirection="column"
-      h="12vh"
-      justifyContent="center"
-      position="sticky"
-      px="4%"
-      w="100%"
-      zIndex={2000}
-    >
-      {!isConfirmOpen && (
+  return (
+    basketItems.sumCount > 0 && (
+      // return basketItems.sumCount > 0 && !isBasketOpen ? (
+      <Flex
+        alignItems="center"
+        bgColor="white"
+        borderTop="4px solid lightgray"
+        bottom="-1px"
+        flexDirection="column"
+        h="12vh"
+        justifyContent="center"
+        position="sticky"
+        px="4%"
+        w="100%"
+      >
         <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
           <PrimaryCTAButton
             count={basketItems.sumCount}
@@ -54,14 +54,8 @@ export const Footer = () => {
             text={text}
           />
         </Box>
-      )}
-      <BasketModal isOpen={isBasketOpen} onClose={onBasketClose} />
-    </Flex>
-  ) : (
-    <ConfirmModal
-      isOpen={isConfirmOpen}
-      onBasketClose={onBasketClose}
-      onClose={toggleBasketAndConfirmModals}
-    />
+        <BasketModal isOpen={isBasketOpen} onClose={onBasketClose} />
+      </Flex>
+    )
   );
 };

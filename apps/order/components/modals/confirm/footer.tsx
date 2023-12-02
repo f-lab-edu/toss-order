@@ -11,9 +11,10 @@ type FooterT = {
 export const Footer = ({ onClose, price, onConfirm }: FooterT) => (
   <HStack
     alignItems="center"
-    flexDirection="row-reverse"
+    // flexDirection="row-reverse"
     h="5vh"
-    justifyContent="space-evenly"
+    // justifyContent="space-evenly"
+    justifyContent="center"
     mb="10px"
     w="100%"
   >
@@ -28,16 +29,16 @@ export const Footer = ({ onClose, price, onConfirm }: FooterT) => (
         onClick={onConfirm}
       />
     </Flex>
-    <Box h="100%" w="30%">
-      <CTAButton
-        className="bg-orange"
-        content={
-          <Text fontSize="lg" fontWeight={700}>
-            취소하기
-          </Text>
-        }
-        onClick={onClose}
-      />
-    </Box>
+    {/* <Box h="100%" w="30%"> */}
+    {/*  <CTAButton */}
+    {/*    className="bg-orange" */}
+    {/*    content={ */}
+    {/*      <Text fontSize="lg" fontWeight={700}> */}
+    {/*        돌아가기 */}
+    {/*      </Text> */}
+    {/*    } */}
+    {/*    onClick={onClose} */}
+    {/*  /> */}
+    {/* </Box> */}
   </HStack>
 );

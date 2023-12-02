@@ -1,9 +1,11 @@
 import { AbstractModal } from 'ui/abstract-modal';
 import { Box, Flex, Text, useToast } from '@chakra-ui/react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
+import { useEffect } from 'react';
 import { Footer } from './footer';
 import { basketItemsStore } from '../../../app/stores';
+import { moveBasketToHistory, orderHistoryStore } from '../../../app/stores/history-store';
 
 type ConfirmModalT = {
   isOpen: boolean;
@@ -14,6 +16,8 @@ type ConfirmModalT = {
 export const Modal = ({ isOpen, onBasketClose, onClose }: ConfirmModalT) => {
   const [basket, setBasket] = useRecoilState(basketItemsStore);
   const toast = useToast();
+  const confirmOrder = useSetRecoilState(moveBasketToHistory);
+  const test = useRecoilValue(orderHistoryStore);
 
   const onConfirm = () => {
     onClose();
@@ -28,11 +32,15 @@ export const Modal = ({ isOpen, onBasketClose, onClose }: ConfirmModalT) => {
         marginBottom: '50vh',
       },
     });
+    confirmOrder(basket);
   };
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
 
   return (
     <AbstractModal isOpen={isOpen} onClose={onClose}>
-      <AbstractModal.Header displayCloseButton={false} onClose={onClose} title="주문 확인" />
+      <AbstractModal.Header onClose={onClose} title="주문 확인" />
       <AbstractModal.Body
         content={
           <Flex alignItems="center" justifyContent="center" px="5%" py="4vh">

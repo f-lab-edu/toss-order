@@ -1,24 +1,27 @@
-import { Box, Flex } from '@chakra-ui/react';
-import { CTAButton } from 'ui/button';
+import { Flex, HStack, Text } from '@chakra-ui/react';
+import { CallStaff } from './call-staff';
+import { OpenBill } from './open-bill';
 
 const Header = () => (
-  <Flex
+  <HStack
     alignItems="center"
     bgColor="white"
-    h="50px"
-    justifyContent="space-around"
+    borderBottom="1px solid lightgray"
+    justifyContent="space-between"
+    minH="10vh"
+    pb="2vh"
     position="sticky"
+    px="4%"
     top={0}
     w="100%"
     zIndex={1}
   >
-    <Box h={10}>
-      <CTAButton className="bg-blue" content={<>직원 호출</>} />
-    </Box>
-    <Box h={10}>
-      <CTAButton className="bg-blue" content={<>계산서 보기</>} />
-    </Box>
-  </Flex>
+    <CallStaff />
+    <Text fontSize="2xl" fontWeight={900}>
+      메 뉴 판
+    </Text>
+    <OpenBill />
+  </HStack>
 );
 
 export { Header };

@@ -4,6 +4,7 @@ import { CTAButton } from 'ui/button';
 import { Menu } from './menu';
 import { basketItemsStore, menuItemsStore, addItemInBasket } from '../../app/stores';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
+import { orderHistoryStore } from '../../app/stores/history-store';
 
 type ItemT = {
   imageSrc: string;
@@ -18,7 +19,11 @@ const MenuContainer = () => {
 
   useMenuItems();
 
-  const resetBasket = () => setBasketItems({});
+  const setOrderHistory = useSetRecoilState(orderHistoryStore);
+  const resetBasket = () => {
+    setBasketItems({});
+    setOrderHistory({});
+  };
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
 
@@ -29,24 +34,24 @@ const MenuContainer = () => {
   return (
     <VStack alignItems="center" justifyContent="center" mb="1rem" px="4%">
       <Stack alignItems="center" w="100%">
-        <Stack alignItems="center" h="50px" mt={2} w="100%">
-          {/* // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED */}
-          <CTAButton
-            className="bg-orange"
-            content={
-              <Text fontSize="xl" fontWeight="extrabold">
-                장바구니 비우기(FOR DEV ONLY)
-              </Text>
-            }
-            onClick={resetBasket}
-          />
-        </Stack>
         {Object.entries(menuItems)?.map(([id, data]: [string, ItemT]) => (
           <Menu key={id}>
             <Menu.ItemArea {...data} />
             <Menu.ButtonArea onClick={() => addItem(id)} quantity={getQuantity(id)} />
           </Menu>
         ))}
+      </Stack>
+      <Stack alignItems="center" h="50px" mt={2} w="100%">
+        {/* // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED */}
+        <CTAButton
+          className="bg-orange"
+          content={
+            <Text fontSize="xl" fontWeight="extrabold">
+              초기화 (FOR DEV ONLY)
+            </Text>
+          }
+          onClick={resetBasket}
+        />
       </Stack>
     </VStack>
   );
