@@ -1,5 +1,5 @@
-import { Box, Flex, Stack, useDisclosure, VStack } from '@chakra-ui/react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { Flex, useDisclosure } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
 import { basketItemsStore } from '../../../app/stores';
 import { ConfirmModal } from '../confirm';
@@ -10,7 +10,7 @@ export const Footer = ({ onBasketClose }: { onBasketClose: () => void }) => {
   return (
     <Flex
       alignItems="center"
-      borderTop="2px solid black"
+      borderTop="2px solid lightgray"
       flexDirection="column"
       h="100%"
       justifyContent="center"
@@ -18,12 +18,7 @@ export const Footer = ({ onBasketClose }: { onBasketClose: () => void }) => {
       w="100%"
     >
       <Flex flexBasis="60%" w="90%">
-        <PrimaryCTAButton
-          // count={basketItems.sumCount}
-          onClick={onOpen}
-          price={basketItems.sumPrice}
-          text="주문하기"
-        />
+        <PrimaryCTAButton onClick={onOpen} price={basketItems.sumPrice} text="주문하기" />
       </Flex>
       <ConfirmModal isOpen={isOpen} onBasketClose={onBasketClose} onClose={onClose} />
     </Flex>
