@@ -2,7 +2,7 @@ import { CTAButton } from 'ui/button';
 import { Box, Text } from '@chakra-ui/react';
 
 export const CallStaff: () => JSX.Element = () => (
-  <Box h={10} w="24%">
+  <Box h="2.5rem" w="24%">
     <CTAButton
       className="bg-blue"
       content={
@@ -10,6 +10,7 @@ export const CallStaff: () => JSX.Element = () => (
           직원 호출
         </Text>
       }
+      onClick={() => {}}
     />
   </Box>
 );

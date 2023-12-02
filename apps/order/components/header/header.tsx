@@ -1,12 +1,12 @@
-import { Flex, HStack, Text } from '@chakra-ui/react';
+import { HStack, Text } from '@chakra-ui/react';
 import { CallStaff } from './call-staff';
 import { OpenBill } from './open-bill';
 
-const Header = () => (
+export const Header = () => (
   <HStack
     alignItems="center"
     bgColor="white"
-    borderBottom="1px solid lightgray"
+    borderBottom="2px solid lightgray"
     justifyContent="space-between"
     minH="10vh"
     pb="2vh"
@@ -23,5 +23,3 @@ const Header = () => (
     <OpenBill />
   </HStack>
 );
-
-export { Header };
