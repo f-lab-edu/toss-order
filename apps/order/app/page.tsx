@@ -6,6 +6,7 @@ import { MenuContainer } from '../components/menu';
 import { MenuSkeleton } from '../components/menu/skeleton';
 import { Footer } from '../components/footer';
 import { Header } from '../components/header';
+import { Modals } from '../components/modals';
 
 const Page: () => JSX.Element = () => (
   <Stack position="relative">
@@ -14,6 +15,7 @@ const Page: () => JSX.Element = () => (
       <MenuContainer />
     </Suspense>
     <Footer />
+    <Modals />
   </Stack>
 );
 
