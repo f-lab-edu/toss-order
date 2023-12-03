@@ -4,14 +4,14 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Footer } from './footer';
 import { basketItemsStore } from '../../../app/stores';
 import { moveBasketToHistory } from '../../../app/stores/history-store';
-import { useRecoilDisclosure } from '../../../app/lib/utils/useDisclosure';
+import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
 
 export const Modal = () => {
   const [basket, setBasket] = useRecoilState(basketItemsStore);
   const toast = useToast();
   const confirmOrder = useSetRecoilState(moveBasketToHistory);
-  const { isOpen, onClose } = useRecoilDisclosure('confirm');
-  const { onClose: onBasketClose } = useRecoilDisclosure('basket');
+  const { isOpen, onClose } = useStoredModalState('confirm');
+  const { onClose: onBasketClose } = useStoredModalState('basket');
 
   const onConfirm = () => {
     onClose();

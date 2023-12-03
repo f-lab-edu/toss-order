@@ -31,7 +31,12 @@ export const Footer = () => {
         w="100%"
       >
         <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
-          <PrimaryCTAButton count={basketItems.sumCount} onClick={onOpen} price={basketItems.sumPrice} text="장바구니 보기" />
+          <PrimaryCTAButton
+            count={basketItems.sumCount}
+            onClick={onOpen}
+            price={basketItems.sumPrice}
+            text="장바구니 보기"
+          />
         </Box>
       </Flex>
     )

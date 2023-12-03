@@ -1,13 +1,8 @@
 import { Flex } from '@chakra-ui/react';
-import { useRecoilValue } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
-import { basketItemsStore } from '../../../app/stores';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
 
 export const Footer = () => {
-  const basketItems = useRecoilValue(basketItemsStore);
-  const { onOpen } = useStoredModalState('confirm');
-
+  const a = 1;
   return (
     <Flex
       alignItems="center"
@@ -19,7 +14,7 @@ export const Footer = () => {
       w="100%"
     >
       <Flex flexBasis="80%" w="90%">
-        <PrimaryCTAButton onClick={onOpen} price={basketItems.sumPrice} text="주문하기" />
+        <PrimaryCTAButton onClick={() => {}} price={10000} text="장바구니에 담기" />
       </Flex>
     </Flex>
   );

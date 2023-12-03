@@ -1,10 +1,10 @@
 import { CTAButton } from 'ui/button';
 import { Box, Text } from '@chakra-ui/react';
 import { BillModal } from '../modals/bill';
-import { useRecoilDisclosure } from '../../app/lib/utils/useDisclosure';
+import { useStoredModalState } from '../../app/lib/utils/useStoredModalState';
 
 export const OpenBill: () => JSX.Element = () => {
-  const { isOpen, onOpen, onClose } = useRecoilDisclosure('bill');
+  const { isOpen, onOpen, onClose } = useStoredModalState('bill');
   return (
     <Box flexBasis="130px" h="2.5rem">
       <CTAButton

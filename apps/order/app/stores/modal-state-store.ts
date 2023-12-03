@@ -6,5 +6,11 @@ export const modalStateStore = atom({
     basket: { isOpen: false },
     confirm: { isOpen: false },
     bill: { isOpen: false },
+    menuDetail: { isOpen: false },
   },
+});
+
+export const menuDetailModalID = atom({
+  key: 'menuDetailModalID',
+  default: '',
 });

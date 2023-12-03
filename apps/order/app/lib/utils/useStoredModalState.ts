@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { modalStateStore } from '../../stores/modal-state-store';
 
-type ModalNamesT = 'basket';
+type ModalNamesT = 'basket' | 'confirm' | 'bill' | 'menuDetail';
 
 export const useStoredModalState = (modalName: ModalNamesT) => {
   const [isOpenStates, setIsOpenStates] = useRecoilState(modalStateStore);

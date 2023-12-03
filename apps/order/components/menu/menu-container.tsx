@@ -36,7 +36,7 @@ const MenuContainer = () => {
       <Stack alignItems="center" w="100%">
         {Object.entries(menuItems)?.map(([id, data]: [string, ItemT]) => (
           <Menu key={id}>
-            <Menu.ItemArea {...data} />
+            <Menu.ItemArea {...{ id, ...data }} />
             <Menu.ButtonArea onClick={() => addItem(id)} quantity={getQuantity(id)} />
           </Menu>
         ))}
