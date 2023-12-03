@@ -1,23 +1,17 @@
 import { Modal as AbstractModal } from 'ui/abstract-modal';
-import { Box, Flex, Text, useToast } from '@chakra-ui/react';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { CTAButton } from 'ui/button';
-import { useEffect } from 'react';
+import { Flex, Text, useToast } from '@chakra-ui/react';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Footer } from './footer';
 import { basketItemsStore } from '../../../app/stores';
-import { moveBasketToHistory, orderHistoryStore } from '../../../app/stores/history-store';
+import { moveBasketToHistory } from '../../../app/stores/history-store';
+import { useRecoilDisclosure } from '../../../app/lib/utils/useDisclosure';
 
-type ConfirmModalT = {
-  isOpen: boolean;
-  onBasketClose: () => void;
-  onClose: () => void;
-};
-
-export const Modal = ({ isOpen, onBasketClose, onClose }: ConfirmModalT) => {
+export const Modal = () => {
   const [basket, setBasket] = useRecoilState(basketItemsStore);
   const toast = useToast();
   const confirmOrder = useSetRecoilState(moveBasketToHistory);
-  const test = useRecoilValue(orderHistoryStore);
+  const { isOpen, onClose } = useRecoilDisclosure('confirm');
+  const { onClose: onBasketClose } = useRecoilDisclosure('basket');
 
   const onConfirm = () => {
     onClose();

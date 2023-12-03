@@ -1,9 +1,10 @@
 import { CTAButton } from 'ui/button';
-import { Box, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { BillModal } from '../modals/bill';
+import { useRecoilDisclosure } from '../../app/lib/utils/useDisclosure';
 
 export const OpenBill: () => JSX.Element = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useRecoilDisclosure('bill');
   return (
     <Box flexBasis="130px" h="2.5rem">
       <CTAButton

@@ -11,6 +11,6 @@ export const Modal = ({ isOpen, onClose }: BasketModalT) => (
   <AbstractModal isOpen={isOpen} onClose={onClose}>
     <AbstractModal.Header onClose={onClose} title="장바구니" />
     <AbstractModal.Body content={<BasketItems />} />
-    <AbstractModal.Footer content={<Footer onBasketClose={onClose} />} />
+    <AbstractModal.Footer content={<Footer />} />
   </AbstractModal>
 );

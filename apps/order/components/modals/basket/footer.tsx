@@ -1,18 +1,20 @@
-import { Flex, useDisclosure } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
 import { basketItemsStore } from '../../../app/stores';
 import { ConfirmModal } from '../confirm';
+import { useRecoilDisclosure } from '../../../app/lib/utils/useDisclosure';
 
-export const Footer = ({ onBasketClose }: { onBasketClose: () => void }) => {
+export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onOpen } = useRecoilDisclosure('confirm');
+
   return (
     <Flex
       alignItems="center"
       borderTop="2px solid lightgray"
       flexDirection="column"
-      h="100%"
+      h="0"
       justifyContent="center"
       minH="80px"
       w="100%"
@@ -20,7 +22,7 @@ export const Footer = ({ onBasketClose }: { onBasketClose: () => void }) => {
       <Flex flexBasis="60%" w="90%">
         <PrimaryCTAButton onClick={onOpen} price={basketItems.sumPrice} text="주문하기" />
       </Flex>
-      <ConfirmModal isOpen={isOpen} onBasketClose={onBasketClose} onClose={onClose} />
+      <ConfirmModal />
     </Flex>
   );
 };
