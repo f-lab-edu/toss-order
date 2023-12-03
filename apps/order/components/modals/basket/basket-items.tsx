@@ -1,7 +1,8 @@
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Button, Flex, HStack, Text, VStack } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
+import { Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
-import { addItemInBasket, basketItemsStore, removeItemFromBasket } from '../../../app/stores';
+import { basketItemsStore } from '../../../app/stores';
+import { AddButton, RemoveButton } from '../../buttons/edit-item-count';
 
 type BasketItemT = {
   count: number;
@@ -14,33 +15,8 @@ type BasketItemsT = { [key: string]: BasketItemT } & {
   sumPrice: number;
 };
 
-type ModQuantityButtonT = {
-  onClick: () => void;
-  sign: string;
-};
-
-const ModQuantityButton = ({ onClick, sign }: ModQuantityButtonT) => (
-  <Button
-    _hover={{ bgColor: null }}
-    alignItems="flex-end"
-    aspectRatio={1}
-    bgColor="black"
-    borderRadius="full"
-    color="white"
-    onClick={onClick}
-    p={0}
-    size="sm"
-  >
-    <Text fontSize="3xl" fontWeight={900}>
-      {sign}
-    </Text>
-  </Button>
-);
-
 export const BasketItems = () => {
   const { sumCount, sumPrice, ...basketItems }: BasketItemsT = useRecoilValue(basketItemsStore);
-  const addItem = useSetRecoilState(addItemInBasket);
-  const removeItem = useSetRecoilState(removeItemFromBasket);
 
   return Object.entries(basketItems)?.map(([id, data]: [string, BasketItemT]) => (
     <HStack key={id} borderTop="1px solid lightgray" justifyContent="space-between" px="4%">
@@ -53,13 +29,13 @@ export const BasketItems = () => {
         </Text>
       </VStack>
       <HStack justifyContent="space-evenly" w="40%">
-        <ModQuantityButton onClick={() => removeItem(id)} sign="-" />
+        <RemoveButton id={id} />
         <Flex flexBasis="40%" justifyContent="center">
           <Text fontSize="2xl" fontWeight={900}>
             {data.count}
           </Text>
         </Flex>
-        <ModQuantityButton onClick={() => addItem(id)} sign="+" />
+        <AddButton id={id} />
       </HStack>
     </HStack>
   ));
