@@ -16,7 +16,7 @@ export const Footer = () => {
       minH="80px"
       w="100%"
     >
-      <Flex flexBasis="60%" w="90%">
+      <Flex flexBasis="80%" w="90%">
         {/* TODO: 주문 확인 Modal 구현 후 open하는 함수가 할당될 예정 ticket: toss-order #34 */}
         <PrimaryCTAButton onClick={() => {}} price={basketItems.sumPrice} text="주문하기" />
       </Flex>
