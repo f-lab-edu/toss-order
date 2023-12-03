@@ -2,12 +2,9 @@ import { Flex } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
 import { basketItemsStore } from '../../../app/stores';
-import { ConfirmModal } from '../confirm';
-import { useRecoilDisclosure } from '../../../app/lib/utils/useDisclosure';
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const { onOpen } = useRecoilDisclosure('confirm');
 
   return (
     <Flex
@@ -20,9 +17,9 @@ export const Footer = () => {
       w="100%"
     >
       <Flex flexBasis="60%" w="90%">
-        <PrimaryCTAButton onClick={onOpen} price={basketItems.sumPrice} text="주문하기" />
+        {/* TODO: 주문 확인 Modal 구현 후 open하는 함수가 할당될 예정 ticket: toss-order #34 */}
+        <PrimaryCTAButton onClick={() => {}} price={basketItems.sumPrice} text="주문하기" />
       </Flex>
-      <ConfirmModal />
     </Flex>
   );
 };
