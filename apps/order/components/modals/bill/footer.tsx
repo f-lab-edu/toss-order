@@ -6,8 +6,8 @@ import { orderHistoryStore } from '../../../app/stores/history-store';
 export const Footer = () => {
   const { sumPrice } = useRecoilValue(orderHistoryStore);
   return (
-    <Flex borderTop="2px solid lightgray" h="100%" justifyContent="center" w="100%">
-      <Flex alignItems="center" h="80%" justifyContent="space-between" mb="auto" px="10%" w="100%">
+    <Flex borderTop="2px solid lightgray" h="0" justifyContent="center" mb="auto" minH="80px" w="100%">
+      <Flex alignItems="center" h="80%" justifyContent="space-between" px="10%" w="100%">
         <Text fontSize="2xl" fontWeight={800}>
           합계
         </Text>

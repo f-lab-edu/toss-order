@@ -1,10 +1,9 @@
 import { CTAButton } from 'ui/button';
 import { Box, Text } from '@chakra-ui/react';
-import { BillModal } from '../modals/bill';
 import { useStoredModalState } from '../../app/lib/utils/useStoredModalState';
 
 export const OpenBill: () => JSX.Element = () => {
-  const { isOpen, onOpen, onClose } = useStoredModalState('bill');
+  const { onOpen } = useStoredModalState('bill');
   return (
     <Box flexBasis="130px" h="2.5rem">
       <CTAButton
@@ -14,10 +13,8 @@ export const OpenBill: () => JSX.Element = () => {
             계산서 보기
           </Text>
         }
-        // TODO: 계산서 Modal이 구현된 후 open modal이 할당될 예정 Ticket: toss-order #14
         onClick={onOpen}
       />
-      <BillModal isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

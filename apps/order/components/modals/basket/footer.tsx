@@ -6,7 +6,12 @@ import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState'
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const { onOpen } = useStoredModalState('confirm');
+  const { onClose: onBasketClose } = useStoredModalState('basket');
+  const { onOpen: onConfirmOpen } = useStoredModalState('confirm');
+  const toggleModal = () => {
+    onBasketClose();
+    onConfirmOpen();
+  };
 
   return (
     <Flex
@@ -15,11 +20,12 @@ export const Footer = () => {
       flexDirection="column"
       h="0"
       justifyContent="center"
+      mb="auto"
       minH="80px"
       w="100%"
     >
       <Flex flexBasis="80%" w="90%">
-        <PrimaryCTAButton onClick={onOpen} price={basketItems.sumPrice} text="주문하기" />
+        <PrimaryCTAButton onClick={toggleModal} price={basketItems.sumPrice} text="주문하기" />
       </Flex>
     </Flex>
   );

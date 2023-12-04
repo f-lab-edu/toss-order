@@ -1,4 +1,4 @@
-import { Stack, VStack, Text } from '@chakra-ui/react';
+import { Stack, VStack, Text, useToast } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
 import { Menu } from './menu';
@@ -20,9 +20,20 @@ const MenuContainer = () => {
   useMenuItems();
 
   const setOrderHistory = useSetRecoilState(orderHistoryStore);
+
+  const toast = useToast();
   const resetBasket = () => {
     setBasketItems({});
     setOrderHistory({});
+    toast({
+      title: '초기화 되었습니다.',
+      status: 'success',
+      duration: 500,
+      isClosable: true,
+      containerStyle: {
+        marginBottom: '50vh',
+      },
+    });
   };
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;

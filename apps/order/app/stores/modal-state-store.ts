@@ -10,7 +10,7 @@ export const modalStateStore = atom({
   },
 });
 
-export const menuDetailModalID = atom({
-  key: 'menuDetailModalID',
-  default: '',
+export const menuDetailModalStore = atom({
+  key: 'menuDetailModalStore',
+  default: { id: '', quantity: 0 },
 });

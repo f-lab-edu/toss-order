@@ -1,6 +1,13 @@
-import { Box, Flex, HStack, VStack } from '@chakra-ui/react';
+import { Box, Flex, Text as ChakraText, HStack, VStack, Button } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { Text } from './text';
 import { Image } from './image';
+import { QuantityContext } from '../modal';
+import preview from '../../../../.storybook/preview';
+import { menuDetailModalStore } from '../../../../app/stores/modal-state-store';
+import { AddButton, SubtractButton } from './button';
+import { RemoveButton } from '../../../buttons/edit-item-count';
 
 type ItemT = {
   detail: string;
@@ -9,16 +16,30 @@ type ItemT = {
   price: { defaultPrice: number };
 };
 
-export const Item = ({ detail, imageSrc, name, price }: ItemT): JSX.Element => (
-  <VStack aspectRatio={2} w="100%">
-    <HStack h="100%" justifyContent="space-between" mt="2vh" px="4%" w="100%">
-      <Flex h="100%" mr="10%" mt="2vh" w="100%">
-        <Text detail={detail} name={name} price={price} />
-      </Flex>
-      <Flex h="100%">
-        <Image alt={name} src={imageSrc} />
-      </Flex>
-    </HStack>
-    <Box bgColor="red" h="30%" w="100%" />
-  </VStack>
-);
+export const Item = ({ detail, imageSrc, name, price }: ItemT): JSX.Element => {
+  const { quantity } = useRecoilValue(menuDetailModalStore);
+  return (
+    <VStack w="100%">
+      <HStack aspectRatio={2} justifyContent="space-between" mt="2vh" px="4%" w="100%">
+        <Flex h="100%" mr="2%" mt="2vh" w="100%">
+          <Text detail={detail} name={name} price={price} />
+        </Flex>
+        <Flex h="100%">
+          <Image alt={name} src={imageSrc} />
+        </Flex>
+      </HStack>
+      <HStack h="5vh" justifyContent="space-evenly" my="2vh" w="100%">
+        <ChakraText flexGrow="2" fontSize="2xl" fontWeight={900} pl="10%">
+          수량
+        </ChakraText>
+        <Flex flexGrow="2" justifyContent="space-evenly">
+          <SubtractButton />
+          <ChakraText fontSize="2xl" fontWeight={900}>
+            {quantity}
+          </ChakraText>
+          <AddButton />
+        </Flex>
+      </HStack>
+    </VStack>
+  );
+};
