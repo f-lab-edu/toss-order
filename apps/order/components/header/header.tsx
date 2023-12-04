@@ -9,8 +9,7 @@ export const Header = () => (
     borderBottom="2px solid lightgray"
     gap={0}
     justifyContent="space-between"
-    minH="10vh"
-    pb="2vh"
+    minH="8vh"
     position="sticky"
     px="4%"
     top={0}
