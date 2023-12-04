@@ -5,16 +5,17 @@ export const CallStaff: () => JSX.Element = () => {
   const toast = useToast();
   const onClick = () =>
     toast({
-      title: '아직 개발중이에요.',
-      status: 'error',
-      duration: 500,
+      title: '직원을 호출했어요!',
+      status: 'warning',
+      colorScheme: 'green',
+      duration: 700,
       isClosable: true,
       containerStyle: {
-        marginBottom: '50vh',
+        marginBottom: '70vh',
       },
     });
   return (
-    <Box flexBasis="130px" h="2.5rem">
+    <Box flexBasis="130px" h="2.5rem" maxW="30%">
       <CTAButton
         className="bg-blue"
         content={

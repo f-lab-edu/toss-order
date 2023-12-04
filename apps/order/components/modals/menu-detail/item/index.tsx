@@ -1,13 +1,9 @@
-import { Box, Flex, Text as ChakraText, HStack, VStack, Button } from '@chakra-ui/react';
-import { useContext } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { Flex, Text as ChakraText, HStack, VStack } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
 import { Text } from './text';
 import { Image } from './image';
-import { QuantityContext } from '../modal';
-import preview from '../../../../.storybook/preview';
 import { menuDetailModalStore } from '../../../../app/stores/modal-state-store';
 import { AddButton, SubtractButton } from './button';
-import { RemoveButton } from '../../../buttons/edit-item-count';
 
 type ItemT = {
   detail: string;

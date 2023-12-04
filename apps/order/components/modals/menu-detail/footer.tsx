@@ -21,10 +21,10 @@ export const Footer = ({ price }: { price: number }) => {
       flexDirection="column"
       h="0"
       justifyContent="center"
-      minH="80px"
+      minH="100px"
       w="100%"
     >
-      <Flex flexBasis="80%" w="90%">
+      <Flex flexBasis="60%" w="90%">
         <PrimaryCTAButton onClick={handleAddToBasket} price={quantity * price} text="장바구니에 담기" />
       </Flex>
     </Flex>

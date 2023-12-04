@@ -21,6 +21,7 @@ const MenuContainer = () => {
 
   const setOrderHistory = useSetRecoilState(orderHistoryStore);
 
+  // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED
   const toast = useToast();
   const resetBasket = () => {
     setBasketItems({});
@@ -38,10 +39,6 @@ const MenuContainer = () => {
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
 
-  // useEffect(() => {
-  //   // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED
-  //   console.log(menuItems);
-  // }, [menuItems]);
   return (
     <VStack alignItems="center" justifyContent="center" mb="1rem" px="4%">
       <Stack alignItems="center" w="100%">

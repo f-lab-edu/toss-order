@@ -21,11 +21,11 @@ export const Footer = () => {
       h="0"
       justifyContent="center"
       mb="auto"
-      minH="80px"
+      minH="100px"
       w="100%"
     >
-      <Flex flexBasis="80%" w="90%">
-        <PrimaryCTAButton onClick={toggleModal} price={basketItems.sumPrice} text="주문하기" />
+      <Flex flexBasis="60%" w="90%">
+        <PrimaryCTAButton onClick={toggleModal} price={basketItems.sumPrice} text="주문 전 확인하기" />
       </Flex>
     </Flex>
   );

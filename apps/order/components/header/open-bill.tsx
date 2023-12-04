@@ -5,7 +5,7 @@ import { useStoredModalState } from '../../app/lib/utils/useStoredModalState';
 export const OpenBill: () => JSX.Element = () => {
   const { onOpen } = useStoredModalState('bill');
   return (
-    <Box flexBasis="130px" h="2.5rem">
+    <Box flexBasis="130px" h="2.5rem" maxW="30%">
       <CTAButton
         className="bg-blue"
         content={

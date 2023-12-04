@@ -20,13 +20,16 @@ export const Item = ({ id, imageSrc, name, price }: ItemT): JSX.Element => {
     onOpen();
   };
   return (
-    // TODO: Modal 구현 후 onClick에 메뉴 상세보기 Modal을 띄우는 action이 할당될 예정. Ticket: toss-order #22, toss-order #23
-    <Box flexBasis={0} flexGrow={3} h="100%" onClick={onClick}>
-      <HStack gap={0} h="100%" p="6px" w="100%">
+    <Box boxSizing="border-box" flexBasis={0} flexGrow={3} h="100%" onClick={onClick}>
+      <HStack gap={0} h="100%" p="8px" w="100%">
         <HStack
-          border="1px black solid"
+          borderBottom="4px gray solid"
+          borderLeft="3px gray solid"
           borderRadius="8px 12px 12px 8px"
+          borderRight="2px lightgray solid"
+          borderTop="1px lightgray solid"
           boxShadow="xl"
+          boxSizing="border-box"
           gap={0}
           h="100%"
           justifyContent="space-between"

@@ -62,7 +62,7 @@ export const Footer = ({ onClose, onConfirm }: FooterT) => {
             className="bg-blue"
             content={
               <Text fontSize="2xl" fontWeight={700} px="2.5vw">
-                네!
+                주문하기
               </Text>
             }
             onClick={onConfirm}
