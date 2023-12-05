@@ -2,7 +2,8 @@ import { useRecoilValue } from 'recoil';
 import { Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
 import { basketItemsStore } from '../../../app/stores';
-import { AddButton, RemoveButton } from '../../buttons/edit-item-count';
+import { AddButton, SubtractButton } from '../../buttons/edit-item-count';
+import { DeleteButton } from '../../buttons/edit-item-count/button';
 
 type BasketItemT = {
   count: number;
@@ -21,16 +22,19 @@ export const BasketItems = () => {
   return sumCount ? (
     Object.entries(basketItems)?.map(([id, data]: [string, BasketItemT]) => (
       <HStack key={id} borderTop="1px solid lightgray" justifyContent="space-between" px="4%">
-        <VStack alignItems="flex-start" py="6px">
-          <Text fontSize="lg" fontWeight={900}>
-            {data.name}
-          </Text>
-          <Text fontSize="md" fontWeight={800}>
-            {commaizeNumber(data.totalPrice)}원
-          </Text>
-        </VStack>
+        <HStack>
+          <DeleteButton id={id} />
+          <VStack alignItems="flex-start" ml="10px" py="6px">
+            <Text fontSize="lg" fontWeight={900}>
+              {data.name}
+            </Text>
+            <Text fontSize="md" fontWeight={800}>
+              {commaizeNumber(data.totalPrice)}원
+            </Text>
+          </VStack>
+        </HStack>
         <HStack justifyContent="space-evenly" w="40%">
-          <RemoveButton id={id} />
+          <SubtractButton id={id} />
           <Flex flexBasis="40%" justifyContent="center">
             <Text fontSize="2xl" fontWeight={900}>
               {data.count}

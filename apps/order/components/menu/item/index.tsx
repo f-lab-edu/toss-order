@@ -20,7 +20,7 @@ export const Item = ({ id, imageSrc, name, price }: ItemT): JSX.Element => {
     onOpen();
   };
   return (
-    <Box boxSizing="border-box" flexBasis={0} flexGrow={3} h="100%" onClick={onClick}>
+    <Box boxSizing="border-box" flexBasis={0} flexGrow={3} h="100%">
       <HStack gap={0} h="100%" p="8px" w="100%">
         <HStack
           borderBottom="4px gray solid"
@@ -30,9 +30,11 @@ export const Item = ({ id, imageSrc, name, price }: ItemT): JSX.Element => {
           borderTop="1px lightgray solid"
           boxShadow="xl"
           boxSizing="border-box"
+          cursor="pointer"
           gap={0}
           h="100%"
           justifyContent="space-between"
+          onClick={onClick}
           w="100%"
         >
           <Text name={name} price={price} />

@@ -90,3 +90,22 @@ export const removeItemFromBasket = selector({
     }
   },
 });
+
+export const deleteItemFromBasket = selector({
+  key: 'deleteItemFromBasketStore',
+  get: () => null,
+  set: ({ set, get }, id: string) => {
+    const menuItem: MenuItemT = get(menuItemsStore)[id];
+    const basket: BasketItemsT = get(basketItemsStore);
+    const itemInBasket: BasketItemT | undefined = basket[id];
+
+    const newBasket: BasketItemsT = _.cloneDeep(basket);
+    delete newBasket[id];
+
+    set(basketItemsStore, {
+      ...newBasket,
+      sumCount: basket.sumCount - itemInBasket.count,
+      sumPrice: basket.sumPrice - itemInBasket.count * menuItem.price.defaultPrice,
+    });
+  },
+});

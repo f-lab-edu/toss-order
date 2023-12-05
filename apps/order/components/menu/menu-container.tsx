@@ -55,7 +55,7 @@ const MenuContainer = () => {
           className="bg-orange"
           content={
             <Text fontSize="xl" fontWeight="extrabold">
-              초기화 (FOR DEV ONLY)
+              초기화 (FOR TEST)
             </Text>
           }
           onClick={resetBasket}
