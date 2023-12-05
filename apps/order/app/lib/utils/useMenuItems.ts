@@ -1,3 +1,5 @@
+'use client';
+
 import { useQuery } from 'react-query';
 import { useSetRecoilState } from 'recoil';
 import { fetcher } from './fetcher';
@@ -14,10 +16,14 @@ type MenuItemsT = {
 
 const useMenuItems = () => {
   const setMenuItems = useSetRecoilState(menuItemsStore);
-  return useQuery('menu-items', () => fetcher('/api/menu-items'), {
-    suspense: true,
-    onSuccess: (data: MenuItemsT) => setMenuItems(data),
-  });
+  try {
+    return useQuery('menu-items', () => fetcher('/api/menu-items'), {
+      suspense: true,
+      onSuccess: (data: MenuItemsT) => setMenuItems(data),
+    });
+  } catch {
+    return null;
+  }
 };
 
 export default useMenuItems;
