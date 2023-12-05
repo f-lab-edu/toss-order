@@ -24,11 +24,7 @@ const MenuContainer = () => {
   // FOR DEV ONLY DO_NOT_PUSH_THIS_CODE_OR_YOU_WILL_BE_FIRED
   const toast = useToast();
   const resetBasket = () => {
-    // eslint-disable-next-line
-    // @ts-ignore
-    setBasketItems({});
-    // eslint-disable-next-line
-    // @ts-ignore
+    setBasketItems({ sumCount: 0, sumPrice: 0 });
     setOrderHistory({});
     toast({
       title: '초기화 되었습니다.',
