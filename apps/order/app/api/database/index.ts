@@ -3,6 +3,7 @@ import axios from 'axios';
 const instance = axios.create({
   baseURL: 'http://211.250.82.235:44400/api',
   withCredentials: true,
+  headers: { 'Cache-Control': 'max-age=10800' },
 });
 
 const fetcher = async (url: string) => {
@@ -18,3 +19,5 @@ const fetcher = async (url: string) => {
 };
 
 export const fetchMenuItems = async () => fetcher('/menu-items');
+
+export const fetchMenuCategories = async () => fetcher('/menu-categories');

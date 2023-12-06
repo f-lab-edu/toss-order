@@ -7,7 +7,7 @@ export const Modal = () => {
   const { isOpen, onClose } = useStoredModalState('bill');
   return (
     <AbstractModal isOpen={isOpen} onClose={onClose}>
-      <AbstractModal.Header onClose={onClose} title="계산서" />
+      <AbstractModal.Header onClose={onClose} title="주문 내역" />
       <AbstractModal.Body content={<BillItems />} />
       <AbstractModal.Footer content={<Footer />} />
     </AbstractModal>

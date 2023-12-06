@@ -7,6 +7,7 @@ import { menuItemsStore } from '../../stores';
 
 type MenuItemsT = {
   [key: string]: {
+    category: string;
     detail: string;
     imageSrc: string;
     name: string;

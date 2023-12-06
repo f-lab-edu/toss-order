@@ -10,7 +10,7 @@ export const OpenBill: () => JSX.Element = () => {
         className="bg-blue"
         content={
           <Text fontSize="calc(min(1rem + 0.5vw, 1.5rem))" fontWeight={800} mx="10px">
-            계산서 보기
+            주문 내역
           </Text>
         }
         onClick={onOpen}

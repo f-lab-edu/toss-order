@@ -23,12 +23,13 @@ export const Item = ({ id, imageSrc, name, price }: ItemT): JSX.Element => {
     <Box boxSizing="border-box" flexBasis={0} flexGrow={3} h="100%">
       <HStack gap={0} h="100%" p="8px" w="100%">
         <HStack
-          borderBottom="4px gray solid"
-          borderLeft="3px gray solid"
+          // boxShadow="5px 10px 10px -5px rgba(0, 0, 0, 0.5)"
+          borderBottom="4px lightgray solid"
+          borderLeft="3px lightgray solid"
           borderRadius="8px 12px 12px 8px"
           borderRight="2px lightgray solid"
-          borderTop="1px lightgray solid"
-          boxShadow="xl"
+          borderTop="2px lightgray solid"
+          // boxShadow="xl"
           boxSizing="border-box"
           cursor="pointer"
           gap={0}
