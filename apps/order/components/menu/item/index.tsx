@@ -24,10 +24,10 @@ export const Item = ({ id, imageSrc, name, price }: ItemT): JSX.Element => {
       <HStack gap={0} h="100%" p="8px" w="100%">
         <HStack
           // boxShadow="inset 11px 11px 0px -10px rgba(0, 0, 0, 1), 11px 11px 0px -10px rgba(0, 0, 0, 1)"
-          borderBottom="3px lightgray solid"
-          borderLeft="3px lightgray solid"
+          borderBottom="2px lightgray solid"
+          borderLeft="2px lightgray solid"
           borderRadius="8px 12px 12px 8px"
-          borderRight="3px lightgray solid"
+          borderRight="2px lightgray solid"
           // borderTop="2px lightgray solid"
           // boxShadow="xl"
           boxSizing="border-box"
