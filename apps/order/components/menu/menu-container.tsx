@@ -1,18 +1,12 @@
-import { Stack, VStack, Text, useToast, HStack, Flex } from '@chakra-ui/react';
+import { Stack, VStack, Text, useToast, Flex } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { Menu } from './menu';
 import { basketItemsStore, menuItemsStore, addItemInBasket, menuCategoriesStore } from '../../app/stores';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
 import { orderHistoryStore } from '../../app/stores/history-store';
 import useMenuCategories from '../../app/lib/utils/useMenuCategories';
-
-type ItemT = {
-  imageSrc: string;
-  name: string;
-  price: { defaultPrice: number };
-};
 
 const MenuContainer = () => {
   const menuItems = useRecoilValue(menuItemsStore);
@@ -40,10 +34,10 @@ const MenuContainer = () => {
       },
     });
   };
-  useEffect(() => {
-    console.log('menuItems', menuItems);
-    console.log('menuCategoreis', menuCategoreis);
-  }, [menuItems]);
+  // useEffect(() => {
+  //   console.log('menuItems', menuItems);
+  //   console.log('menuCategoreis', menuCategoreis);
+  // }, [menuItems]);
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
 

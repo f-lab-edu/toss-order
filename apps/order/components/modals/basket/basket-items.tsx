@@ -5,17 +5,6 @@ import { basketItemsStore } from '../../../app/stores';
 import { AddButton, SubtractButton } from '../../buttons/edit-item-count';
 import { DeleteButton } from '../../buttons/edit-item-count/button';
 
-type BasketItemT = {
-  count: number;
-  name: string;
-  totalPrice: number;
-};
-
-type BasketItemsT = { [key: string]: BasketItemT } & {
-  sumCount: number;
-  sumPrice: number;
-};
-
 export const BasketItems = () => {
   const { sumCount, sumPrice, ...basketItems }: BasketItemsT = useRecoilValue(basketItemsStore);
 

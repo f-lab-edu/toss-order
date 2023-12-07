@@ -3,27 +3,6 @@ import { atom, RecoilState, selector } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import { menuItemsStore } from './menu-store';
 
-type MenuItemT = {
-  detail: string;
-  imageSrc: string;
-  name: string;
-  order: number;
-  price: { defaultPrice: number };
-};
-
-type BasketItemT = {
-  count: number;
-  name: string;
-  order: number;
-  price: number;
-  totalPrice: number;
-};
-
-type BasketItemsT = { [key: string]: BasketItemT } & {
-  sumCount: number;
-  sumPrice: number;
-};
-
 const { persistAtom } = recoilPersist();
 
 export const basketItemsStore: RecoilState<BasketItemsT> = atom({

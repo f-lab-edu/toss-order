@@ -5,12 +5,6 @@ import { useSetRecoilState } from 'recoil';
 import { fetcher } from './fetcher';
 import { menuCategoriesStore } from '../../stores';
 
-type MenuCategoriesT = {
-  [key: string]: {
-    id: string;
-  };
-};
-
 const useMenuCategories = () => {
   const setMenuCategories = useSetRecoilState(menuCategoriesStore);
   try {

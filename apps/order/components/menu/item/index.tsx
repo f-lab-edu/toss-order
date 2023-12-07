@@ -5,14 +5,7 @@ import { Image } from './image';
 import { menuDetailModalStore } from '../../../app/stores/modal-state-store';
 import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
 
-type ItemT = {
-  id: string;
-  imageSrc: string;
-  name: string;
-  price: { defaultPrice: number };
-};
-
-export const Item = ({ id, imageSrc, name, price }: ItemT): JSX.Element => {
+export const Item = ({ id, imageSrc, name, price }: ItemPropsT): JSX.Element => {
   const setMenuDetailID = useSetRecoilState(menuDetailModalStore);
   const { onOpen } = useStoredModalState('menuDetail');
   const onClick = () => {

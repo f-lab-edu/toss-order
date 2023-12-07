@@ -1,13 +1,7 @@
 import { Text as ChakraText, VStack } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
 
-type ItemTextT = {
-  detail: string;
-  name: string;
-  price: { [key: string]: number };
-};
-
-export const Text = ({ detail, name, price }: ItemTextT): JSX.Element => (
+export const Text = ({ detail, name, price }: MenuDetailTextT): JSX.Element => (
   <VStack alignItems="flex-start" gap={0} ml="4%" w="100%">
     <ChakraText fontSize="2xl" fontWeight={900}>
       {name}

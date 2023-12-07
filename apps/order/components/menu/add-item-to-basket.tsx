@@ -1,11 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { CTAButton } from 'ui/button';
 
-type AddItemToBasketButtonT = {
-  onClick: () => void;
-  quantity: number;
-};
-
 export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => {
   const buttonClass = `bg-${quantity ? 'orange' : 'blue'}`;
   const content =

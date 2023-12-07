@@ -1,12 +1,6 @@
 import { NextResponse } from 'next/server';
 import getMenuCategories from './get-menu-categories';
 
-type MenuCategoriesT = {
-  [key: string]: {
-    id: string;
-  };
-};
-
 export async function GET() {
   const menuCategories: MenuCategoriesT | null = await getMenuCategories();
 

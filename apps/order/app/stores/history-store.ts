@@ -1,35 +1,9 @@
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import { atom, selector, RecoilState } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import _ from 'lodash';
-import { menuItemsStore } from './menu-store';
-import { basketItemsStore } from './basket-store';
-
-type BasketItemT = {
-  count: number;
-  name: string;
-  price: number;
-  totalPrice: number;
-};
-
-type BasketItemsT = { [key: string]: BasketItemT } & {
-  sumCount: number;
-  sumPrice: number;
-};
-
-type ItemT = {
-  count: number;
-  id: string;
-  name: string;
-  // orderedTime: string;
-  order: number;
-  price: number;
-  totalPrice: number;
-};
-
-type OrderHistoryItemsT = { [key: string]: ItemT } & {
-  sumPrice: number;
-};
+// import { menuItemsStore } from './menu-store';
+// import { basketItemsStore } from './basket-store';
 
 const { persistAtom } = recoilPersist();
 

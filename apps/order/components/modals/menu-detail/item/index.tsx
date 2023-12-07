@@ -5,14 +5,7 @@ import { Image } from './image';
 import { menuDetailModalStore } from '../../../../app/stores/modal-state-store';
 import { AddButton, SubtractButton } from './button';
 
-type ItemT = {
-  detail: string;
-  imageSrc: string;
-  name: string;
-  price: { defaultPrice: number };
-};
-
-export const Item = ({ detail, imageSrc, name, price }: ItemT): JSX.Element => {
+export const Item = ({ detail, imageSrc, name, price }: MenuDetailItemPropsT): JSX.Element => {
   const { quantity } = useRecoilValue(menuDetailModalStore);
   return (
     <VStack w="100%">

@@ -5,16 +5,6 @@ import { useSetRecoilState } from 'recoil';
 import { fetcher } from './fetcher';
 import { menuItemsStore } from '../../stores';
 
-type MenuItemsT = {
-  [key: string]: {
-    category: string;
-    detail: string;
-    imageSrc: string;
-    name: string;
-    price: { defaultPrice: number };
-  };
-};
-
 const useMenuItems = () => {
   const setMenuItems = useSetRecoilState(menuItemsStore);
   try {

@@ -4,11 +4,6 @@ import { commaizeNumber } from '@toss/utils';
 import { useRecoilValue } from 'recoil';
 import { basketItemsStore } from '../../../app/stores';
 
-type FooterT = {
-  onClose: () => void;
-  onConfirm: () => void;
-};
-
 export const Footer = ({ onClose, onConfirm }: FooterT) => {
   const { sumPrice, sumCount } = useRecoilValue(basketItemsStore);
   return (
