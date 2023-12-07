@@ -7,6 +7,7 @@ type MenuItemsStoreT = {
     detail: string;
     imageSrc: string;
     name: string;
+    order: number;
     price: { defaultPrice: number };
   };
 };

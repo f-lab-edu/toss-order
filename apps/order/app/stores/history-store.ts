@@ -22,6 +22,7 @@ type ItemT = {
   id: string;
   name: string;
   // orderedTime: string;
+  order: number;
   price: number;
   totalPrice: number;
 };
@@ -45,6 +46,7 @@ export const moveBasketToHistory = selector({
     const currentHistory = get(orderHistoryStore);
     const { sumPrice, sumCount, ...basketItems } = basket;
     // const currentTime = Date.now();
+    console.log(basket);
 
     const historyToBeUpdated = _.cloneDeep(currentHistory);
 

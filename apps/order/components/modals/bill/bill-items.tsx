@@ -5,9 +5,9 @@ import { orderHistoryStore } from '../../../app/stores/history-store';
 
 export const BillItems = () => {
   const { sumPrice, ...basketItems } = useRecoilValue(orderHistoryStore);
-
+  const sortedBasketItems = Object.values(basketItems).sort((a, b) => a.order - b.order);
   return sumPrice ? (
-    Object.entries(basketItems)?.map(([id, data]) => (
+    Object.entries(sortedBasketItems)?.map(([id, data]) => (
       <HStack
         key={id}
         borderTop="1px solid lightgray"
