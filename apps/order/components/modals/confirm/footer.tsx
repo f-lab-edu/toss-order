@@ -19,10 +19,10 @@ export const Footer = ({ onClose, onConfirm }: FooterT) => {
       h="0"
       justifyContent="center"
       minH="25vh"
-      py="2vh"
+      pb="4vh"
       w="100%"
     >
-      <Flex alignItems="center" flexGrow={2} justifyContent="space-between" px="4%" w="100%">
+      <Flex alignItems="center" flexGrow={1} justifyContent="space-between" px="4%" w="100%">
         <Text flexBasis="40%" fontSize="2xl" fontWeight={800}>
           합계
         </Text>
@@ -40,12 +40,12 @@ export const Footer = ({ onClose, onConfirm }: FooterT) => {
           {commaizeNumber(sumPrice || 0)}원
         </Text>
       </Flex>
-      <Flex flexGrow={1}>
+      <Flex alignItems="center" flexGrow={1}>
         <Text fontSize="2xl" fontWeight={700}>
           이렇게 주문하시겠어요?
         </Text>
       </Flex>
-      <HStack flexGrow={1} minH="50px" pb="10px" w="100%">
+      <HStack alignItems="center" flexGrow={1} minH="50px" py="2vh" w="100%">
         <Flex h="100%" px="10%" w="50%">
           <CTAButton
             className="bg-orange"
