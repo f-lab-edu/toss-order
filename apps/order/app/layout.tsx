@@ -7,6 +7,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <meta charSet="UTF-8" />
       <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
       <meta content="스마트폰으로 주문하는 테이블 오더 시스템입니다." name="description" />
+      <meta content="default" name="apple-mobile-web-app-status-bar-style" />
       <meta content="yes" name="apple-mobile-web-app-capable" />
       <meta content="토스 오더" name="apple-mobile-web-app-title" />
       <title>토스 오더</title>
