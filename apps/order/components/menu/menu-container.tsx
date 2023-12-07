@@ -53,7 +53,7 @@ const MenuContainer = () => {
         {Object.entries(menuCategoreis)?.map(([category, menuIds]) => (
           <VStack
             bgColor="white"
-            boxShadow="0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)"
+            // boxShadow="0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)"
             id={category}
             mb="0.3vh"
             pb="2vh"

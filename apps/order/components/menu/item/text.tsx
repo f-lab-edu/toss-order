@@ -12,7 +12,7 @@ export const Text = ({ name, price }: ItemTextT): JSX.Element => (
       {name}
     </ChakraText>
     <ChakraText fontSize="md" fontWeight={500}>
-      {commaizeNumber(price.defaultPrice)}원
+      {commaizeNumber(price?.defaultPrice)}원
     </ChakraText>
   </VStack>
 );

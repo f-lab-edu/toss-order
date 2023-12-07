@@ -17,16 +17,16 @@ type MenuCategoriesT = {
   };
 };
 
-const { persistAtom } = recoilPersist();
+// const { persistAtom } = recoilPersist();
 
 export const menuItemsStore: RecoilState<MenuItemsStoreT> = atom({
   key: 'menuItemsStore',
   default: {},
-  effects_UNSTABLE: [persistAtom],
+  // effects_UNSTABLE: [persistAtom],
 });
 
 export const menuCategoriesStore: RecoilState<MenuCategoriesT> = atom({
   key: 'menuCategoriesStore',
   default: {},
-  effects_UNSTABLE: [persistAtom],
+  // effects_UNSTABLE: [persistAtom],
 });

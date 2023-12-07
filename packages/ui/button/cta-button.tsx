@@ -11,7 +11,7 @@ interface CTAButtonProps {
 export const CTAButton = ({ className, content, disabled = false, onClick }: CTAButtonProps): JSX.Element => (
   <Button
     _hover={{ bgColor: null }}
-    boxShadow="xl"
+    // boxShadow="xl"
     className={className}
     color="white"
     h="100%"
