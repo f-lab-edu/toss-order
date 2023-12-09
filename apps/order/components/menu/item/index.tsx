@@ -21,7 +21,7 @@ export const Item = ({ id, imageSrc, name, price }: ItemPropsT): JSX.Element => 
           borderLeft="2px lightgray solid"
           borderRadius="8px 12px 12px 8px"
           // border={'2px solid #ddd'}
-          borderRight="2px lightgray solid"
+          borderRight="3px lightgray solid"
           // borderTop="2px lightgray solid"
           // boxShadow="xl"
           boxSizing="border-box"
