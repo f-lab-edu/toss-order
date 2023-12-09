@@ -59,6 +59,7 @@ const MenuContainer = () => {
                 {category}
               </Text>
             </Flex>
+            <Box bgColor="lightgray" h="3px" mb="0.5rem" w="100%" />
             {Object.values(menuIds).map((menuId: string) => (
               <Menu key={menuId}>
                 <Menu.ItemArea {...{ id: menuId, ...menuItems[menuId] }} />
