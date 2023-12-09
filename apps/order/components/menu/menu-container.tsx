@@ -1,4 +1,4 @@
-import { Stack, VStack, Text, useToast, Flex } from '@chakra-ui/react';
+import { Stack, VStack, Text, useToast, Flex, Box } from '@chakra-ui/react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CTAButton } from 'ui/button';
 // import { useEffect } from 'react';
@@ -54,12 +54,11 @@ const MenuContainer = () => {
             pt="2vh"
             w="100%"
           >
-            <Flex justifyContent="flex-start" ml="6%" mr="auto">
-              <Text fontSize="2xl" fontWeight={900}>
+            <Flex borderBottom="3px lightgray solid" justifyContent="flex-start" mb="0.5rem" pl="6%" w="100%">
+              <Text fontSize="2xl" fontWeight={900} mb="0.5rem">
                 {category}
               </Text>
             </Flex>
-            <Box bgColor="lightgray" h="3px" mb="0.5rem" w="100%" />
             {Object.values(menuIds).map((menuId: string) => (
               <Menu key={menuId}>
                 <Menu.ItemArea {...{ id: menuId, ...menuItems[menuId] }} />
