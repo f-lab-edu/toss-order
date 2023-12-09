@@ -23,7 +23,7 @@ export const Footer = () => {
       h="0"
       justifyContent="center"
       mb="auto"
-      minH="120px"
+      minH="100px"
       w="100%"
     >
       <Flex flexBasis="60%" w="90%">
