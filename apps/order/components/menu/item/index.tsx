@@ -19,7 +19,7 @@ export const Item = ({ id, imageSrc, name, price }: ItemPropsT): JSX.Element => 
           // boxShadow="inset 11px 11px 0px -10px rgba(0, 0, 0, 1), 11px 11px 0px -10px rgba(0, 0, 0, 1)"
           borderBottom="2px lightgray solid"
           borderLeft="2px lightgray solid"
-          borderRadius="8px 10px 10px 8px"
+          borderRadius="8px 12px 12px 8px"
           // border={'2px solid #ddd'}
           borderRight="2px lightgray solid"
           // borderTop="2px lightgray solid"
