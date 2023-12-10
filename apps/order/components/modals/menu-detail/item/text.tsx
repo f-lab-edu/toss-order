@@ -9,7 +9,7 @@ export const Text = ({ detail, name, price }: MenuDetailTextT): JSX.Element => (
     <ChakraText fontSize="lg" fontWeight={700}>
       {commaizeNumber(price.defaultPrice)}원
     </ChakraText>
-    <ChakraText fontSize="md" fontWeight={800} mt="1rem" wordBreak="keep-all">
+    <ChakraText fontSize="md" fontWeight={600} mt="1rem" wordBreak="keep-all">
       {detail}
     </ChakraText>
   </VStack>

@@ -13,11 +13,11 @@ export const BasketItems = () => {
       <HStack key={id} borderTop="1px solid lightgray" justifyContent="space-between" px="4%">
         <HStack>
           <DeleteButton id={id} />
-          <VStack alignItems="flex-start" ml="10px" py="6px">
+          <VStack alignItems="flex-start" gap="0.25rem" ml="10px" py="6px">
             <Text fontSize="lg" fontWeight={900}>
               {data.name}
             </Text>
-            <Text fontSize="md" fontWeight={800}>
+            <Text fontSize="md" fontWeight={500}>
               {commaizeNumber(data.totalPrice)}원
             </Text>
           </VStack>

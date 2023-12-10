@@ -20,7 +20,7 @@ export const BillItems = () => {
           <Text fontSize="lg" fontWeight={900}>
             {data.name}
           </Text>
-          <Text fontSize="md" fontWeight={700}>
+          <Text fontSize="md" fontWeight={500}>
             {commaizeNumber(data.price)}원
           </Text>
         </VStack>

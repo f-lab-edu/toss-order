@@ -20,7 +20,7 @@ export const ConfirmItems = () => {
           <Text fontSize="lg" fontWeight={900}>
             {data.name}
           </Text>
-          <Text fontSize="md" fontWeight={700}>
+          <Text fontSize="md" fontWeight={500}>
             {commaizeNumber(data.price)}원
           </Text>
         </VStack>
@@ -30,7 +30,7 @@ export const ConfirmItems = () => {
           </Text>
         </Flex>
         <VStack alignItems="flex-end" flexBasis="30%" gap={0} justifyContent="center">
-          <Text fontSize="lg" fontWeight={700}>
+          <Text fontSize="lg" fontWeight={800}>
             {commaizeNumber(data.totalPrice)}원
           </Text>
         </VStack>
