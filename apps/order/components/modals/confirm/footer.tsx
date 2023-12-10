@@ -13,7 +13,7 @@ export const Footer = ({ onClose, onConfirm }: FooterT) => {
       gap={0}
       h="0"
       justifyContent="center"
-      minH="25vh"
+      minH="22vh"
       pb="4vh"
       pt="1vh"
       w="100%"
