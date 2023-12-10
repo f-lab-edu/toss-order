@@ -6,15 +6,16 @@ export const Header = () => (
   <HStack
     alignItems="center"
     bgColor="white"
-    borderBottom="2px solid lightgray"
+    borderBottom="0.5vh solid #e8e8e8"
+    // borderBottom="2px solid lightgray"
     gap={0}
+    h="7vh"
     justifyContent="space-between"
-    minH="8vh"
     position="sticky"
     px="4%"
     top={0}
     w="100%"
-    zIndex={1}
+    zIndex={2}
   >
     <CallStaff />
     <Text

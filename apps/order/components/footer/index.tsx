@@ -28,6 +28,7 @@ export const Footer = () => {
         position="sticky"
         px="4%"
         w="100%"
+        zIndex={2}
       >
         <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
           <PrimaryCTAButton

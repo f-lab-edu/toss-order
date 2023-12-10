@@ -43,28 +43,43 @@ const MenuContainer = () => {
 
   return (
     <VStack alignItems="center" justifyContent="center" mb="1rem">
-      <Stack alignItems="center" w="100%">
+      <Stack alignItems="center" gap="2vh" w="100%">
         {Object.entries(menuCategoreis)?.map(([category, menuIds]) => (
           <VStack
             bgColor="white"
-            // boxShadow="0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)"
             id={category}
-            mb="0.3vh"
-            pb="2vh"
-            pt="2vh"
+            position="relative"
+            // mb="2vh"
+            // pb="2vh"
+            // pt="2vh"
             w="100%"
+            // boxShadow="0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)"
           >
-            <Flex borderBottom="3px lightgray solid" justifyContent="flex-start" mb="0.5rem" pl="6%" w="100%">
-              <Text fontSize="2xl" fontWeight={900} mb="0.5rem">
+            <Flex
+              bgColor="white"
+              borderBottom="4px lightgray solid"
+              h="100%"
+              justifyContent="flex-start"
+              pl="6%"
+              position="sticky"
+              py="1vh"
+              top="7vh"
+              w="100%"
+              zIndex={1}
+              // pt="1vh"
+            >
+              <Text fontSize="2xl" fontWeight={900}>
                 {category}
               </Text>
             </Flex>
-            {Object.values(menuIds).map((menuId: string) => (
-              <Menu key={menuId}>
-                <Menu.ItemArea {...{ id: menuId, ...menuItems[menuId] }} />
-                <Menu.ButtonArea onClick={() => addItem(menuId)} quantity={getQuantity(menuId)} />
-              </Menu>
-            ))}
+            <VStack my="2vh" w="100%">
+              {Object.values(menuIds).map((menuId: string) => (
+                <Menu key={menuId}>
+                  <Menu.ItemArea {...{ id: menuId, ...menuItems[menuId] }} />
+                  <Menu.ButtonArea onClick={() => addItem(menuId)} quantity={getQuantity(menuId)} />
+                </Menu>
+              ))}
+            </VStack>
           </VStack>
         ))}
         {/* {Object.entries(menuItems)?.map(([id, data]: [string, ItemT]) => ( */}
