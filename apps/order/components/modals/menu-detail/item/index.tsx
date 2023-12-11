@@ -9,7 +9,7 @@ export const Item = ({ detail, imageSrc, name, price }: MenuDetailItemPropsT): J
   const { quantity } = useRecoilValue(menuDetailModalStore);
   return (
     <VStack w="100%">
-      <HStack aspectRatio={2} justifyContent="space-between" mt="2vh" px="4%" w="100%">
+      <HStack aspectRatio={2.2} justifyContent="space-between" mt="2vh" px="4%" w="100%">
         <Flex h="100%" mr="2%" mt="2vh" w="100%">
           <Text detail={detail} name={name} price={price} />
         </Flex>
@@ -17,7 +17,7 @@ export const Item = ({ detail, imageSrc, name, price }: MenuDetailItemPropsT): J
           <Image alt={name} src={imageSrc} />
         </Flex>
       </HStack>
-      <HStack h="5vh" justifyContent="space-evenly" my="2vh" w="100%">
+      <HStack h="4vh" justifyContent="space-evenly" mb="2.5vh" w="100%">
         <ChakraText flexGrow="2" fontSize="2xl" fontWeight={900} pl="10%">
           수량
         </ChakraText>
