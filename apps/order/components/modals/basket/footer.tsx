@@ -10,8 +10,8 @@ export const Footer = () => {
   const { onOpen: onConfirmOpen } = useStoredModalState('confirm');
   const toggleModal = () => {
     if (basketItems.sumCount > 0) {
-      onBasketClose();
       onConfirmOpen();
+      onBasketClose();
     }
   };
 
