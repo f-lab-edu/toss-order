@@ -1,5 +1,5 @@
 import { Modal as ChakraModal } from '@chakra-ui/modal';
-import { ModalContent, ModalOverlay } from '@chakra-ui/react';
+import { Flex, ModalContent, ModalOverlay } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import { Header } from './header';
 import { Body } from './body';
@@ -20,9 +20,11 @@ export const Modal = ({ children, isOpen, onClose }: ModalT) => (
     scrollBehavior="inside"
   >
     <ModalOverlay />
-    <ModalContent borderRadius="3xl" maxW="560px" minH="300px" mx="auto">
-      {children}
-    </ModalContent>
+    <Flex px="4%" w="100%">
+      <ModalContent borderRadius="3xl" maxW={document.body.clientWidth * 0.92} minH="300px" mx="auto">
+        {children}
+      </ModalContent>
+    </Flex>
   </ChakraModal>
 );
 

@@ -17,7 +17,7 @@ export const Item = ({ detail, imageSrc, name, price }: MenuDetailItemPropsT): J
           <Image alt={name} src={imageSrc} />
         </Flex>
       </HStack>
-      <HStack h="4vh" justifyContent="space-evenly" mb="2.5vh" w="100%">
+      <HStack h="4vh" justifyContent="space-evenly" mb="2.5vh" mt="1vh" w="100%">
         <ChakraText flexGrow="2" fontSize="2xl" fontWeight={900} pl="10%">
           수량
         </ChakraText>
