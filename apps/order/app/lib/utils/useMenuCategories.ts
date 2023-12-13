@@ -11,6 +11,7 @@ const useMenuCategories = () => {
     return useQuery('menu-categories', () => fetcher('/api/menu-categories'), {
       suspense: true,
       onSuccess: (data: MenuCategoriesT) => setMenuCategories(data),
+      staleTime: 1000 * 60 * 10,
     });
   } catch {
     return null;
