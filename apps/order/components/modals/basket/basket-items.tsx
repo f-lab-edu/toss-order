@@ -15,10 +15,10 @@ export const BasketItems = () => {
           <DeleteButton id={id} />
           <VStack alignItems="flex-start" gap="0.25rem" ml="10px" py="6px">
             <Text fontSize="lg" fontWeight={900}>
-              {data.name}
+              {data.name ?? ''}
             </Text>
             <Text fontSize="md" fontWeight={500}>
-              {commaizeNumber(data.totalPrice)}원
+              {commaizeNumber(data.totalPrice) || 0}원
             </Text>
           </VStack>
         </HStack>
@@ -26,7 +26,7 @@ export const BasketItems = () => {
           <SubtractButton id={id} />
           <Flex flexBasis="40%" justifyContent="center">
             <Text fontSize="2xl" fontWeight={900}>
-              {data.count}
+              {data.count || 0}
             </Text>
           </Flex>
           <AddButton id={id} />
