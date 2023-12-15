@@ -1,36 +1,64 @@
-import { Stack, VStack } from '@chakra-ui/react';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { Stack, VStack, Text, Flex } from '@chakra-ui/react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useEffect, useState } from 'react';
 import { Menu } from './menu';
-import { basketItemsStore, menuItemsStore, addItemInBasket } from '../../app/stores';
+import { basketItemsStore, menuItemsStore, addItemInBasket, menuCategoriesStore } from '../../app/stores';
 import useMenuItems from '../../app/lib/utils/useMenuItems';
-
-type ItemT = {
-  imageSrc: string;
-  name: string;
-  price: { defaultPrice: number };
-};
+import useMenuCategories from '../../app/lib/utils/useMenuCategories';
+import { ResetStateButton } from './reset-state-button';
+import { MenuSkeleton } from './skeleton';
 
 const MenuContainer = () => {
   const menuItems = useRecoilValue(menuItemsStore);
-  const [basketItems, setBasketItems] = useRecoilState(basketItemsStore);
+  const menuCategoreis = useRecoilValue(menuCategoriesStore);
+  const basketItems = useRecoilValue(basketItemsStore);
   const addItem = useSetRecoilState(addItemInBasket);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useMenuItems();
+  const useQueryItemsResult = useMenuItems();
+  const useQueryCategoriesResult = useMenuCategories();
 
-  const resetBasket = () => setBasketItems({});
+  useEffect(() => {
+    if (!(useQueryItemsResult?.isLoading || useQueryCategoriesResult?.isLoading)) setIsLoading(false);
+  }, [useQueryItemsResult, useQueryCategoriesResult]);
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
 
-  return (
-    <VStack alignItems="center" justifyContent="center" mb="1rem" px="4%">
-      <Stack alignItems="center" w="100%">
-        {Object.entries(menuItems)?.map(([id, data]: [string, ItemT]) => (
-          <Menu key={id}>
-            <Menu.ItemArea {...data} />
-            <Menu.ButtonArea onClick={() => addItem(id)} quantity={getQuantity(id)} />
-          </Menu>
+  return isLoading ? (
+    <MenuSkeleton />
+  ) : (
+    <VStack alignItems="center" justifyContent="center" mb="1rem">
+      <Stack alignItems="center" gap="2vh" w="100%">
+        {Object.entries(menuCategoreis)?.map(([category, menuIds]) => (
+          <VStack bgColor="white" id={category} position="relative" w="100%">
+            <Flex
+              bgColor="white"
+              borderBottom="4px lightgray solid"
+              h="100%"
+              justifyContent="flex-start"
+              pl="6%"
+              position="sticky"
+              py="1vh"
+              top="7vh"
+              w="100%"
+              zIndex={1}
+            >
+              <Text fontSize="2xl" fontWeight={900}>
+                {category}
+              </Text>
+            </Flex>
+            <VStack my="2vh" w="100%">
+              {Object.values(menuIds).map((menuId: string) => (
+                <Menu key={menuId}>
+                  <Menu.ItemArea {...{ id: menuId, ...menuItems[menuId] }} />
+                  <Menu.ButtonArea onClick={() => addItem(menuId)} quantity={getQuantity(menuId)} />
+                </Menu>
+              ))}
+            </VStack>
+          </VStack>
         ))}
       </Stack>
+      <ResetStateButton />
     </VStack>
   );
 };

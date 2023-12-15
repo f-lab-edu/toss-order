@@ -7,12 +7,13 @@ const Menu = ({ children }: { children: ReactNode }): JSX.Element => (
   <HStack
     alignItems="center"
     backgroundColor="white"
-    border="1px solid black"
+    border="1px solid lightgray"
     borderRadius="8px"
     gap={0}
     h="24"
     marginBottom="6px"
-    w="100%"
+    mx="auto"
+    w="92%"
   >
     {children}
   </HStack>

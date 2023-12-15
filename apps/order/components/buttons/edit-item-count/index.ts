@@ -1,1 +1,1 @@
-export { AddButton, RemoveButton } from './button';
+export { AddButton, SubtractButton } from './button';

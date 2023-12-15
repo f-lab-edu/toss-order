@@ -2,9 +2,18 @@ import { Flex } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
 import { basketItemsStore } from '../../../app/stores';
+import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
+  const { onClose: onBasketClose } = useStoredModalState('basket');
+  const { onOpen: onConfirmOpen } = useStoredModalState('confirm');
+  const toggleModal = () => {
+    if (basketItems.sumCount > 0) {
+      onConfirmOpen();
+      onBasketClose();
+    }
+  };
 
   return (
     <Flex
@@ -13,12 +22,12 @@ export const Footer = () => {
       flexDirection="column"
       h="0"
       justifyContent="center"
-      minH="80px"
+      mb="auto"
+      minH="100px"
       w="100%"
     >
-      <Flex flexBasis="80%" w="90%">
-        {/* TODO: 주문 확인 Modal 구현 후 open하는 함수가 할당될 예정 ticket: toss-order #34 */}
-        <PrimaryCTAButton onClick={() => {}} price={basketItems.sumPrice} text="주문하기" />
+      <Flex flexBasis="60%" w="90%">
+        <PrimaryCTAButton onClick={toggleModal} price={basketItems.sumPrice} text="주문 전 확인하기" />
       </Flex>
     </Flex>
   );

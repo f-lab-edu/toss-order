@@ -3,14 +3,6 @@ import { CTAButton } from 'ui/button';
 import { NumberInCircle } from 'ui/number-in-circle';
 import { commaizeNumber } from '@toss/utils';
 
-type PrimaryCTAButtonT = {
-  className?: string;
-  count?: number;
-  onClick: () => void;
-  price: number;
-  text: string;
-};
-
 export const PrimaryCTAButton = ({
   className = 'bg-blue',
   count = 0,

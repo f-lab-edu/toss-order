@@ -4,8 +4,9 @@
     "plugins": [
       {
         "name": "next"
-      }
-    ]
+      },
+    ],
+    "typeRoots": ["global.d.ts"]
   },
   "include": [
     "next-env.d.ts",
@@ -14,8 +15,6 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "*.js",
     "node_modules"
-  ],
-  "types": ["node", "jest", "@testing-library/jest-dom"]
+  ]
 }
