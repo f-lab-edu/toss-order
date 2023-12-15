@@ -22,6 +22,7 @@
 ## 프로젝트 구성
 
 - Turborepo를 사용하여 Monorepo로 구성합니다.
+- FastAPI와 MariaDB로 Self-hosted Back-end Server를 구성합니다.
 
 ## Tech Stacks
 
