@@ -16,14 +16,10 @@ export const Item = ({ id, imageSrc, name, price }: ItemPropsT): JSX.Element => 
     <Box boxSizing="border-box" flexBasis={0} flexGrow={3} h="100%">
       <HStack gap={0} h="100%" p="8px" w="100%">
         <HStack
-          // boxShadow="inset 11px 11px 0px -10px rgba(0, 0, 0, 1), 11px 11px 0px -10px rgba(0, 0, 0, 1)"
           borderBottom="2px lightgray solid"
           borderLeft="2px lightgray solid"
           borderRadius="8px 12px 12px 8px"
-          // border={'2px solid #ddd'}
           borderRight="3px lightgray solid"
-          // borderTop="2px lightgray solid"
-          // boxShadow="xl"
           boxSizing="border-box"
           cursor="pointer"
           gap={0}

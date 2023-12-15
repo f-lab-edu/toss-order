@@ -8,13 +8,6 @@ export const Footer = () => {
   const [basketItems] = useRecoilState(basketItemsStore);
   const { onOpen } = useStoredModalState('basket');
 
-  // useEffect(() => {
-  //   if (basketItems.sumCount === 0) {
-  //     setBasketItems({ sumCount: 0, sumPrice: 0 });
-  //     onClose();
-  //   }
-  // }, [basketItems.sumCount]);
-
   return (
     basketItems.sumCount > 0 && (
       <Flex

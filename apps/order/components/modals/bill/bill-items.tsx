@@ -28,17 +28,11 @@ export const BillItems = () => {
           <Text fontSize="md" fontWeight={700}>
             {data.count}개
           </Text>
-          {/* <Text fontSize="md" fontWeight={700}> */}
-          {/*  {`${data.orderedTime.replace(':', '시 ')}분`} */}
-          {/* </Text> */}
         </Flex>
         <VStack alignItems="flex-end" flexBasis="30%" gap={0}>
           <Text fontSize="lg" fontWeight={700}>
             {commaizeNumber(data.totalPrice)}원
           </Text>
-          {/* <Text fontSize="md" fontWeight={700}> */}
-          {/*  {data.count}개 */}
-          {/* </Text> */}
         </VStack>
       </HStack>
     ))

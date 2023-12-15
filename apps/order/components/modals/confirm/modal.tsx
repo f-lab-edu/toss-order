@@ -31,7 +31,7 @@ export const Modal = () => {
         marginBottom: '50vh',
       },
     });
-    setBasket({});
+    setBasket({ sumCount: 0, sumPrice: 0 });
   };
 
   return (

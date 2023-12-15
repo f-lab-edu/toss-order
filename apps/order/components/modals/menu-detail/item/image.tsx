@@ -1,5 +1,5 @@
 import { Box, Image as ChakraImage } from '@chakra-ui/react';
-import NextImage from 'next/image';
+// import NextImage from 'next/image';
 
 export const Image = ({ alt, src }: ItemImageT): JSX.Element =>
   src ? (

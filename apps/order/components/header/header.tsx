@@ -7,7 +7,6 @@ export const Header = () => (
     alignItems="center"
     bgColor="white"
     borderBottom="0.5vh solid #e8e8e8"
-    // borderBottom="2px solid lightgray"
     gap={0}
     h="7vh"
     justifyContent="space-between"

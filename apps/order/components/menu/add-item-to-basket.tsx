@@ -17,7 +17,6 @@ export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButt
     <Flex alignItems="center" flexBasis={0} flexGrow={1} h="100%" justifyContent="center" py="1rem">
       <Flex aspectRatio={1} h="100%">
         <Box aspectRatio={1} h="100%">
-          {/* <Box aspectRatio={1} boxShadow="xl" h="100%"> */}
           <CTAButton className={buttonClass} content={content} onClick={onClick} />
         </Box>
       </Flex>

@@ -24,7 +24,6 @@ declare global {
     count: number;
     id: string;
     name: string;
-    // orderedTime: string;
     order: number;
     price: number;
     totalPrice: number;
