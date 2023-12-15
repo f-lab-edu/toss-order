@@ -27,6 +27,7 @@ module.exports = {
         namedComponents: 'arrow-function',
       },
     ],
+    'react/require-default-props': 0,
     'import/prefer-default-export': 'off',
     'react/jsx-sort-props': 1,
     '@typescript-eslint/member-ordering': [

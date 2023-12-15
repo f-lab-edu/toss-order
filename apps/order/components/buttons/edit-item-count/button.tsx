@@ -1,6 +1,7 @@
-import { Button, Text } from '@chakra-ui/react';
+import { Button, IconButton, Text } from '@chakra-ui/react';
 import { useSetRecoilState } from 'recoil';
-import { addItemInBasket, removeItemFromBasket } from '../../../app/stores';
+import { CloseIcon } from '@chakra-ui/icons';
+import { addItemInBasket, deleteItemFromBasket, removeItemFromBasket } from '../../../app/stores';
 
 export const AddButton = ({ id }: { id: string }) => {
   const addItem = useSetRecoilState(addItemInBasket);
@@ -23,8 +24,8 @@ export const AddButton = ({ id }: { id: string }) => {
   );
 };
 
-export const RemoveButton = ({ id }: { id: string }) => {
-  const removeItem = useSetRecoilState(removeItemFromBasket);
+export const SubtractButton = ({ id }: { id: string }) => {
+  const subtractItem = useSetRecoilState(removeItemFromBasket);
   return (
     <Button
       _hover={{ bgColor: null }}
@@ -33,7 +34,7 @@ export const RemoveButton = ({ id }: { id: string }) => {
       bgColor="black"
       borderRadius="full"
       color="white"
-      onClick={() => removeItem(id)}
+      onClick={() => subtractItem(id)}
       p={0}
       size="sm"
     >
@@ -41,5 +42,12 @@ export const RemoveButton = ({ id }: { id: string }) => {
         -
       </Text>
     </Button>
+  );
+};
+
+export const DeleteButton = ({ id }: { id: string }) => {
+  const deleteItem = useSetRecoilState(deleteItemFromBasket);
+  return (
+    <IconButton aria-label={`delete ${id}`} icon={<CloseIcon />} onClick={() => deleteItem(id)} size="sm" />
   );
 };

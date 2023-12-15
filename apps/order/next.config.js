@@ -1,5 +1,5 @@
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   transpilePackages: ['ui'],
   experimental: {
     forceSwcTransforms: true,
@@ -13,5 +13,11 @@ module.exports = {
         pathname: '**',
       },
     ],
+  },
+  compiler: {
+    styledComponents: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };

@@ -1,5 +1,11 @@
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+/*::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
 :root {
-    --bg-lightgray: #F5F5F5;
+    --bg-lightgray: #e8e8e8;
     --main-theme-white: #FFFFFF;
     --main-theme-blue: #3288FF;
     --main-theme-pink: #F53083;

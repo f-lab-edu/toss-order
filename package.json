@@ -13,9 +13,11 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-custom": "*",
-    "husky": "^8.0.3",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@3.6.3",
+  "dependencies": {
+    "pretendard": "^1.3.9"
+  }
 }

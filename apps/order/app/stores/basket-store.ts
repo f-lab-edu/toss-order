@@ -3,24 +3,6 @@ import { atom, RecoilState, selector } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import { menuItemsStore } from './menu-store';
 
-type MenuItemT = {
-  detail: string;
-  imageSrc: string;
-  name: string;
-  price: { defaultPrice: number };
-};
-
-type BasketItemT = {
-  count: number;
-  name: string;
-  totalPrice: number;
-};
-
-type BasketItemsT = { [key: string]: BasketItemT } & {
-  sumCount: number;
-  sumPrice: number;
-};
-
 const { persistAtom } = recoilPersist();
 
 export const basketItemsStore: RecoilState<BasketItemsT> = atom({
@@ -40,6 +22,8 @@ export const addItemInBasket = selector({
     const itemToBeUpdated: BasketItemT = {
       count: (itemInBasket?.count || 0) + 1,
       name: itemInBasket?.name || menuItem?.name || '',
+      order: menuItem.order,
+      price: menuItem.price.defaultPrice,
       totalPrice: menuItem.price.defaultPrice * ((itemInBasket?.count || 0) + 1),
     };
 
@@ -75,6 +59,8 @@ export const removeItemFromBasket = selector({
       const itemToBeUpdated: BasketItemT = {
         count: itemInBasket.count - 1,
         name: itemInBasket.name,
+        order: menuItem.order,
+        price: menuItem.price.defaultPrice,
         totalPrice: menuItem.price.defaultPrice * (itemInBasket.count - 1),
       };
 
@@ -85,5 +71,24 @@ export const removeItemFromBasket = selector({
         sumPrice: basket.sumPrice - menuItem.price.defaultPrice,
       });
     }
+  },
+});
+
+export const deleteItemFromBasket = selector({
+  key: 'deleteItemFromBasketStore',
+  get: () => null,
+  set: ({ set, get }, id: string) => {
+    const menuItem: MenuItemT = get(menuItemsStore)[id];
+    const basket: BasketItemsT = get(basketItemsStore);
+    const itemInBasket: BasketItemT | undefined = basket[id];
+
+    const newBasket: BasketItemsT = _.cloneDeep(basket);
+    delete newBasket[id];
+
+    set(basketItemsStore, {
+      ...newBasket,
+      sumCount: basket.sumCount - itemInBasket.count,
+      sumPrice: basket.sumPrice - itemInBasket.count * menuItem.price.defaultPrice,
+    });
   },
 });
