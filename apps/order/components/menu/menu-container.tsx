@@ -1,4 +1,4 @@
-import { Stack, VStack, Text, Flex } from '@chakra-ui/react';
+import { Stack, VStack, Text, Flex, useToast } from '@chakra-ui/react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { Menu } from './menu';
@@ -14,6 +14,7 @@ const MenuContainer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
   const addItem = useSetRecoilState(addItemInBasket);
   const [isLoading, setIsLoading] = useState(true);
+  const toast = useToast();
 
   const useQueryItemsResult = useMenuItems();
   const useQueryCategoriesResult = useMenuCategories();
@@ -23,6 +24,26 @@ const MenuContainer = () => {
   }, [useQueryItemsResult, useQueryCategoriesResult]);
 
   const getQuantity = (id: string) => basketItems[id]?.count ?? 0;
+
+  const activeToastID = 'onAddItemClick-Toast';
+  const onAddItemClick = (id: string) => {
+    addItem(id);
+    if (toast.isActive(activeToastID)) return;
+    toast.closeAll();
+    toast({
+      title: '장바구니에 메뉴를 담았어요.',
+      description: '하단의 장바구니 보기를 눌러 확인해주세요.',
+      status: 'success',
+      colorScheme: 'green',
+      duration: 1500,
+      isClosable: true,
+      id: activeToastID,
+      position: 'top',
+      containerStyle: {
+        marginTop: '7.5vh',
+      },
+    });
+  };
 
   return isLoading ? (
     <MenuSkeleton />
@@ -51,7 +72,7 @@ const MenuContainer = () => {
               {Object.values(menuIds).map((menuId: string) => (
                 <Menu key={menuId}>
                   <Menu.ItemArea {...{ id: menuId, ...menuItems[menuId] }} />
-                  <Menu.ButtonArea onClick={() => addItem(menuId)} quantity={getQuantity(menuId)} />
+                  <Menu.ButtonArea onClick={() => onAddItemClick(menuId)} quantity={getQuantity(menuId)} />
                 </Menu>
               ))}
             </VStack>

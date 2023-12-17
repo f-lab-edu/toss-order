@@ -1,19 +1,38 @@
 import { CTAButton } from 'ui/button';
 import { Box, Text, useToast } from '@chakra-ui/react';
+import { useRef } from 'react';
 
 export const CallStaff: () => JSX.Element = () => {
   const toast = useToast();
-  const onClick = () =>
-    toast({
-      title: '직원을 호출했어요!',
-      status: 'warning',
-      colorScheme: 'green',
-      duration: 700,
-      isClosable: true,
-      containerStyle: {
-        marginBottom: '70vh',
-      },
-    });
+  const toastIdRef = useRef();
+  const onClick = () => {
+    if (toast.isActive(toastIdRef.current)) {
+      toast.update(toastIdRef.current, {
+        colorScheme: 'red',
+        containerStyle: {
+          marginTop: '7.5vh',
+        },
+        duration: 1200,
+        isClosable: true,
+        position: 'top',
+        status: 'warning',
+        title: '잠시만 기다려주세요!',
+      });
+    } else {
+      toast.closeAll();
+      toastIdRef.current = toast({
+        colorScheme: 'whatsapp',
+        containerStyle: {
+          marginTop: '7.5vh',
+        },
+        duration: 1000,
+        isClosable: true,
+        position: 'top',
+        status: 'warning',
+        title: '직원을 호출했어요!',
+      });
+    }
+  };
   return (
     <Box flexBasis="130px" h="2.5rem" maxW="30%">
       <CTAButton

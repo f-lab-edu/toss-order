@@ -23,13 +23,14 @@ export const Modal = () => {
     onConfirmClose();
     confirmOrder(basket);
     toast({
-      duration: 1000,
-      title: '주문을 전송했어요!',
-      status: 'success',
-      isClosable: true,
       containerStyle: {
-        marginBottom: '50vh',
+        marginTop: '25vh',
       },
+      duration: 1000,
+      isClosable: true,
+      position: 'top',
+      status: 'success',
+      title: '주문을 전송했어요!',
     });
     setBasket({ sumCount: 0, sumPrice: 0 });
   };
