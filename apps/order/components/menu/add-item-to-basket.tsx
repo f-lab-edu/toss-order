@@ -1,13 +1,20 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 import { CTAButton } from 'ui/button';
 
 export const AddItemToBasketButton = ({ onClick, quantity }: AddItemToBasketButtonT): JSX.Element => {
   const buttonClass = `bg-${quantity ? 'orange' : 'blue'}`;
   const content =
     quantity > 0 ? (
-      <Text fontSize="3xl" fontWeight="extrabold">
-        {quantity}
-      </Text>
+      <HStack gap={0}>
+        <Text fontSize="2xl" fontWeight="extrabold">
+          {quantity}
+        </Text>
+        {quantity < 100 ? (
+          <Text fontSize="xl" fontWeight="bold">
+            개
+          </Text>
+        ) : null}
+      </HStack>
     ) : (
       <Text fontSize="2xl" fontWeight="extrabold">
         담기
