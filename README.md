@@ -36,10 +36,7 @@
 
 ## Preview
 
-![image](https://github.com/f-lab-edu/toss-order/assets/48908205/ee8b5583-27f5-4399-90e3-1217afd31b20)
-
-![image](https://github.com/f-lab-edu/toss-order/assets/48908205/d4bc39bb-a251-440e-baad-ab36bbcd1f84)
-
+![image](https://github.com/f-lab-edu/toss-order/assets/48908205/10fceaed-28bb-47b4-a036-36b7ca21db03)
 
 ## How to run
 
