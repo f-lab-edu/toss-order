@@ -51,3 +51,4 @@ yarn dev
 
 - [프러덕트 디자인](https://www.figma.com/file/EIwnsfyvRZ3oQNhjYxZaUV/%ED%86%A0%EC%8A%A4-%EC%98%A4%EB%8D%94?type=design&node-id=0%3A1&mode=design&t=NEkvmoBwSzlNFWp3-1)  
 - [프로젝트 스타일 가이드](https://github.com/f-lab-edu/toss-order/wiki/Style-Guide)  
+- [블로그 포스트 : 토스 오더 - 가장 쉬운 테이블 오더](https://velog.io/@yoonkeee/toss-order-1)
