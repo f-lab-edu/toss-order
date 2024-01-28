@@ -1,6 +1,6 @@
 import { Button, Text } from '@chakra-ui/react';
 import { useSetRecoilState } from 'recoil';
-import { menuDetailModalStore } from '../../../../app/stores/modal-state-store';
+import { menuDetailModalStore } from '../../../../app/stores';
 
 export const AddButton = () => {
   const setState = useSetRecoilState(menuDetailModalStore);

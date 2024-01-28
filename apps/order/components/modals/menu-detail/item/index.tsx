@@ -2,7 +2,7 @@ import { Flex, Text as ChakraText, HStack, VStack } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { Text } from './text';
 import { Image } from './image';
-import { menuDetailModalStore } from '../../../../app/stores/modal-state-store';
+import { menuDetailModalStore } from '../../../../app/stores';
 import { AddButton, SubtractButton } from './button';
 
 export const Item = ({ detail, imageSrc, name, price }: MenuDetailItemPropsT): JSX.Element => {

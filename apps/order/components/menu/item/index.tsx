@@ -2,12 +2,12 @@ import { Box, HStack } from '@chakra-ui/react';
 import { useSetRecoilState } from 'recoil';
 import { Text } from './text';
 import { Image } from './image';
-import { menuDetailModalStore } from '../../../app/stores/modal-state-store';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
+import { menuDetailModalStore } from '../../../app/stores';
+import { useModal } from '../../../app/lib/utils/useModal';
 
 export const Item = ({ id, imageSrc, name, price }: ItemPropsT): JSX.Element => {
   const setMenuDetailID = useSetRecoilState(menuDetailModalStore);
-  const { onOpen } = useStoredModalState('menuDetail');
+  const { onOpen } = useModal('menuDetail');
   const onClick = () => {
     setMenuDetailID({ id, quantity: 1 });
     onOpen();

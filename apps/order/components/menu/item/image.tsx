@@ -6,6 +6,7 @@ export const Image = ({ alt, src }: ItemImageT): JSX.Element =>
     <Box aspectRatio={1} boxSizing="border-box" h="100%" position="relative">
       <ChakraImage
         alt={alt}
+        bgColor="#F1F1F1"
         borderRadius="14px 8px 10px 14px"
         boxSizing="border-box"
         fit="cover"

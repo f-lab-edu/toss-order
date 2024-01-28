@@ -1,14 +1,13 @@
 import { Modal as AbstractModal } from 'ui/abstract-modal';
 import { useRecoilValue } from 'recoil';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
-import { menuItemsStore } from '../../../app/stores';
+import { useModal } from '../../../app/lib/utils/useModal';
+import { menuItemsStore, menuDetailModalStore } from '../../../app/stores';
 import { Item } from './item';
 import { Footer } from './footer';
-import { menuDetailModalStore } from '../../../app/stores/modal-state-store';
 
 export const Modal = () => {
   const { id } = useRecoilValue(menuDetailModalStore);
-  const { isOpen, onClose } = useStoredModalState('menuDetail');
+  const { isOpen, onClose } = useModal('menuDetail');
   const menuDetail = useRecoilValue(menuItemsStore)[id];
 
   return (

@@ -1,10 +1,10 @@
 import { Modal as AbstractModal } from 'ui/abstract-modal';
 import { Footer } from './footer';
 import { BillItems } from './bill-items';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
+import { useModal } from '../../../app/lib/utils/useModal';
 
 export const Modal = () => {
-  const { isOpen, onClose } = useStoredModalState('bill');
+  const { isOpen, onClose } = useModal('bill');
   return (
     <AbstractModal isOpen={isOpen} onClose={onClose}>
       <AbstractModal.Header onClose={onClose} title="주문 내역" />

@@ -1,8 +1,7 @@
 import { Stack, Text, useToast } from '@chakra-ui/react';
 import { CTAButton } from 'ui/button';
 import { useSetRecoilState } from 'recoil';
-import { basketItemsStore } from '../../app/stores';
-import { orderHistoryStore } from '../../app/stores/history-store';
+import { basketItemsStore, orderHistoryStore } from '../../app/stores';
 
 export const ResetStateButton = () => {
   const setBasketItems = useSetRecoilState(basketItemsStore);
@@ -10,21 +9,22 @@ export const ResetStateButton = () => {
   const toast = useToast();
   const resetBasket = () => {
     setBasketItems({ sumCount: 0, sumPrice: 0 });
-    // @ts-ignore
     setOrderHistory({ sumPrice: 0 });
     toast({
-      title: '초기화 되었습니다.',
-      status: 'success',
+      position: 'top',
+      containerStyle: {
+        marginTop: '7.5vh',
+      },
+      colorScheme: 'whatsapp',
       duration: 500,
       isClosable: true,
-      containerStyle: {
-        marginBottom: '50vh',
-      },
+      status: 'success',
+      title: '초기화 되었습니다.',
     });
   };
 
   return (
-    <Stack alignItems="center" h="50px" mt={2} w="100%">
+    <Stack alignItems="center" h="5vh" mt="2vh" w="92%">
       <CTAButton
         className="bg-orange"
         content={

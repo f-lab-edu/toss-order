@@ -4,7 +4,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'import'],
+  plugins: ['@typescript-eslint', '@tanstack/eslint-plugin-query', 'import'],
   rules: {
     '@next/next/no-html-link-for-pages': 'off',
     'no-console': [

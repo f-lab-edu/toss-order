@@ -2,12 +2,12 @@ import { Flex } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
 import { basketItemsStore } from '../../../app/stores';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
+import { useModal } from '../../../app/lib/utils/useModal';
 
 export const Footer = () => {
   const basketItems = useRecoilValue(basketItemsStore);
-  const { onClose: onBasketClose } = useStoredModalState('basket');
-  const { onOpen: onConfirmOpen } = useStoredModalState('confirm');
+  const { onClose: onBasketClose } = useModal('basket');
+  const { onOpen: onConfirmOpen } = useModal('confirm');
   const toggleModal = () => {
     if (basketItems.sumCount > 0) {
       onConfirmOpen();

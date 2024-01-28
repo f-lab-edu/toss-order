@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import { Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import { commaizeNumber } from '@toss/utils';
-import { orderHistoryStore } from '../../../app/stores/history-store';
+import { orderHistoryStore } from '../../../app/stores';
 
 export const BillItems = () => {
   const { sumPrice, ...basketItems } = useRecoilValue(orderHistoryStore);
@@ -16,7 +16,7 @@ export const BillItems = () => {
         py="10px"
         w="100%"
       >
-        <VStack alignItems="flex-start" flexBasis="50%" gap={0}>
+        <VStack alignItems="flex-start" flexBasis="40%" gap={0}>
           <Text fontSize="lg" fontWeight={900}>
             {data.name}
           </Text>
@@ -24,12 +24,12 @@ export const BillItems = () => {
             {commaizeNumber(data.price)}원
           </Text>
         </VStack>
-        <Flex alignItems="center" flexBasis="20%">
+        <Flex alignItems="center" flexBasis="10%" justifyContent="flex-end">
           <Text fontSize="md" fontWeight={700}>
             {data.count}개
           </Text>
         </Flex>
-        <VStack alignItems="flex-end" flexBasis="30%" gap={0}>
+        <VStack alignItems="flex-end" flexBasis="40%" gap={0}>
           <Text fontSize="lg" fontWeight={700}>
             {commaizeNumber(data.totalPrice)}원
           </Text>
