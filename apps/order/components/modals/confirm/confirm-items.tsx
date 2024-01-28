@@ -24,16 +24,16 @@ export const ConfirmItems = () => {
             {commaizeNumber(data.price)}원
           </Text>
         </VStack>
-        <Flex alignItems="center" flexBasis="20%">
+        <Flex alignItems="center" flexBasis="10%" justifyContent="flex-end">
           <Text fontSize="md" fontWeight={700}>
             {`${data.count}개`}
           </Text>
         </Flex>
-        <VStack alignItems="flex-end" flexBasis="30%" gap={0} justifyContent="center">
+        <Flex alignItems="center" flexBasis="40%" gap={0} justifyContent="flex-end">
           <Text fontSize="lg" fontWeight={800}>
             {commaizeNumber(data.totalPrice)}원
           </Text>
-        </VStack>
+        </Flex>
       </Flex>
     ))
   );

@@ -19,25 +19,24 @@ export const Footer = ({ onClose, onConfirm }: FooterT) => {
       w="100%"
     >
       <Flex alignItems="center" flexGrow={1} justifyContent="space-between" px="4%" w="100%">
-        <Text flexBasis="38%" fontSize="2xl" fontWeight={800}>
-          합계
-        </Text>
-        <Text flexBasis="22%" fontSize="md" fontWeight={800}>
-          {`${sumCount}개`}
-        </Text>
-        <Text
-          alignItems="flex-end"
-          display="flex"
-          flexBasis="30%"
-          flexDirection="column"
-          fontSize="xl"
-          fontWeight={800}
-        >
-          {commaizeNumber(sumPrice || 0)}원
-        </Text>
+        <Flex flexBasis="30%">
+          <Text fontSize="2xl" fontWeight={800}>
+            합계
+          </Text>
+        </Flex>
+        <Flex alignItems="center" flexBasis="10%" justifyContent="flex-end">
+          <Text fontSize="md" fontWeight={800}>
+            {`${sumCount}개`}
+          </Text>
+        </Flex>
+        <Flex alignItems="center" flexBasis="30%" gap={0} justifyContent="flex-end">
+          <Text fontSize="lg" fontWeight={800}>
+            {commaizeNumber(sumPrice || 0)}원
+          </Text>
+        </Flex>
       </Flex>
-      <Flex alignItems="center" flexGrow={1}>
-        <Text fontSize="2xl" fontWeight={700}>
+      <Flex alignItems="center" flexGrow={1} my="1vh">
+        <Text fontSize="xl" fontWeight={700}>
           이렇게 주문하시겠어요?
         </Text>
       </Flex>

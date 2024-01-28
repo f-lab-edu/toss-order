@@ -1,13 +1,12 @@
 import { Flex } from '@chakra-ui/react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { PrimaryCTAButton } from '../../buttons/primary-cta-button';
-import { menuDetailModalStore } from '../../../app/stores/modal-state-store';
-import { addItemInBasket } from '../../../app/stores';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
+import { menuDetailModalStore, addItemInBasket } from '../../../app/stores';
+import { useModal } from '../../../app/lib/utils/useModal';
 
 export const Footer = ({ price }: { price: number }) => {
   const { id, quantity } = useRecoilValue(menuDetailModalStore);
-  const { onClose } = useStoredModalState('menuDetail');
+  const { onClose } = useModal('menuDetail');
   const addItem = useSetRecoilState(addItemInBasket);
   const handleAddToBasket = () => {
     Array.from({ length: quantity }, () => addItem(id));

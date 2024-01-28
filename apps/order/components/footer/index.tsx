@@ -2,11 +2,11 @@ import { Box, Flex } from '@chakra-ui/react';
 import { useRecoilState } from 'recoil';
 import { basketItemsStore } from '../../app/stores';
 import { PrimaryCTAButton } from '../buttons/primary-cta-button';
-import { useStoredModalState } from '../../app/lib/utils/useStoredModalState';
+import { useModal } from '../../app/lib/utils/useModal';
 
 export const Footer = () => {
   const [basketItems] = useRecoilState(basketItemsStore);
-  const { onOpen } = useStoredModalState('basket');
+  const { onOpen } = useModal('basket');
 
   return (
     basketItems.sumCount > 0 && (
@@ -23,7 +23,7 @@ export const Footer = () => {
         w="100%"
         zIndex={2}
       >
-        <Box color="white" flex={0.7} h="100%" pb="10px" w="100%">
+        <Box color="white" h="100%" pb="3vh" pt="1.5vh" w="100%">
           <PrimaryCTAButton
             count={basketItems.sumCount}
             onClick={onOpen}

@@ -1,9 +1,9 @@
 import { CTAButton } from 'ui/button';
 import { Box, Text } from '@chakra-ui/react';
-import { useStoredModalState } from '../../app/lib/utils/useStoredModalState';
+import { useModal } from '../../app/lib/utils/useModal';
 
 export const OpenBill: () => JSX.Element = () => {
-  const { onOpen } = useStoredModalState('bill');
+  const { onOpen } = useModal('bill');
   return (
     <Box flexBasis="130px" h="2.5rem" maxW="30%">
       <CTAButton

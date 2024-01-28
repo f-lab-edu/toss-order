@@ -2,17 +2,16 @@ import { Modal as AbstractModal } from 'ui/abstract-modal';
 import { useToast } from '@chakra-ui/react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Footer } from './footer';
-import { basketItemsStore } from '../../../app/stores';
-import { moveBasketToHistory } from '../../../app/stores/history-store';
-import { useStoredModalState } from '../../../app/lib/utils/useStoredModalState';
+import { basketItemsStore, moveBasketToHistory } from '../../../app/stores';
+import { useModal } from '../../../app/lib/utils/useModal';
 import { ConfirmItems } from './confirm-items';
 
 export const Modal = () => {
   const [basket, setBasket] = useRecoilState(basketItemsStore);
   const toast = useToast();
   const confirmOrder = useSetRecoilState(moveBasketToHistory);
-  const { isOpen: isConfirmOpen, onClose: onConfirmClose } = useStoredModalState('confirm');
-  const { onClose: onBasketClose, onOpen: onBasketOpen } = useStoredModalState('basket');
+  const { isOpen: isConfirmOpen, onClose: onConfirmClose } = useModal('confirm');
+  const { onClose: onBasketClose, onOpen: onBasketOpen } = useModal('basket');
   const toggleModal = () => {
     onConfirmClose();
     onBasketOpen();
@@ -23,12 +22,13 @@ export const Modal = () => {
     onConfirmClose();
     confirmOrder(basket);
     toast({
+      position: 'top',
       containerStyle: {
-        marginTop: '25vh',
+        marginTop: '7.5vh',
       },
+      colorScheme: 'whatsapp',
       duration: 1000,
       isClosable: true,
-      position: 'top',
       status: 'success',
       title: '주문을 전송했어요!',
     });
